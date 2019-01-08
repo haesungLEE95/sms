@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	texting....2
-	start1
-	dj
+
 </body>
 </html>

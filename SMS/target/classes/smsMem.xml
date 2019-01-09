@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsmemns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="smsMemResult" 		type="mem">
+		<result property="mem_no" 	     column="mem_no" />
+		<result property="mem_name"     column="mem_name" />
+		<result property="mem_id"      column="mem_id" />
+		<result property="nickname"      column="nickname" />
+		<result property="email"      column="email" />
+		<result property="passwd" 	     column="passwd" />
+		<result property="mem_img" 	 column="mem_img" />
+		<result property="addr" 	 column="addr" />
+		<result property="tel" 	 column="tel" />
+		<result property="mny" 	 column="mny" />
+		<result property="mem_del" 	 column="mem_del" />
+		<result property="mem_account" 	 column="mem_account" />
+		<result property="mem_reg" 	 column="mem_reg" />
+	</resultMap>
+	<select id="select"></select>
+	<insert id="insert" parameterType="mem">
+	</insert>
+	<update id="update"></update>
+	<delete id="delete"></delete>
+	
+
+</mapper>

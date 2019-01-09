@@ -1,5 +1,11 @@
 package com.pub.sms.dao;
 
-public class SmsMemDaoImpl implements SmsMemDao {
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
+public class SmsMemDaoImpl implements SmsMemDao {
+	@Autowired
+	private SqlSessionTemplate sst;
 }

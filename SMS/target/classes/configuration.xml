@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config
 3.0//EN"
@@ -5,8 +6,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias alias="SmsMem" type="com.pub.sms.model.SmsMem" />
+		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="smsmem.xml" />
+		<mapper resource="smsCha.xml" />
 	</mappers>
 </configuration>

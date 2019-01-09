@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	texting....2
-	start1
-	dj
+<script type="text/javascript">
+	location.href="joinForm.jsp";
+</script>
 </body>
 </html>

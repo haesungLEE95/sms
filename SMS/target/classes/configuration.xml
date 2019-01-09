@@ -4,9 +4,9 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias alias="dept" type="com.pub.sms.model.Dept" />
+		<typeAlias alias="SmsMem" type="com.pub.sms.model.SmsMem" />
 	</typeAliases>
 	<mappers>
-		<mapper resource="dept.xml" />
+		<mapper resource="smsmem.xml" />
 	</mappers>
 </configuration>

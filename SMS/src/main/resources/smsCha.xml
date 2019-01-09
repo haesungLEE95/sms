@@ -8,10 +8,11 @@
 		<result property="mem_no" 	     column="mem_no" />
 		<result property="cha_title"     column="cha_title" />
 		<result property="cha_cont"      column="cha_cont" />
-		<result property="hiredate"      column="hiredate" />
 		<result property="cha_date"      column="cha_date" />
 		<result property="cha_id" 	     column="cha_id" />
 		<result property="cha_count" 	 column="cha_count" />
 	</resultMap>
-
+	<select id="list" parameterType="cha" resultMap="smschaResult">
+		select * from SMS_cha order by cha_no desc
+	</select>
 </mapper>

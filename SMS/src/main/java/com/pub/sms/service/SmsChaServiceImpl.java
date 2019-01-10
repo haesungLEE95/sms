@@ -28,5 +28,15 @@ public class SmsChaServiceImpl implements SmsChaService{
 		return scd.insert(smscha);
 	}
 
+	@Override
+	public void updateReadcount(int num) {
+		scd.updateReadcount(num);		
+	}
+
+	@Override
+	public SmsCha select(int num) {
+		return scd.select(num);
+	}
+
 
 }

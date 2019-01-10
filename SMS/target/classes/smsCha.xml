@@ -24,4 +24,10 @@
 		</selectKey> 	
 		insert into SMS_cha values(#{cha_no},#{mem_no},#{cha_title},#{cha_cont},sysdate,#{cha_id},0)
 	</insert>
+	<update id="updateReadcount" parameterType="int">
+		update SMS_cha set cha_count = cha_count+1 where cha_no=#{ncha_noum}
+	</update>
+	<select id="selectno" parameterType="int">
+		select * from  SMS_cha where cha_no = #{cha_no}
+	</select>
 </mapper>

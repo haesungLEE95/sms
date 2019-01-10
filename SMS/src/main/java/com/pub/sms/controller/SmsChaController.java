@@ -34,5 +34,12 @@ public class SmsChaController {
 		model.addAttribute("result", result);
 		return "/cha/smsInsert";
 	}
+	@RequestMapping("smsView")
+	public String smsView(int num, Model model) {
+		scs.updateReadcount(num);
+		SmsCha cha = scs.select(num);
+		model.addAttribute("cha", cha);
+		return "/cha/smsView";
+	}
 }
 

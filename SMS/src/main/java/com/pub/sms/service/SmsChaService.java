@@ -12,4 +12,8 @@ public interface SmsChaService {
 
 	int insert(SmsCha smscha);
 
+	void updateReadcount(int num);
+
+	SmsCha select(int num);
+
 }

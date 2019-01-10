@@ -20,4 +20,19 @@ public class SmsChaController {
 		model.addAttribute("list", list);
 		return "/cha/smsChaList";
 	}
+	@RequestMapping("smsInsertForm")
+	public String smsInsertForm(SmsCha smscha, Model model) {
+		SmsCha cha = scs.select(smscha);
+		model.addAttribute("cha", cha);
+		return "/cha/smsInsertForm";
+	}
+	@RequestMapping("smsInsert")
+	public String smsInsert(SmsCha smscha, Model model) {
+		int result = 0;
+		result = scs.insert(smscha);
+		
+		model.addAttribute("result", result);
+		return "/cha/smsInsert";
+	}
 }
+

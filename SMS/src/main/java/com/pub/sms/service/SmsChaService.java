@@ -8,4 +8,8 @@ public interface SmsChaService {
 
 	Collection<SmsCha> list(SmsCha smscha);
 
+	SmsCha select(SmsCha smscha);
+
+	int insert(SmsCha smscha);
+
 }

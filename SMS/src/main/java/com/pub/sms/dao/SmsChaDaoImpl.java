@@ -17,4 +17,15 @@ public class SmsChaDaoImpl implements SmsChaDao{
 	public Collection<SmsCha> list(SmsCha smscha) {
 		return sst.selectList("smsChans.list", smscha);
 	}
+
+	@Override
+	public SmsCha select(SmsCha smscha) {
+		return sst.selectOne("smsChans.select", smscha);
+	}
+
+	@Override
+	public int insert(SmsCha smscha) {
+		return sst.insert("smsChans.insert", smscha);
+	}
+
 }

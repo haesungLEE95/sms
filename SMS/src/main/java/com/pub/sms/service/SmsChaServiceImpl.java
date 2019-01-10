@@ -17,4 +17,16 @@ public class SmsChaServiceImpl implements SmsChaService{
 	public Collection<SmsCha> list(SmsCha smscha) {
 		return scd.list(smscha);
 	}
+	
+	@Override
+	public SmsCha select(SmsCha smscha) {
+		return scd.select(smscha);
+	}
+
+	@Override
+	public int insert(SmsCha smscha) {
+		return scd.insert(smscha);
+	}
+
+
 }

@@ -7,7 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	texting....2
-	start1
+<script type="text/javascript">
+	location.href="list.do";
+</script>
 </body>
 </html>

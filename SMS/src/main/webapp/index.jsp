@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="/mem/joinForm.do";
+	location.href="joinForm.do";
 </script>
 </body>
 </html>

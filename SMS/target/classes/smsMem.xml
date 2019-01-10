@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="smsmemns">
+<mapper namespace="smsMemns">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
 	<resultMap id="smsMemResult" 		type="mem">
 		<result property="mem_no" 	     column="mem_no" />
@@ -18,11 +18,18 @@
 		<result property="mem_account" 	 column="mem_account" />
 		<result property="mem_reg" 	 column="mem_reg" />
 	</resultMap>
-	<select id="select"></select>
+	<select id="select" parameterType="string" resultType="mem">
+		select * from sms_mem where mem_id=#{mem_id}
+	</select>
 	<insert id="insert" parameterType="mem">
+		<selectKey keyProperty="mem_no" order="BEFORE" resultType="int">
+			select nvl(max(mem_no),0) + 1 from sms_mem
+		</selectKey>
+		insert into sms_mem
+		values(#{mem_no},#{mem_name},#{mem_id},#{nickname},#{email},#{passwd},'','','','','','',sysdate)
 	</insert>
-	<update id="update"></update>
+<!-- 	<update id="update"></update>
 	<delete id="delete"></delete>
-	
+	 -->
 
 </mapper>

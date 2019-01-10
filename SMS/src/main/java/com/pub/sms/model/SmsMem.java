@@ -17,7 +17,6 @@ public class SmsMem {
     private String mem_account;
     private Date mem_reg;
     
-    
 	public int getMem_no() {
 		return mem_no;
 	}

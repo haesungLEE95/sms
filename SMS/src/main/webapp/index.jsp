@@ -8,7 +8,9 @@
 </head>
 <body>
 <script type="text/javascript">
+
 	location.href="smsChaList.do";
+
 </script>
 </body>
 </html>

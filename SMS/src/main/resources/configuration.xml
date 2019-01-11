@@ -4,9 +4,12 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias alias="mem" type="com.pub.sms.model.SmsMem" />
 		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="smsMem.xml" />
 		<mapper resource="smsCha.xml" />
 	</mappers>
 </configuration>
+

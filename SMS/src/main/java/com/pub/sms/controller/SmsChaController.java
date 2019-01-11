@@ -1,10 +1,12 @@
 package com.pub.sms.controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsCha;
@@ -32,7 +34,7 @@ public class SmsChaController {
 		smscha.setEndRow(endRow);
 		
 		Collection<SmsCha> list = scs.list(smscha);
-	//	SmsMem nick = sms.nick(sm);
+		
 		
 		int no = total - startRow + 1;
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
@@ -41,7 +43,7 @@ public class SmsChaController {
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("no", no);
 		model.addAttribute("pb", pb);
-	//	model.addAttribute("nick", nick)
+		
 		return "/cha/smsChaList";
 	}
 	@RequestMapping("smsInsertForm")

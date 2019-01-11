@@ -1,5 +1,7 @@
 package com.pub.sms.service;
 
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +20,7 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int insert(SmsMem mem) {
 		return smd.insert(mem);
 	}
+
 
 
 }

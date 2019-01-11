@@ -1,5 +1,7 @@
 package com.pub.sms.dao;
 
+import java.util.Collection;
+
 import com.pub.sms.model.SmsMem;
 
 public interface SmsMemDao {
@@ -8,6 +10,5 @@ public interface SmsMemDao {
 
 	SmsMem select(String mem_id);
 
-	
 
 }

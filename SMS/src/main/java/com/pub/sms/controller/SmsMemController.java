@@ -27,13 +27,5 @@ public class SmsMemController {
 		model.addAttribute("result", result);
 		return "/mem/joinForm2";
 	}
-	@RequestMapping("joinResult")
-	public String joinresult(SmsMem mem, Model model) {
-		int result = 0;
-		SmsMem smem = sms.select(mem.getMem_id());
-		if(smem == null) result = sms.update(mem);
-		else result = -1;
-		model.addAttribute("result", result);
-		return "/mem/joinForm2";
-	}
+
 }

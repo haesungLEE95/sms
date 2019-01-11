@@ -8,4 +8,6 @@ public interface SmsMemDao {
 
 	SmsMem select(String mem_id);
 
+	
+
 }

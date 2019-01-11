@@ -8,15 +8,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsCha;
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
+import com.pub.sms.service.SmsMemService;
 
 @Controller
 public class SmsChaController {
 	@Autowired
 	private SmsChaService scs;
+	@Autowired
+	private SmsMemService sms;
+	
 	@RequestMapping("smsChaList")
-	public String smsChaList(String pageNum, SmsCha smscha, Model model) {
+	public String smsChaList(SmsMem sm ,String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 10;
@@ -27,6 +32,7 @@ public class SmsChaController {
 		smscha.setEndRow(endRow);
 		
 		Collection<SmsCha> list = scs.list(smscha);
+	//	SmsMem nick = sms.nick(sm);
 		
 		int no = total - startRow + 1;
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
@@ -35,6 +41,7 @@ public class SmsChaController {
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("no", no);
 		model.addAttribute("pb", pb);
+	//	model.addAttribute("nick", nick)
 		return "/cha/smsChaList";
 	}
 	@RequestMapping("smsInsertForm")

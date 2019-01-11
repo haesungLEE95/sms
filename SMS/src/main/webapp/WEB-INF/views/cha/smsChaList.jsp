@@ -20,7 +20,7 @@
 				<tr>
 					<td>${smscha.cha_no}</td>
 					<td><a class="btn btn-info btn-sm" href="smsView.do">${smscha.cha_title}</a></td>
-					<td>${smscha.mem_no }</td>
+					<td>${smscha.nick }</td>
 					<td>${smscha.cha_count}</td>
 					<td>${smscha.cha_date}</td>
 				</tr>

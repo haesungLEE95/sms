@@ -16,5 +16,7 @@ public interface SmsChaDao {
 
 	SmsCha select(int num);
 
+	int getTotal(SmsCha smscha);
+
 
 }

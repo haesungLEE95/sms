@@ -32,5 +32,9 @@ public class SmsChaDaoImpl implements SmsChaDao{
 	public SmsCha select(int num) {
 		return sst.selectOne("smsChans.selectno", num);
 	}
+	@Override
+	public int getTotal(SmsCha smscha) {
+		return sst.selectOne("smsChans.getTotal", smscha);
+	}
 
 }

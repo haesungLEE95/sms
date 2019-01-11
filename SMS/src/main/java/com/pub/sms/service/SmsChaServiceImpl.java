@@ -38,5 +38,10 @@ public class SmsChaServiceImpl implements SmsChaService{
 		return scd.select(num);
 	}
 
+	@Override
+	public int getTotal(SmsCha smscha) {
+		return scd.getTotal(smscha);
+	}
+
 
 }

@@ -10,7 +10,23 @@ public class SmsCha {
     private Date cha_date; 
     private String cha_id;
 	private int cha_count ;
-    public int getCha_count() {
+	//paging용
+	private int startRow;
+	private int endRow;
+	
+    public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
+	public int getCha_count() {
 		return cha_count;
 	}
 	public void setCha_count(int cha_count) {

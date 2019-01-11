@@ -13,7 +13,23 @@
 		<result property="cha_count" 	 column="cha_count" />
 	</resultMap>
 	<select id="list" parameterType="cha" resultMap="smschaResult">
-		select * from SMS_cha order by cha_no desc
+		select * from (select a.*, rowNum rn from (
+			select * from SMS_cha 
+<!-- 			<where>
+				<if test="keyword!=null and keyword!=''">
+					<if test="search=='subcon'">
+						cha_title like '%'||#{keyword}||'%' or cha_cont like '%'||#{keyword}||'%'  
+					</if>
+					<if test="search!='subcon'">
+						${search} like '%'||#{keyword}||'%'
+					</if>
+				</if>
+			</where> -->
+			order by cha_date desc) a)
+			 where rn between #{startRow} and #{endRow} 
+	</select>
+	<select id="getTotal" parameterType="cha" resultType="int">
+		select count(*) from SMS_cha
 	</select>
 	<select id="select" parameterType="cha" resultMap="smschaResult">
 		select * from SMS_cha where mem_no = #{mem_no}

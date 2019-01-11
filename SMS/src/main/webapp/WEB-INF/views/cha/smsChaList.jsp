@@ -6,7 +6,8 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<h2 class="text-primary">신고게시판</h2>
+		<h2 class="text-primary">신고</h2>
+		<c:set var="num" value="${no}"></c:set>
 		<table class="table table-hover">
 			<tr>
 				<td>번호</td>
@@ -22,7 +23,13 @@
 					<td>${smscha.mem_no }</td>
 					<td>${smscha.cha_count}</td>
 					<td>${smscha.cha_date}</td>
+				</tr>
 			</c:forEach> 
+				<c:if test="${empty list}">
+				<tr>
+					<td colspan="5" align="center">데이터가 없습니다</td>
+				</tr>
+				</c:if>
 		</table>
 		<div>
 			<a class="btn btn-info" href="smsInsertForm.do">신고글쓰기</a>

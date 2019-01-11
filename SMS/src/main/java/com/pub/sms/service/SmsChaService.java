@@ -16,4 +16,6 @@ public interface SmsChaService {
 
 	SmsCha select(int num);
 
+	int getTotal(SmsCha smscha);
+
 }

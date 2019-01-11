@@ -21,12 +21,18 @@ public class SmsMemController {
 	@RequestMapping("joinForm2")
 	public String join(SmsMem mem, Model model) {
 		int result = 0;
-		System.out.println("1:"+mem);
 		SmsMem smem = sms.select(mem.getMem_id());
-		System.out.println("2:"+mem+",  "+smem);
 		if(smem == null) result = sms.insert(mem);
 		else result = -1;
-		System.out.println("3:"+mem+",  result:"+result);
+		model.addAttribute("result", result);
+		return "/mem/joinForm2";
+	}
+	@RequestMapping("joinResult")
+	public String joinresult(SmsMem mem, Model model) {
+		int result = 0;
+		SmsMem smem = sms.select(mem.getMem_id());
+		if(smem == null) result = sms.update(mem);
+		else result = -1;
 		model.addAttribute("result", result);
 		return "/mem/joinForm2";
 	}

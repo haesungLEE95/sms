@@ -16,7 +16,7 @@
 		<h2 class="text-primary">SellMySelf!</h2>
 		<br>
 		<div class="login">
-		<form action="login.do">
+		<form action="login.do" method="post">
 			<table class="table table-striped table-bordered">
 				<tr>
 					<td><span class="glyphicon glyphicon-user"/>아이디</td>

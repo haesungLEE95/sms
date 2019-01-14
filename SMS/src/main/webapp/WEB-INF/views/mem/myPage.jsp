@@ -12,7 +12,8 @@
 <body>
 <div class="container" align="center">
 	<table class="table table-striped">
-	<tr><th rowspan="2">${mem.mem_id }님 환영합니다 </th><td>상단 통계 영역</td></tr>
+	<tr><th rowspan="2">
+	${mem.mem_id }님 환영합니다 </th><td>상단 통계 영역</td></tr>
 	<tr><td>내 게시글(?)</td></tr>
 	<tr><th>프로필 영역</th><td>내용</td></tr>
 	</table>

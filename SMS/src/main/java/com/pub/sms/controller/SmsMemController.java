@@ -3,6 +3,7 @@ package com.pub.sms.controller;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +15,9 @@ import com.pub.sms.service.SmsMemService;
 public class SmsMemController {
 	@Autowired
 	private SmsMemService sms;
+		
+	@Autowired
+	BCryptPasswordEncoder pwEncoder;
 	
 	@RequestMapping("joinForm")
 	public String joinForm() {
@@ -24,6 +28,8 @@ public class SmsMemController {
 	public String join(SmsMem mem, Model model) {
 		int result = 0;
 		SmsMem smem = sms.select(mem.getMem_id());
+		String encPass = pwEncoder.encode(mem.getPasswd());
+		mem.setPasswd(encPass);
 		if(smem == null) result = sms.insert(mem);
 		else result = -1;
 		model.addAttribute("result", result);
@@ -50,8 +56,11 @@ public class SmsMemController {
 	public String login(SmsMem mem,Model model,HttpSession session) {
 		int result = 0;
 		SmsMem smem = sms.select(mem.getMem_id());
+		String dbPw = smem.getPasswd();
+		String rawPw = mem.getPasswd();
 		if (smem==null) result = -1;
-		else if (smem.getPasswd().equals(mem.getPasswd())) {
+		else if (pwEncoder.matches(rawPw, dbPw)) {
+			mem.setPasswd(dbPw);
 			result = 1;
 			session.setAttribute("mem_id", mem.getMem_id());
 		}			
@@ -65,5 +74,4 @@ public class SmsMemController {
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
-	
 }

@@ -15,7 +15,7 @@
 <%-- <c:if test="${result >0 }"> --%>
 		<div class="button">
 		<input type="hidden" name="mem_id" value="${mem.mem_id }">
-		<input type="hidden" name="passwd" value="${mem.paaswd }">
+		<input type="hidden" name="passwd" value="${mem.passwd }">
 		<button onclick="main.do" class="btn btn-info"> SellMySelf에 가입하신 것을 축하합니다!
 		</div>
 </div>

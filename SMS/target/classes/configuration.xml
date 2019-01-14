@@ -11,5 +11,6 @@
 		<mapper resource="smsMem.xml" />
 		<mapper resource="smsCha.xml" />
 	</mappers>
+
 </configuration>
 

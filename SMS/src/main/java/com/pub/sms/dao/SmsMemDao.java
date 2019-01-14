@@ -10,4 +10,6 @@ public interface SmsMemDao {
 
 	int firstUpdate(SmsMem mem);
 
+	SmsMem memNick(int mem_no);
+
 }

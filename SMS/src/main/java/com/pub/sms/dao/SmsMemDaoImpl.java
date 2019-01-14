@@ -36,5 +36,9 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		}
 		return result;
 	}
+	public SmsMem memNick(int mem_no) {
+		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
+	}
+
 
 }

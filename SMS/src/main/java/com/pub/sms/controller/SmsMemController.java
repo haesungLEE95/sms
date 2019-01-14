@@ -56,6 +56,14 @@ public class SmsMemController {
 			session.setAttribute("mem_id", mem.getMem_id());
 		}			
 		model.addAttribute("result", result);
-		return "login";
+		return "/mem/login";
 	}
+	@RequestMapping("myPage")
+	public String myPage(Model model, HttpSession session) {
+		String mem_id = (String) session.getAttribute("mem_id");
+		SmsMem mem = sms.select(mem_id);
+		model.addAttribute("mem", mem);
+		return "/mem/myPage";
+	}
+	
 }

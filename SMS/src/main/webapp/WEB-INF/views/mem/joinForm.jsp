@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입</title>
 <script type="text/javascript">
 	function idChk() {
 		if (!frm.mem_id.value) {	alert("아이디 입력후에 체크하시오");
@@ -34,7 +34,7 @@
 			<tr><th><span class="glyphicon glyphicon-tag"/>이름</th><td><input type="text" name="mem_name" required="required"></td></tr>
 			<tr><th><span class="glyphicon glyphicon-star-empty"/>닉네임</th><td><input type="text" name="nickname" required="required"></td></tr>
 			<tr><th><span class="glyphicon glyphicon-file"/>이메일</th><td><input type="text" name="email" required="required"></td></tr>
-			<tr><th colspan="2"><input type="submit"></th></tr>
+			<tr><th colspan="2"><input class="btn btn-info btn-sm" type="submit"></th></tr>
 		</table>
 		</form>
 		</div>

@@ -28,8 +28,10 @@
 		insert into sms_mem
 		values(#{mem_no},#{mem_name},#{mem_id},#{nickname},#{email},#{passwd},'','','','','','',sysdate)
 	</insert>
-<!-- 	<update id="update"></update>
-	<delete id="delete"></delete>
-	 -->
+	<update id="firstUpdate" parameterType="mem">
+		update sms_mem 
+		set nvl(mem_img=#{mem_img},''), nvl(addr=#{addr},''), nvl(tel=#{tel},''), nvl(mem_account=#{mem_account},'') where mem_id=#{mem_id}
+	</update>
+	<!-- <delete id="delete"></delete> -->
 
 </mapper>

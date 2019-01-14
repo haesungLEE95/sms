@@ -18,4 +18,8 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int insert(SmsMem mem) {
 		return smd.insert(mem);
 	}
+
+	public int firstUpdate(SmsMem mem) {
+		return smd.firstUpdate(mem);
+	}
 }

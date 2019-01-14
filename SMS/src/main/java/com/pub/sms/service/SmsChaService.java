@@ -14,7 +14,7 @@ public interface SmsChaService {
 
 	void updateReadcount(int num);
 
-	SmsCha select(int num);
+	SmsCha selectno(int num);
 
 	int getTotal(SmsCha smscha);
 

@@ -14,9 +14,9 @@ public interface SmsChaDao {
 
 	void updateReadcount(int num);
 
-	SmsCha select(int num);
-
 	int getTotal(SmsCha smscha);
+
+	SmsCha selectno(int num);
 
 
 }

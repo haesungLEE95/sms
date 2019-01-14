@@ -34,8 +34,8 @@ public class SmsChaServiceImpl implements SmsChaService{
 	}
 
 	@Override
-	public SmsCha select(int num) {
-		return scd.select(num);
+	public SmsCha selectno(int num) {
+		return scd.selectno(num);
 	}
 
 	@Override

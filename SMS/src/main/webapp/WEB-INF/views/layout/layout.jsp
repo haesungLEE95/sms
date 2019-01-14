@@ -6,12 +6,12 @@
 <title><tiles:insertAttribute name="title"/></title>
 </head><body>
 <div class="container">
-<table class="table table-bordered">
+<table class="table table-bordered" border="1">
 	<tr><td height="30" colspan="2">
 			<tiles:insertAttribute name="head"/></td></tr>
-	<tr><td height="400" width="30%">
+	<tr><td height="500" width="30%">
 			<tiles:insertAttribute name="menu"/></td>
-		<td height="400" width="70%">
+		<td height="500" width="30%">
 			<tiles:insertAttribute name="body"/></td></tr>
 	<tr><td height="20" colspan="2">
 			<tiles:insertAttribute name="footer"/></td></tr>

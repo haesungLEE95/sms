@@ -18,7 +18,7 @@ CREATE TABLE SMS_mem
     CONSTRAINT SMS_MEM_PK PRIMARY KEY (mem_no)
 )
 /
-
+drop 
 COMMENT ON TABLE SMS_mem IS '회원정보 MEM'
 /
 

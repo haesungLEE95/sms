@@ -9,6 +9,7 @@
 <body>
 <script type="text/javascript">
 	location.href="smsChaList.do";
+//	location.href="smsView.do";
 //	location.href="joinForm.do";
 //	location.href="sellBoList.do";
 </script>

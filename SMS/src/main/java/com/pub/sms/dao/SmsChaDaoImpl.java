@@ -29,7 +29,7 @@ public class SmsChaDaoImpl implements SmsChaDao{
 		sst.update("smsChans.updateReadcount", num);
 	}
 	@Override
-	public SmsCha select(int num) {
+	public SmsCha selectno(int num) {
 		return sst.selectOne("smsChans.selectno", num);
 	}
 	@Override

@@ -1,5 +1,7 @@
 package com.pub.sms.controller;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+
 import java.util.Collection;
 import java.util.List;
 
@@ -32,26 +34,26 @@ public class SmsChaController {
 		int endRow   = startRow + rowPerPage - 1;
 		smscha.setStartRow(startRow);
 		smscha.setEndRow(endRow);
-		
 		Collection<SmsCha> list = scs.list(smscha);
-		
-		
+		//SmsMem memNick = sms.memNick(smscha.getMem_no());
 		int no = total - startRow + 1;
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
-		
+
+		//model.addAttribute("memNick", memNick);
 		model.addAttribute("list", list);
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("no", no);
 		model.addAttribute("pb", pb);
-		
 		return "/cha/smsChaList";
 	}
+	
 	@RequestMapping("smsInsertForm")
 	public String smsInsertForm(SmsCha smscha, Model model) {
 		SmsCha cha = scs.select(smscha);
 		model.addAttribute("cha", cha);
 		return "/cha/smsInsertForm";
 	}
+	
 	@RequestMapping("smsInsert")
 	public String smsInsert(SmsCha smscha, Model model) {
 		int result = 0;
@@ -60,11 +62,12 @@ public class SmsChaController {
 		model.addAttribute("result", result);
 		return "/cha/smsInsert";
 	}
+	
 	@RequestMapping("smsView")
 	public String smsView(int num, Model model) {
 		scs.updateReadcount(num);
-		SmsCha cha = scs.select(num);
-		model.addAttribute("cha", cha);
+		SmsCha smscha = scs.selectno(num);
+		model.addAttribute("smscha", smscha);
 		return "/cha/smsView";
 	}
 }

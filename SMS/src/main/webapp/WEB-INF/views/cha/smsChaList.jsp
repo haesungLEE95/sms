@@ -17,13 +17,17 @@
 				<td>날짜</td>
 			</tr>
 			 <c:forEach var="smscha" items="${list }">
+			 	<c:forEach var="cha" items="${memNick }">
 				<tr>
 					<td>${smscha.cha_no}</td>
-					<td><a class="btn btn-info btn-sm" href="smsView.do">${smscha.cha_title}</a></td>
-					<td>작성자</td>
+					<td>
+					<a href="smsView.do?num=${smscha.cha_no}">${smscha.cha_title}</a> 
+					</td>
+					<td>${cha.memNick}</td>
 					<td>${smscha.cha_count}</td>
 					<td>${smscha.cha_date}</td>
 				</tr>
+				</c:forEach>
 			</c:forEach> 
 				<c:if test="${empty list}">
 				<tr>

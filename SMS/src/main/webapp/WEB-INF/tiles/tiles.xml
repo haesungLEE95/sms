@@ -7,11 +7,31 @@
 		<put-attribute name="title" value="" />
 		<put-attribute name="head"
 			value="/WEB-INF/views/layout/head.jsp" />
+		<put-attribute name="body" value="" />
 		<put-attribute name="menu"
 			value="/WEB-INF/views/layout/menu.jsp" />
-		<put-attribute name="body" 
-			value="/WEB-INF/views/cha/smsChaList.jsp" />
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+	<definition name="/cha/smsChaList" extends="tilesbase">
+		<put-attribute name="title" value="신고글" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsChaList.jsp" />
+	</definition>
+	<definition name="/cha/smsInsertForm" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsInsertForm.jsp" />
+	</definition>
+	<definition name="/cha/smsInsert" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsInsert.jsp" />
+	</definition>
+	<definition name="/cha/smsView" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsView.jsp" />
+	</definition>
+
 </tiles-definitions>

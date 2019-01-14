@@ -6,7 +6,7 @@
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
 		alert("입력 성공 ㅋㅋ");
-		location.href="list.do?pageNum=${pageNum}";
+		location.href="list.do";
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

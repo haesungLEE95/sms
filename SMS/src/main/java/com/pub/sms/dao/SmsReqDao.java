@@ -10,4 +10,6 @@ public interface SmsReqDao {
 
 	Collection<SmsReq> list(SmsReq smsReq);
 
+	int insert(SmsReq smsReq);
+
 }

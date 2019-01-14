@@ -23,6 +23,13 @@
 			order by rq_date desc) a) 
 				where rn between #{startRow} and #{endRow}
 	</select>
+	<insert id="insert" parameterType="smsreq">
+		<selectKey keyProperty="rq_no" order="BEFORE" resultType="int">
+			select nvl(max(rq_no),0) + 1 from sms_request
+		</selectKey>
+		insert into sms_request values (#{mem_no},#{rq_no},#{mcate_no},#{scate_no},
+			#{rq_title},#{rq_cont},sysdate,#{rq_price},0,0)
+	</insert>
 </mapper>
 
 

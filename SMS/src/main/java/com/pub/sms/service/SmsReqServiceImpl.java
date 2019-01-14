@@ -22,5 +22,10 @@ public class SmsReqServiceImpl implements SmsReqService {
 	public Collection<SmsReq> list(SmsReq smsReq) {
 		return srd.list(smsReq);
 	}
+
+	@Override
+	public int insert(SmsReq smsReq) {
+		return srd.insert(smsReq);
+	}
 	
 }

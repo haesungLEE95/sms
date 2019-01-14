@@ -12,13 +12,19 @@ public class SmsReq {
     private Date rq_date; 
     private int rq_price; 
     private int rq_cond;
-    
+    private int rq_count;
 	// paging용
 	private int startRow;
 	private int endRow;
 	
 	
     
+	public int getRq_count() {
+		return rq_count;
+	}
+	public void setRq_count(int rq_count) {
+		this.rq_count = rq_count;
+	}
 	public int getStartRow() {
 		return startRow;
 	}

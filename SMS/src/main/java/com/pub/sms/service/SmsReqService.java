@@ -10,4 +10,6 @@ public interface SmsReqService {
 
 	Collection<SmsReq> list(SmsReq smsReq);
 
+	int insert(SmsReq smsReq);
+
 }

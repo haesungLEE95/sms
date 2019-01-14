@@ -17,5 +17,8 @@ public class SmsSCateServiceImpl implements SmsSCateService{
 	public Collection<SmsSubCate> list() {
 		return ssd.list();
 	}
-
+	@Override
+	public Collection<SmsSubCate> selectlist(int pickmcate) {
+		return ssd.selectlist(pickmcate);
+	}
 }

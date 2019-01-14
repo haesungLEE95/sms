@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.pub.sms.dao.SmsMCateDao;
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsSubCate;
 
 @Service
 public class SmsMCateServiceImpl implements SmsMCateService {
@@ -17,5 +18,7 @@ public class SmsMCateServiceImpl implements SmsMCateService {
 	public Collection<SmsMainCate> list() {
 		return smd.list();
 	}
+
+
 	
 }

@@ -17,5 +17,9 @@ public class SmsSCateDaoImpl implements SmsSCateDao {
 	public Collection<SmsSubCate> list() {
 		return sst.selectList("smssubcatens.list");
 	}
-	
+	@Override
+	public Collection<SmsSubCate> selectlist(int pickmcate) {
+		return sst.selectList("smssubcatens.selectlist",pickmcate);
+	}
+
 }

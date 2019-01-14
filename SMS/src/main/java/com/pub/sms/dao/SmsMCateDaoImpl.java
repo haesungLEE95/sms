@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsSubCate;
 
 @Repository
 public class SmsMCateDaoImpl implements SmsMCateDao {
@@ -17,4 +18,5 @@ public class SmsMCateDaoImpl implements SmsMCateDao {
 	public Collection<SmsMainCate> list() {
 		return sst.selectList("smsmaincatens.list");
 	}
+
 }

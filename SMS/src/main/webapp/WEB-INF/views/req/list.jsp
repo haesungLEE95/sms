@@ -29,13 +29,15 @@
 				<c:forEach var="board" items="${list}">
 					<tr>
 						<td>${board.rq_no }</td>
-						<td>${board.mcate_no }${board.scate_no }</td>
-						<td><a href="view.do?num=${board.rq_no}&pageNum=${pb.currentPage}"
-							class="btn btn-success">${board.rq_title}</a></td>
+						<td>${board.mcate_no } - ${board.scate_no }</td>
+						<td><a href="">${board.rq_title}</a></td>
 						<td>${board.mem_no }</td>
-						<td>${board.count }</td>
+						<td>${board.rq_count }</td>
 						<td>${board.rq_date }</td>
-						<td>${board.rq_cond }</td>
+						<td>
+							<c:if test="${board.rq_cond==0}">의뢰중</c:if>
+							<c:if test="${board.rq_cond!=0}">완료</c:if>
+						</td>
 					</tr>
 				</c:forEach>
 			</c:if>

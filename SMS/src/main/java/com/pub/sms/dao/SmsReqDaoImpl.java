@@ -22,4 +22,9 @@ public class SmsReqDaoImpl implements SmsReqDao {
 	public Collection<SmsReq> list(SmsReq smsReq) {
 		return sst.selectList("smsreqns.list", smsReq);
 	}
+
+	@Override
+	public int insert(SmsReq smsReq) {
+		return sst.insert("smsreqns.insert",smsReq);
+	}
 }

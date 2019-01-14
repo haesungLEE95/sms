@@ -9,6 +9,7 @@
 <body>
 <script type="text/javascript">
 	location.href="list.do";
+	//location.href="chmcate.do";
 </script>
 </body>
 </html>

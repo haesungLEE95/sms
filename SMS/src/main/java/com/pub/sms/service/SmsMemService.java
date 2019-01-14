@@ -11,11 +11,8 @@ public interface SmsMemService {
 	SmsMem select(String mem_id);
 
 	int insert(SmsMem mem);
-
-
-
 	
-
+	int firstUpdate(SmsMem mem);
 	
-	
+	SmsMem memNick(int mem_no);
 }

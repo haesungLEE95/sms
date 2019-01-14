@@ -12,6 +12,7 @@
 //	location.href="smsView.do";
 //	location.href="joinForm.do";
 //	location.href="sellBoList.do";
+//	location.href="loginForm.do";
 </script>
 </body>
 </html>

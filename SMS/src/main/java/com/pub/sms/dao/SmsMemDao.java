@@ -10,5 +10,9 @@ public interface SmsMemDao {
 
 	SmsMem select(String mem_id);
 
+	int firstUpdate(SmsMem mem);
+
+	SmsMem memNick(int mem_no);
+
 
 }

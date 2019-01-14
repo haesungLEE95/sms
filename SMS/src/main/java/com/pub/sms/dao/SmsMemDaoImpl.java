@@ -27,4 +27,20 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return result;
 	}
 
+	@Override
+	public int firstUpdate(SmsMem mem) {
+		int result = 0;
+		try {
+			sst.update("smsMemns.firstUpdate",mem);
+			result = 1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+	public SmsMem memNick(int mem_no) {
+		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
+	}
+
+
 }

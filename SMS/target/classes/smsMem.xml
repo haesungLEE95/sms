@@ -18,5 +18,23 @@
 		<result property="mem_account" 	 column="mem_account" />
 		<result property="mem_reg" 	 column="mem_reg" />
 	</resultMap>
+	<select id="select" parameterType="string" resultType="mem">
+		select * from sms_mem where mem_id=#{mem_id}
+	</select>
+	<select id="selectnick" parameterType="string" resultType="mem">
+		select nickname from sms_mem where mem_no=#{mem_no}
+	</select>
+	<insert id="insert" parameterType="mem">
+		<selectKey keyProperty="mem_no" order="BEFORE" resultType="int">
+			select nvl(max(mem_no),0) + 1 from sms_mem
+		</selectKey>
+		insert into sms_mem
+		values(#{mem_no},#{mem_name},#{mem_id},#{nickname},#{email},#{passwd},'','','','','','',sysdate)
+	</insert>
+	<update id="firstUpdate" parameterType="mem">
+		update sms_mem 
+		set nvl(mem_img=#{mem_img},''), nvl(addr=#{addr},''), nvl(tel=#{tel},''), nvl(mem_account=#{mem_account},'') where mem_id=#{mem_id}
+	</update>
+	<!-- <delete id="delete"></delete> -->
 
 </mapper>

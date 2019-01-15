@@ -12,7 +12,7 @@
 	<h2>상세보기</h2>
 	<table class="table table-hover">
 		<tr><td>제목</td><td>${smscha.cha_title}</td><tr>
-		<tr><td>작성자</td><td>불러오기 만들어야됨</td><tr>
+		<tr><td>작성자</td><td>${memNick}</td><tr>
 		<tr><td>작성일</td><td>${smscha.cha_date }</td><tr>
 		<tr><td>내용</td><td>${smscha.cha_cont }</td><tr>
 		<tr><td colspan="2">

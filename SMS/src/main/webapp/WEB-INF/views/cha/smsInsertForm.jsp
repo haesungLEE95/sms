@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<%-- <td><a value="${mem_no}에 있는 nickname 가져오기 "></a></td> --%>
+				<td>${memNick}</td> 
 			</tr>
 			<tr>
 				<td>내용</td>

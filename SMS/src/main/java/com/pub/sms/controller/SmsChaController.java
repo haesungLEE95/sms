@@ -34,40 +34,50 @@ public class SmsChaController {
 		int endRow   = startRow + rowPerPage - 1;
 		smscha.setStartRow(startRow);
 		smscha.setEndRow(endRow);
+		
 		Collection<SmsCha> list = scs.list(smscha);
-		//SmsMem memNick = sms.memNick(smscha.getMem_no());
-		int no = total - startRow + 1;
+		SmsMem memNick = sms.memNick(1);
+		
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
-
-		//model.addAttribute("memNick", memNick);
+		
+		//if (memNick != null) {
+		model.addAttribute("memNick", memNick.getNickname());
+		//}
 		model.addAttribute("list", list);
 		model.addAttribute("smscha", smscha);
-		model.addAttribute("no", no);
+		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("pb", pb);
 		return "/cha/smsChaList";
 	}
 	
 	@RequestMapping("smsInsertForm")
-	public String smsInsertForm(SmsCha smscha, Model model) {
+	public String smsInsertForm(String pageNum, SmsMem sm ,SmsCha smscha, Model model) {
 		SmsCha cha = scs.select(smscha);
+		SmsMem memNick = sms.memNick(1);
 		model.addAttribute("cha", cha);
+		model.addAttribute("memNick", memNick.getNickname());
+		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsInsertForm";
 	}
 	
 	@RequestMapping("smsInsert")
-	public String smsInsert(SmsCha smscha, Model model) {
+	public String smsInsert(String pageNum, SmsCha smscha, Model model) {
 		int result = 0;
 		result = scs.insert(smscha);
 		
 		model.addAttribute("result", result);
+		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsInsert";
 	}
 	
 	@RequestMapping("smsView")
-	public String smsView(int num, Model model) {
+	public String smsView(String pageNum, SmsMem sm ,int num, Model model) {
 		scs.updateReadcount(num);
+		SmsMem memNick = sms.memNick(1);
 		SmsCha smscha = scs.selectno(num);
 		model.addAttribute("smscha", smscha);
+		model.addAttribute("memNick", memNick.getNickname());
+		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}
 }

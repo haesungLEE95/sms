@@ -7,12 +7,16 @@
 </head><body>
 <div class="container">
 <table class="table table-bordered" border="1">
-	<tr><td height="30" colspan="2">
+	<tr><td height="50" colspan="2">
 			<tiles:insertAttribute name="head"/></td></tr>
-	<tr><td height="500" width="30%">
-			<tiles:insertAttribute name="menu"/></td>
-		<td height="500" width="30%">
-			<tiles:insertAttribute name="body"/></td></tr>
+	<tr>
+		<td height="500" width="40%">
+			<tiles:insertAttribute name="menu"/>
+		</td>
+		<td>	
+			<tiles:insertAttribute name="body"/>
+		</td>
+	</tr>
 	<tr><td height="20" colspan="2">
 			<tiles:insertAttribute name="footer"/></td></tr>
 </table></div>

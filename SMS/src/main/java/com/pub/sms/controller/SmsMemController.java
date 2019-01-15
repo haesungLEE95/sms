@@ -1,15 +1,35 @@
 package com.pub.sms.controller;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.UUID;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.io.IOUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.service.MediaUtils;
 import com.pub.sms.service.SmsMemService;
+import com.pub.sms.service.UploadFileUtils;
 
 @Controller
 public class SmsMemController {
@@ -47,6 +67,29 @@ public class SmsMemController {
 		model.addAttribute("result", result);
 		return "/mem/joinResult";
 	}
+	
+	@RequestMapping(value="idChk",
+			produces="text/html;charset=utf8")
+	@ResponseBody
+	public String idChk(String mem_id) {
+		String msg = "";
+		SmsMem mem = sms.select(mem_id);
+		if (mem==null) msg="사용가능합니다";
+		else msg="다른 아이디를 선택하세요";
+		return msg;
+	}
+	
+	@RequestMapping(value="nickChk",
+			produces="text/html;charset=utf8")
+	@ResponseBody
+	public String nickChk(String nickname) {
+		String msg = "";
+		SmsMem mem = sms.select(nickname);
+		if (mem==null) msg="사용가능합니다";
+		else msg="다른 닉네임을 선택하세요";
+		return msg;
+	}
+	
 	@RequestMapping("loginForm")
 	public String loginForm() {
 		return "/mem/loginForm";
@@ -74,4 +117,5 @@ public class SmsMemController {
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
+
 }

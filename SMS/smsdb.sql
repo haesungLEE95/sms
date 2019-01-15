@@ -476,8 +476,8 @@ ALTER TABLE SMS_cha
 
 --db sms_mem 등록일 컬럼 추가
 ALTER TABLE Sms_mem ADD mem_reg Date;
-
 --db table수정-해성, 신고게시판 조회수
 ALTER TABLE SMS_cha ADD cha_count int;
 --db table수정-대진, 의뢰게시판 조회수
 ALTER TABLE SMS_request ADD rq_count int;
+alter table sms_cha MODIFY (cha_title varchar2(1000));

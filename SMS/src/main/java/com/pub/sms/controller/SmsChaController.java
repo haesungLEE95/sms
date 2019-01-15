@@ -80,5 +80,13 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}
+	@RequestMapping("smsUpdateForm")
+	public String smsUpdateForm(String pageNum,SmsCha smscha, Model model) {
+		SmsCha cha = scs.select(smscha);
+		
+		model.addAttribute("cha", cha);
+		model.addAttribute("pageNum", pageNum);
+		return "/cha/smsUpdateForm";
+	}
 }
 

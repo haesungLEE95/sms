@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a>메뉴</a><p>
-<a>메뉴2</a><p>
-<a>메뉴3</a><p>
-<a>메뉴4</a><p>
-<a>메뉴5</a><p>
-<a>메뉴6</a><p>
+zzzzzz
 </body>
 </html>

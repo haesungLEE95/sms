@@ -15,4 +15,6 @@ public interface SmsMemService {
 	int firstUpdate(SmsMem mem);
 	
 	SmsMem memNick(int mem_no);
+
+
 }

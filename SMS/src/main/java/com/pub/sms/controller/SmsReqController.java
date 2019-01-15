@@ -5,8 +5,9 @@ import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+
 
 import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsReq;
@@ -39,6 +40,13 @@ public class SmsReqController {
 		Collection<SmsReq> list = srs.list(smsReq);
 		
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
+
+		////글쓴이 정보 가져오기
+		
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
 		
 		model.addAttribute("list", list);
 		model.addAttribute("smsReq", smsReq);
@@ -56,12 +64,7 @@ public class SmsReqController {
 	}
 	@RequestMapping("insert")
 	public String insert(SmsReq smsReq, Model model) {
-		System.out.println("smsReq.title = "+smsReq.getRq_title());
-		System.out.println("smsReq.cont = "+smsReq.getRq_cont());
-		System.out.println("smsReq.price = "+smsReq.getRq_price());
-		System.out.println("smsReq.mcate = "+smsReq.getMcate_no());
-		System.out.println("smsReq.scate = "+smsReq.getScate_no());
-		//세션 로그인 정보 가져오고
+		////세션 로그인 정보 가져오고
 		//insert
 		smsReq.setMem_no(1);
 		
@@ -69,17 +72,59 @@ public class SmsReqController {
 		model.addAttribute("result", result);
 		return "req/insert";
 	}
-	@RequestMapping("chmcate")
-	public String chmcate() {
-		return "req/chmcate";
-	}
-/*	public String chmcate(int pickmcate, Model model) {
-		Collection<SmsSubCate> scateList = sss.selectlist(pickmcate);
+	@RequestMapping("view")
+	public String view(int num, String pageNum, Model model) {
+		srs.updateReadcount(num);
+		SmsReq smsReq = srs.select(num);
 		
-		for(SmsSubCate scate: scateList) {
-			System.out.println(scate.getScate_name());
-		}
-		model.addAttribute("scateList",scateList);
-		return "req/chmcate";
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		
+		model.addAttribute("smsReq", smsReq);
+		model.addAttribute("pageNum", pageNum);
+		return "req/view";
 	}
-*/}
+	
+	@RequestMapping("condition")
+	public String condition(int num, String pageNum, Model model) {
+		srs.updateCondition(num);
+		SmsReq smsReq = srs.select(num);
+		
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		
+		model.addAttribute("smsReq", smsReq);
+		model.addAttribute("pageNum", pageNum);
+		return "req/view";
+	}
+	@RequestMapping("updateForm")
+	public String updateForm(int num, String pageNum, Model model) {
+		SmsReq smsReq = srs.select(num);
+		
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+
+		model.addAttribute("smsReq", smsReq);
+		model.addAttribute("pageNum", pageNum);
+
+		return "req/updateForm";
+	}
+	@RequestMapping("update")
+	public String update(SmsReq smsReq, String pageNum, Model model) {
+		////세션 로그인 정보 가져오고
+		//insert
+		int result=srs.update(smsReq);
+		model.addAttribute("result", result);
+		
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("smsReq", smsReq);
+		
+		return "req/update";
+	}
+}

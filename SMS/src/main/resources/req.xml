@@ -14,15 +14,18 @@
 		<result property="rq_cond" 	column="rq_cond" />
 
 	</resultMap>
+	
 	<select id="getTotal" parameterType="smsreq" resultType="int">
 		select count(*) from sms_request
 	</select>
+	
 	<select id="list" parameterType="smsreq" resultMap="smsreqResult">
 		select * from (select a.*, rowNum rn from (
 			select * from sms_request 		
-			order by rq_date desc) a) 
+			order by rq_no desc) a) 
 				where rn between #{startRow} and #{endRow}
 	</select>
+	
 	<insert id="insert" parameterType="smsreq">
 		<selectKey keyProperty="rq_no" order="BEFORE" resultType="int">
 			select nvl(max(rq_no),0) + 1 from sms_request
@@ -30,6 +33,23 @@
 		insert into sms_request values (#{mem_no},#{rq_no},#{mcate_no},#{scate_no},
 			#{rq_title},#{rq_cont},sysdate,#{rq_price},0,0)
 	</insert>
+	
+	<update id="updateReadcount" parameterType="int">
+		update sms_request set rq_count=rq_count+1 where rq_no=#{num}
+	</update>
+	
+	<update id="updateCondition" parameterType="int">
+		update sms_request set rq_cond=rq_cond+1 where rq_no=#{num}
+	</update>
+	
+	<select id="select" parameterType="int" resultType="smsreq">
+		select * from sms_request where rq_no=#{num}
+	</select>
+	
+	<update id="update" parameterType="smsreq">
+		update sms_request set rq_title=#{rq_title}, rq_cont=#{rq_cont}, rq_date=sysdate,
+			rq_price=#{rq_price} where rq_no=#{rq_no}
+	</update>
 </mapper>
 
 

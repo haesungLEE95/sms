@@ -27,5 +27,25 @@ public class SmsReqServiceImpl implements SmsReqService {
 	public int insert(SmsReq smsReq) {
 		return srd.insert(smsReq);
 	}
+
+	@Override
+	public void updateReadcount(int num) {
+		srd.updateReadcount(num);
+	}
+
+	@Override
+	public SmsReq select(int num) {
+		return srd.select(num);
+	}
+
+	@Override
+	public void updateCondition(int num) {
+		srd.updateCondition(num);
+	}
+
+	@Override
+	public int update(SmsReq smsReq) {
+		return srd.update(smsReq);
+	}
 	
 }

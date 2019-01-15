@@ -29,14 +29,25 @@
 				<c:forEach var="board" items="${list}">
 					<tr>
 						<td>${board.rq_no }</td>
-						<td>${board.mcate_no } - ${board.scate_no }</td>
-						<td><a href="">${board.rq_title}</a></td>
+						<td>
+							<c:forEach var="mcate" items="${mcateList }">
+								<c:if test="${mcate.mcate_no==board.mcate_no }">
+									 <span class="label label-info">${mcate.mcate_name }</span>
+								</c:if>
+							</c:forEach>
+							<c:forEach var="scate" items="${scateList }">
+								<c:if test="${scate.scate_no==board.scate_no }">
+									<span class="label label-info">${scate.scate_name }</span>
+								</c:if>
+							</c:forEach>
+						</td>
+						<td><a href="view.do?num=${board.rq_no }&pageNum=${pb.currentPage}">${board.rq_title}</a></td>
 						<td>${board.mem_no }</td>
 						<td>${board.rq_count }</td>
 						<td>${board.rq_date }</td>
 						<td>
-							<c:if test="${board.rq_cond==0}">의뢰중</c:if>
-							<c:if test="${board.rq_cond!=0}">완료</c:if>
+							<c:if test="${board.rq_cond%2==0}">의뢰중</c:if>
+							<c:if test="${board.rq_cond%2!=0}">완료</c:if>
 						</td>
 					</tr>
 				</c:forEach>

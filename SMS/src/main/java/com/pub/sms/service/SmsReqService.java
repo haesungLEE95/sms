@@ -12,4 +12,12 @@ public interface SmsReqService {
 
 	int insert(SmsReq smsReq);
 
+	void updateReadcount(int num);
+
+	SmsReq select(int num);
+
+	void updateCondition(int num);
+
+	int update(SmsReq smsReq);
+
 }

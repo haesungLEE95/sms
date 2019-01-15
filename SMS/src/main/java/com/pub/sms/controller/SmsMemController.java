@@ -74,8 +74,8 @@ public class SmsMemController {
 	public String idChk(String mem_id) {
 		String msg = "";
 		SmsMem mem = sms.select(mem_id);
-		if (mem==null) msg="사용가능합니다";
-		else msg="다른 아이디를 선택하세요";
+		if (mem==null) msg="<br>사용가능합니다";
+		else msg="<br>다른 아이디를 선택하세요";
 		return msg;
 	}
 	
@@ -84,9 +84,9 @@ public class SmsMemController {
 	@ResponseBody
 	public String nickChk(String nickname) {
 		String msg = "";
-		SmsMem mem = sms.select(nickname);
-		if (mem==null) msg="사용가능합니다";
-		else msg="다른 닉네임을 선택하세요";
+		SmsMem mem = sms.nickSelect(nickname);
+		if (mem==null) msg="<br>사용가능합니다";
+		else msg="<br>다른 닉네임을 선택하세요";
 		return msg;
 	}
 	

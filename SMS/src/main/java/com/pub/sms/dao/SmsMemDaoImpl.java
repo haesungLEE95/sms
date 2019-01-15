@@ -40,5 +40,10 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
 	}
 
+	@Override
+	public SmsMem nickSelect(String nickname) {
+		return (SmsMem) sst.selectOne("smsMemns.nickselect", nickname);
+	}
+
 
 }

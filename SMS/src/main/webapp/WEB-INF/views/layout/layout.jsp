@@ -10,7 +10,7 @@
 	<tr><td height="50" colspan="2">
 			<tiles:insertAttribute name="head"/></td></tr>
 	<tr>
-		<td height="500" width="40%">
+		<td height="600" width="40%">
 			<tiles:insertAttribute name="menu"/>
 		</td>
 		<td>	

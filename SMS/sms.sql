@@ -15,9 +15,10 @@ update tablename set col1=val1 from tablename where condition
 update sms_mem set mem_img='', addr='팔공산', tel='010-9999-0000', mem_account='국민 000-00-00000' where mem_no=8;
 select * from SMS_mem;
 select * from sms_mem where mem_no=1;
+
 create table SMS_chareply (
 	rep_no int NOT NULL,
-	chn_no int null references SMS_cha(cha_no),
+	cha_no int null references SMS_cha(cha_no),
 	replytext varchar2(2000) null,
 	mem_no int null references SMS_mem(nickname),
 	reg_date date null,

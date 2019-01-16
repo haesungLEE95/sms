@@ -50,7 +50,11 @@
 			<tr>
 				<td colspan="2">
 					<div align="center">
-						<a class="btn btn-default" href="smsUpdateForm.do">수정</a> <!-- ?= -->
+						<a class="btn btn-default" href="smsUpdateForm.do?num=${smscha.cha_no}">수정</a>
+						<a class="btn btn-default" href="smsDeleteForm.do">삭제</a>
+					</div>
+					<p>
+					<div align="center">
 						<a class="btn btn-default" href="smsChaList.do">게시글목록</a>
 					</div>
 				</td>

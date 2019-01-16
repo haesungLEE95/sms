@@ -51,7 +51,7 @@ public class SmsChaController {
 	}
 	
 	@RequestMapping("smsInsertForm")
-	public String smsInsertForm(String pageNum, SmsMem sm ,SmsCha smscha, Model model) {
+	public String smsInsertForm(String pageNum ,SmsCha smscha, Model model) {
 		//SmsCha cha = scs.select(smscha);
 		SmsMem memNick = sms.memNick(1);
 		//model.addAttribute("cha", cha);
@@ -81,16 +81,24 @@ public class SmsChaController {
 		return "/cha/smsView";
 	}
 	@RequestMapping("smsUpdateForm")
-	public String smsUpdateForm(SmsMem sm, String pageNum,SmsCha smscha, Model model) {
+	public String smsUpdateForm(int num, SmsMem sm, String pageNum,SmsCha smscha, Model model) {
 		SmsCha cha = scs.select(smscha);
 		SmsMem memNick = sms.memNick(1);
-		System.out.println("sm"+sm.getMem_id());
-		//SmsMem memEmail = sms.memEail(sm);
-		
-		//model.addAttribute("memNick", memNick.getEmail());
+		SmsCha sc = scs.selectno(num);
+		SmsMem memEmail = sms.memEail(1);
+		System.out.println("sc : "+sc);
+		model.addAttribute("memNick", memNick.getNickname());
+		model.addAttribute("memEmail", memEmail.getEmail());
+		model.addAttribute("sc", sc);
 		model.addAttribute("cha", cha);
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsUpdateForm";
+	}
+	@RequestMapping("smsUpdate")
+	public String smsUpdate() {
+		//int result = scs.update(); 해야됨
+		
+		return "/cha/smsUpdate";
 	}
 }
 

@@ -13,6 +13,7 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+	
 	<definition name="/cha/smsChaList" extends="tilesbase">
 		<put-attribute name="title" value="신고글" />
 		<put-attribute name="body"
@@ -38,5 +39,18 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
 	</definition>
+	
+	<!-- 
+	<definition name="/cha/smsUpdate" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsUpdate.jsp" />
+	</definition>
+	<definition name="/cha/smsDeletForm" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsDeleteForm.jsp" />
+	</definition>
+	 -->
 
 </tiles-definitions>

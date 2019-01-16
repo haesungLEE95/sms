@@ -21,6 +21,11 @@ public class SmsMemServiceImpl implements SmsMemService {
 		return smd.memNick(mem_no);
 	}
 
+	@Override
+	public SmsMem memEail(int mem_no) {
+		return smd.memEail(mem_no);
+	}
+
 	public int insert(SmsMem mem) {
 		return smd.insert(mem);
 	}

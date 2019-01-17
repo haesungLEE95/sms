@@ -16,16 +16,14 @@ update sms_mem set mem_img='', addr='팔공산', tel='010-9999-0000', mem_accoun
 select * from SMS_mem;
 select * from sms_mem where mem_no=1;
 
-create table SMS_chareply (
-	rep_no int NOT NULL,
-	cha_no int null references SMS_cha(cha_no),
-	replytext varchar2(2000) null,
-	mem_no int null references SMS_mem(nickname),
-	reg_date date null,
-	updatedate date null,
-	del char(1)
+create table SMS_cha_reply (
+	rep_no int,
+	cha_no int,
+	cha_re_cont varchar2(255),
+	mem_no int,
+	regdate date, --올린날짜
+	updatedate date, --수정날짜 
+	del char(1)	--삭제여부
 );
-alter table SMS_chareply add (del char(1));
-update SMS_chareply set del = 'n';
 
 --로그인 닉네임 중복체크ㅜ해야댐

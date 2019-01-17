@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
 
 @Repository
@@ -41,6 +42,5 @@ public class SmsMemDaoImpl implements SmsMemDao {
 	public SmsMem memNick(int mem_no) {
 		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
 	}
-
 
 }

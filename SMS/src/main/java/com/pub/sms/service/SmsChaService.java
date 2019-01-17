@@ -3,6 +3,7 @@ package com.pub.sms.service;
 import java.util.Collection;
 
 import com.pub.sms.model.SmsCha;
+import com.pub.sms.model.SmsChaReply;
 
 public interface SmsChaService {
 
@@ -21,5 +22,6 @@ public interface SmsChaService {
 	int update(SmsCha smscha);
 
 	int delete(int num);
+
 
 }

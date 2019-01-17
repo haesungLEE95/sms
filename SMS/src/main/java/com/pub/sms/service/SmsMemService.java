@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.pub.sms.model.SmsCha;
+import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
 
 public interface SmsMemService {
@@ -15,6 +16,7 @@ public interface SmsMemService {
 	int firstUpdate(SmsMem mem);
 	
 	SmsMem memNick(int mem_no);
+
 
 
 

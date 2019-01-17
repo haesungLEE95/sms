@@ -7,6 +7,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.pub.sms.dao.SmsMemDao;
+import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
 
 @Service
@@ -27,5 +28,6 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int firstUpdate(SmsMem mem) {
 		return smd.firstUpdate(mem);
 	}
+
 
 }

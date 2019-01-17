@@ -8,12 +8,12 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		//$('#boardListDisp').load('${path}/list/pageNum/${pageNum}');
-		//$('#rbdListDisp').load('${path}/replyList/bno/${board.num}');
+		$('#boardListDisp').load('replyList?rep_no=1');
+		$('#rbdListDisp').load('replyList?rep_no=1');
 		$('#rInsert').click(function() {
-			if (!frm.replytext.value) {
+			if (!frm.cha_re_cont.value) {
 				alert("댓글을 입력후에 사용하세요");
-				frm.replytext.focus();
+				frm.cha_re_cont.focus();
 				return false;
 			}
 			//var sendData = 'bno='+frm.bno.value+"&replyer="+frm.replyer+value+"&replytext="+frm.replytext.value; 
@@ -21,7 +21,7 @@
 			$.post('${path}/rInsert', sendData, function(data) {
 				alert("댓글이 작성되었습니다");
 				$('#rbdListDisp').html(data);
-				frm.replytext.value = "";
+				frm.cha_re_cont.value = "";
 			});
 		});
 	});
@@ -62,15 +62,14 @@
 		</table>
 		<h3 class="text-primary">댓글작성</h3>
 		<form name="frm" id="frm">
-			<input type="hidden" name="bno" value="${smscha.cha_no}">
+			<input type="hidden" name="cha_no" value="${smscha.cha_no}">
 			<table class="table table-hove">
 				<tr>
 					<!-- 원래는 login한 사람 이름 또는 ID -->
 					<td>작성자</td>
-					<td><input type="text" name="replyer" value="${memNick}"
-						size="4"></td>
+					<td><input type="text" name="mem_no" value="${memNick}"	size="4"></td>
 					<td>댓글</td>
-					<td><textarea rows="3" cols="30" name="replytext"></textarea></td>
+					<td><textarea rows="5" cols="30" name="cha_re_cont"></textarea></td>
 					<td colspan="2"><input type="button" value="댓글입력" id="rInsert"></td>
 				</tr>
 				<!-- 화면안바뀌고 ajax처리를 위한 type=button -->

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="rechans">
+	<resultMap id="rechaResult" 	type="recha">
+		<result property="rep_no" 			column="rep_no" />
+		<result property="cha_no" 			column="cha_no" />
+		<result property="cha_re_cont" 	column="cha_re_cont" />
+		<result property="mem_no" 		column="mem_no" />
+		<result property="regdate" 		column="regdate" />
+		<result property="updatedate"	column="updatedate" />
+		<result property="del"			column="del" />
+	</resultMap>
+	<select id="list" parameterType="int" resultMap="rechaResult">
+		select * from SMS_cha_reply where cha_no=#{cha_no} order by rep_no  
+	</select>
+</mapper>

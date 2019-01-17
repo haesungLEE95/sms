@@ -2,6 +2,7 @@ package com.pub.sms.dao;
 
 import java.util.Collection;
 
+import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
 
 public interface SmsMemDao {
@@ -13,7 +14,5 @@ public interface SmsMemDao {
 	int firstUpdate(SmsMem mem);
 
 	SmsMem memNick(int mem_no);
-
-
 
 }

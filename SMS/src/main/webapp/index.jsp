@@ -8,8 +8,8 @@
 </head>
 <body>
 <script type="text/javascript">
-	
 	location.href="smsChaList.do";
+//	location.href="replyList.do?rep_no=1";
 //	location.href="smsView.do";
 //	location.href="joinForm.do";
 //	location.href="sellBoList.do";

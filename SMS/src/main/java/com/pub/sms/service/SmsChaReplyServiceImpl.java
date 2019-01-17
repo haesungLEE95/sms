@@ -1,0 +1,21 @@
+package com.pub.sms.service;
+
+import java.util.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.pub.sms.dao.SmsChaReplyDao;
+import com.pub.sms.model.SmsChaReply;
+
+@Service
+public class SmsChaReplyServiceImpl implements SmsChaReplyService {
+	@Autowired
+	private SmsChaReplyDao scrd;
+
+	@Override
+	public Collection<SmsChaReply> list(int rep_no) {
+		return scrd.list(rep_no);
+	}
+	
+}

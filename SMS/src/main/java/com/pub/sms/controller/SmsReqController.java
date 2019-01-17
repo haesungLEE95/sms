@@ -127,4 +127,12 @@ public class SmsReqController {
 		
 		return "req/update";
 	}
+	@RequestMapping("delete")
+	public String delete(int num, String pageNum, Model model) {
+		int result = srs.delete(num);
+		model.addAttribute("result", result);
+		
+		model.addAttribute("pageNum", pageNum);
+		return "req/delete";
+	}
 }

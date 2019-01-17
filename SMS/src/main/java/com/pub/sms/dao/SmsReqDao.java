@@ -20,4 +20,6 @@ public interface SmsReqDao {
 
 	int update(SmsReq smsReq);
 
+	int delete(int num);
+
 }

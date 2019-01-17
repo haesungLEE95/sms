@@ -50,6 +50,9 @@
 		update sms_request set rq_title=#{rq_title}, rq_cont=#{rq_cont}, rq_date=sysdate,
 			rq_price=#{rq_price} where rq_no=#{rq_no}
 	</update>
+	<delete id="delete" parameterType="int">
+		delete from sms_request where rq_no=#{num}
+	</delete>
 </mapper>
 
 

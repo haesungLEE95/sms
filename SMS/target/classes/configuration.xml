@@ -7,10 +7,12 @@
 		<typeAlias alias="smsreq" type="com.pub.sms.model.SmsReq" />
 		<typeAlias alias="smsmaincate" type="com.pub.sms.model.SmsMainCate" />
 		<typeAlias alias="smssubcate" type="com.pub.sms.model.SmsSubCate" />
+		<typeAlias alias="rbd" type="com.pub.sms.model.SmsReqReply" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="req.xml" />
 		<mapper resource="maincate.xml" />
 		<mapper resource="subcate.xml" />
+		<mapper resource="rbd.xml" />
 	</mappers>
 </configuration>

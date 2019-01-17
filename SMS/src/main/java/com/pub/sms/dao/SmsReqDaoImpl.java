@@ -47,4 +47,9 @@ public class SmsReqDaoImpl implements SmsReqDao {
 	public int update(SmsReq smsReq) {
 		return sst.update("smsreqns.update",smsReq);
 	}
+
+	@Override
+	public int delete(int num) {
+		return sst.delete("smsreqns.delete",num);
+	}
 }

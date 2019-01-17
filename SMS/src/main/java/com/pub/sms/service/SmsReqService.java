@@ -20,4 +20,6 @@ public interface SmsReqService {
 
 	int update(SmsReq smsReq);
 
+	int delete(int num);
+
 }

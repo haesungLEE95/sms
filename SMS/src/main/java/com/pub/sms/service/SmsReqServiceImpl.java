@@ -47,5 +47,10 @@ public class SmsReqServiceImpl implements SmsReqService {
 	public int update(SmsReq smsReq) {
 		return srd.update(smsReq);
 	}
+
+	@Override
+	public int delete(int num) {
+		return srd.delete(num);
+	}
 	
 }

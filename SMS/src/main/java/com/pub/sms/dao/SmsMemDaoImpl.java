@@ -45,5 +45,17 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return (SmsMem) sst.selectOne("smsMemns.nickselect", nickname);
 	}
 
+	@Override
+	public int update(SmsMem mem) {
+		int result = 0;
+		try {
+			sst.update("smsMemns.update",mem);
+			result = 1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+	
 
 }

@@ -30,4 +30,8 @@ public class SmsMemServiceImpl implements SmsMemService {
 		return smd.nickSelect(nickname);
 	}
 
+	public int update(SmsMem mem) {
+		return smd.update(mem);
+	}
+
 }

@@ -13,4 +13,7 @@ public interface SmsMemService {
 	SmsMem memNick(int mem_no);
 
 	SmsMem nickSelect(String nickname);
+
+	int update(SmsMem mem);
+	
 }

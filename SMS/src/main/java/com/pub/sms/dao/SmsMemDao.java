@@ -14,4 +14,6 @@ public interface SmsMemDao {
 
 	SmsMem nickSelect(String nickname);
 
+	int update(SmsMem mem);
+
 }

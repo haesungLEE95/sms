@@ -42,10 +42,5 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
 	}
 
-	@Override
-	public SmsMem memEail(int mem_no) {
-		return sst.selectOne("smsMemns.selectemail", mem_no);
-	}
-
 
 }

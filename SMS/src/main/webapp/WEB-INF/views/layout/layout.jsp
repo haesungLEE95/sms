@@ -5,8 +5,8 @@
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title><tiles:insertAttribute name="title"/></title>
 </head><body>
-<div class="container">
-<table class="table table-bordered" border="1">
+<div class="container" align="center">
+<table class="table table-bordered" border="1" >
 	<tr><td height="50" colspan="2">
 			<tiles:insertAttribute name="head"/></td></tr>
 	<tr>

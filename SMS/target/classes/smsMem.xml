@@ -24,9 +24,6 @@
 	<select id="selectnick" parameterType="int" resultType="mem">
 		select * from sms_mem where mem_no=#{mem_no}
 	</select>
-	<select id="selectemail" parameterType="int" resultType="mem">
-		select email from sms_mem where mem_no=#{mem_no}
-	</select>
 	<insert id="insert" parameterType="mem">
 		<selectKey keyProperty="mem_no" order="BEFORE" resultType="int">
 			select nvl(max(mem_no),0) + 1 from sms_mem

@@ -36,5 +36,13 @@ public class SmsChaDaoImpl implements SmsChaDao{
 	public int getTotal(SmsCha smscha) {
 		return sst.selectOne("smsChans.getTotal", smscha);
 	}
+	@Override
+	public int update(SmsCha smscha) {
+		return sst.update("smsChans.update", smscha);
+	}
+	@Override
+	public int delete(int num) {
+		return sst.delete("smsChans.delete", num);
+	}
 
 }

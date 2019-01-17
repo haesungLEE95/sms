@@ -18,5 +18,9 @@ public interface SmsChaDao {
 
 	SmsCha selectno(int num);
 
+	int update(SmsCha smscha);
+
+	int delete(int num);
+
 
 }

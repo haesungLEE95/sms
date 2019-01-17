@@ -46,4 +46,10 @@
 	<select id="selectno" parameterType="int" resultType="cha">
 		select * from  SMS_cha where cha_no=#{cha_no} 
 	</select>
+	<update id="update" parameterType="cha">
+		update SMS_cha set cha_title=#{cha_title}, cha_cont=#{cha_cont} where cha_no=#{cha_no}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from SMS_cha where cha_no=#{cha_no}
+	</delete>
 </mapper>

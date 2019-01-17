@@ -40,17 +40,17 @@
 			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
 	</definition>
 	
-	<!-- 
+	 
 	<definition name="/cha/smsUpdate" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdate.jsp" />
 	</definition>
-	<definition name="/cha/smsDeletForm" extends="tilesbase">
+	 <definition name="/cha/smsDelete" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
-			value="/WEB-INF/views/cha/smsDeleteForm.jsp" />
+			value="/WEB-INF/views/cha/smsDelete.jsp" />
 	</definition>
-	 -->
+	
 
 </tiles-definitions>

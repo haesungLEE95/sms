@@ -43,5 +43,15 @@ public class SmsChaServiceImpl implements SmsChaService{
 		return scd.getTotal(smscha);
 	}
 
+	@Override
+	public int update(SmsCha smscha) {
+		return scd.update(smscha);
+	}
+
+	@Override
+	public int delete(int num) {
+		return scd.delete(num);
+	}
+
 
 }

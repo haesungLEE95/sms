@@ -51,7 +51,7 @@
 				<td colspan="2">
 					<div align="center">
 						<a class="btn btn-default" href="smsUpdateForm.do?num=${smscha.cha_no}">수정</a>
-						<a class="btn btn-default" href="smsDeleteForm.do">삭제</a>
+						<a class="btn btn-default" href="smsDelete.do?num=${smscha.cha_no}">삭제</a>
 					</div>
 					<p>
 					<div align="center">

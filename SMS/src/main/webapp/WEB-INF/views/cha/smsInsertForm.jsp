@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td>${memNick}</td> 
+				<td>${memNick.nickname}</td> 
 			</tr>
 			<tr>
 				<td>내용</td>

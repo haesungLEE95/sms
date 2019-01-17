@@ -18,4 +18,8 @@ public interface SmsChaService {
 
 	int getTotal(SmsCha smscha);
 
+	int update(SmsCha smscha);
+
+	int delete(int num);
+
 }

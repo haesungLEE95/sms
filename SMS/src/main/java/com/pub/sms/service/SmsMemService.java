@@ -16,7 +16,6 @@ public interface SmsMemService {
 	
 	SmsMem memNick(int mem_no);
 
-	SmsMem memEail(int mem_no);
 
 
 }

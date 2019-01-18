@@ -59,7 +59,6 @@ public class UploadController {
             System.out.println("셀렉트 테스트 "+sms.select("a1"));
             System.out.println("dd");
             SmsMem mem = sms.select(mem_id);
-            System.out.println("mem "+mem);
             mem.setMem_img(newFileName);
             int result = sms.updateImg(mem);
             System.out.println("result : "+result);   

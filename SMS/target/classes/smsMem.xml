@@ -39,14 +39,13 @@
 	</insert>
 	<update id="firstUpdate" parameterType="mem">
 		update sms_mem
-		set mem_img=#{mem_img}, addr=#{addr}, tel=#{tel},
-		mem_account=#{mem_account} where mem_id=#{mem_id}
-	</update>
-	<update id="update" parameterType="mem">
-		update sms_mem
 		set
-		mem_no=#{mem_no},mem_name=#{mem_name},mem_id=#{mem_id},nickname=#{nickname},email=#{email},passwd=#{passwd},mem_img=#{mem_img},addr=#{addr},tel=#{tel},mny=#{mny},mem_del=#{mem_del},mem_account=#{mem_account},mem_reg=#{mem_reg}
-		where mem_id=#{mem_id}
+		mem_img=coalesce(#{mem_img},''), addr=coalesce(#{addr},''), tel=coalesce(#{tel},''),
+		mem_account=coalesce(#{mem_account},'') where mem_id=#{mem_id}
+	</update>
+	<update id="updateImg" parameterType="mem">
+		update sms_mem set
+		mem_img=#{mem_img} where mem_id=#{mem_id}
 	</update>
 
 	<!-- <delete id="delete"></delete> -->

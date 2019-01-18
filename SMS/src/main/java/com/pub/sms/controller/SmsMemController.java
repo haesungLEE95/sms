@@ -29,6 +29,7 @@ public class SmsMemController {
 	public String join(SmsMem mem, Model model) {
 		int result = 0;
 		SmsMem smem = sms.select(mem.getMem_id());
+		System.out.println("멤버아이디: "+mem.getMem_id());
 		String encPass = pwEncoder.encode(mem.getPasswd());
 		mem.setPasswd(encPass);
 		if(smem == null) result = sms.insert(mem);
@@ -79,15 +80,20 @@ public class SmsMemController {
 	@RequestMapping("login")
 	public String login(SmsMem mem,Model model,HttpSession session) {
 		int result = 0;
-		SmsMem smem = sms.select(mem.getMem_id());
-		String dbPw = smem.getPasswd();
-		String rawPw = mem.getPasswd();
-		if (smem==null) result = -1;
-		else if (pwEncoder.matches(rawPw, dbPw)) {
-			mem.setPasswd(dbPw);
-			result = 1;
-			session.setAttribute("mem_id", mem.getMem_id());
-		}			
+		try {
+			SmsMem smem = sms.select(mem.getMem_id());
+			String dbPw = smem.getPasswd();
+			String rawPw = mem.getPasswd();
+			if (smem==null) result = -1;
+			else if (pwEncoder.matches(rawPw, dbPw)) {
+				mem.setPasswd(dbPw);
+				result = 1;
+				session.setAttribute("mem_id", mem.getMem_id());
+			}			
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			result = -1;
+		}
 		model.addAttribute("result", result);
 		return "/mem/login";
 	}

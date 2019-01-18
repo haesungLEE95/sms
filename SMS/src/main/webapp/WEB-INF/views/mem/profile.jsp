@@ -79,7 +79,7 @@ small {
 </head>
      <form id="fileForm" action="profFileUpload" method="post"
         enctype="multipart/form-data">
-        <input type="hidden" id="mem_id" name="mem_id" value=" ${mem_id }">
+        <input type="hidden" id="mem_id" name="mem_id" value="${mem_id}">
         <input type="file" id="fileUp" name="fileUp">         
         <input type="button" class="btn btn-info btn-sm" value="전송" onClick="fileSubmit();">
     </form>

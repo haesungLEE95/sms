@@ -13,7 +13,11 @@ public class SmsMemDaoImpl implements SmsMemDao {
 	
 	
 	public SmsMem select(String mem_id) {
-		return (SmsMem) sst.selectOne("smsMemns.select", mem_id);
+		System.out.println("dao mem_id : "+mem_id);
+		SmsMem mem = (SmsMem) sst.selectOne("smsMemns.select", mem_id);
+		System.out.println( "dao mem = "+mem );
+		return mem;
+		
 	}
 
 	public int insert(SmsMem mem) {
@@ -46,10 +50,10 @@ public class SmsMemDaoImpl implements SmsMemDao {
 	}
 
 	@Override
-	public int update(SmsMem mem) {
+	public int updateImg(SmsMem mem) {
 		int result = 0;
 		try {
-			sst.update("smsMemns.update",mem);
+			sst.update("smsMemns.updateImg",mem);
 			result = 1;
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

@@ -19,10 +19,10 @@
 	</script>
 		<h2 class="text-primary">추가정보 입력</h2>
 		<div class="tbl">
-		<form action="joinResult.do" name="frm" method="post" enctype="multipart/form-data">
+		<form action="joinResult.do?mem_id=${mem.mem_id }" name="frm" method="post" enctype="multipart/form-data">
 		<table class="table table-hover" >
-			<tr><th width="120px"><input type="hidden" name="mem_id" value="${mem_id }"><span class="glyphicon glyphicon-user"/>프로필</th></tr>
-			<tr><td width="400px"><input type="file" name="mem_img" value="${mem.mem_img }"></td></tr>
+			<tr><th width="120px"><input type="hidden" name="mem_id" value="${mem.mem_id }"><span class="glyphicon glyphicon-user"/>프로필</th></tr>
+			<tr><td width="400px"><input type="file" name="mem_img"></td></tr>
 			</td></tr>
 			<tr><th><span class="glyphicon glyphicon-lock"/>주소</th></tr>
 			<tr><td><input type="text" name="addr" autofocus="autofocus"></td></tr>
@@ -30,7 +30,7 @@
 			<tr><td><input type="tel" name="tel" ></td></tr>
 			<tr><th><span class="glyphicon glyphicon-file"/>계좌번호</th></tr>
 			<tr><td><input type="text" name="mem_account"></td></tr>
-			<tr><th colspan="2" align="center"><div align="center"><input class="btn btn-info" type="submit"><a href="joinResult.do" class="btn btn-info">스킵</a></div></th></tr>
+			<tr><th colspan="2" align="center"><div align="center"><input class="btn btn-info" type="submit"><a href="joinResult.do?mem_id=${mem.mem_id }" class="btn btn-info">스킵</a></div></th></tr>
 		</table>
 		</form>
 		</div>

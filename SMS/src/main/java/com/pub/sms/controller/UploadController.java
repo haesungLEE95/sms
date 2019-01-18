@@ -51,11 +51,17 @@ public class UploadController {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            System.out.println("mem_id "+mem_id);
+            String id = mem_id;
+            
+            System.out.println("id : "+id);
+            System.out.println("mem_id 투스트링 "+mem_id.toString());
+            System.out.println("셀렉트 "+sms.select(id.toString()));
+            System.out.println("셀렉트 테스트 "+sms.select("a1"));
+            System.out.println("dd");
             SmsMem mem = sms.select(mem_id);
             System.out.println("mem "+mem);
             mem.setMem_img(newFileName);
-            int result = sms.update(mem);
+            int result = sms.updateImg(mem);
             System.out.println("result : "+result);   
         }
   

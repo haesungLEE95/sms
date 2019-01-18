@@ -49,11 +49,12 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsDelete.jsp" />
 	</definition>
-	<definition name="/cha/replyList" extends="tilesbase">
+   	<definition name="/cha/replyList" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
-	</definition>
+	</definition> 
+	
 	 
 
 </tiles-definitions>

@@ -8,17 +8,19 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('replyList.do?rep_no=1');
-		$('#rbdListDisp').load('replyList.do?rep_no=${rbdList.rep_no}');
+		// $('#boardListDisp').load('smsmChaList.do?'); 
+		$('#rbdListDisp').load('replyList.do?rep_no=${smscha.cha_no}');
 		$('#rInsert').click(function() {
 			if (!frm.cha_re_cont.value) {
 				alert("댓글을 입력후에 사용하세요");
 				frm.cha_re_cont.focus();
 				return false;
 			}
-			//var sendData = 'bno='+frm.bno.value+"&replyer="+frm.replyer+value+"&replytext="+frm.replytext.value; 
+			/* var sendData = 'bno='+frm.bno.value+
+				"&replyer="+frm.replyer+value+
+				"&replytext="+frm.replytext.value;  */
 			var sendData = $('#frm').serialize();
-			$.post('rInsert.do?', sendData, function(data) {
+			$.post('rInsert.do', sendData, function(data) {
 				alert("댓글이 작성되었습니다");
 				$('#rbdListDisp').html(data);
 				frm.cha_re_cont.value = "";
@@ -76,7 +78,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<div id="boardListDisp"></div>
+		<!-- <div id="boardListDisp"></div> -->
 	</div>
 </body>
 </html>

@@ -14,4 +14,8 @@
 	<select id="list" parameterType="int" resultMap="rechaResult">
 		select * from SMS_cha_reply where cha_no=#{cha_no} order by rep_no  
 	</select>
+	<insert id="insert">
+		insert into SMS_cha_reply values(#{rep_no},#{cha_no},
+			#{cha_re_cont},#{cha_re_cont},#{mem_no},sysdate,sysdate,'n')
+	</insert>
 </mapper>

@@ -17,5 +17,10 @@ public class SmsChaReplyServiceImpl implements SmsChaReplyService {
 	public Collection<SmsChaReply> list(int rep_no) {
 		return scrd.list(rep_no);
 	}
+
+	@Override
+	public void insert(SmsChaReply scr) {
+		scrd.insert(scr);
+	}
 	
 }

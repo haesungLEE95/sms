@@ -8,6 +8,8 @@ public interface SmsChaReplyService {
 
 	Collection<SmsChaReply> list(int rep_no);
 
+	void insert(SmsChaReply scr);
+
 
 
 

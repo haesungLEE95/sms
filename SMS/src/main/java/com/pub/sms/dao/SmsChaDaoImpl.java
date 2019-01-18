@@ -17,10 +17,6 @@ public class SmsChaDaoImpl implements SmsChaDao{
 		return sst.selectList("smsChans.list", smscha);
 	}
 	@Override
-	public SmsCha select(SmsCha smscha) {
-		return sst.selectOne("smsChans.select", smscha);
-	}
-	@Override
 	public int insert(SmsCha smscha) {
 		return sst.insert("smsChans.insert", smscha);
 	}
@@ -43,6 +39,10 @@ public class SmsChaDaoImpl implements SmsChaDao{
 	@Override
 	public int delete(int num) {
 		return sst.delete("smsChans.delete", num);
+	}
+	@Override
+	public SmsCha select(int num) {
+		return sst.selectOne("smsChans.select", num);
 	}
 
 }

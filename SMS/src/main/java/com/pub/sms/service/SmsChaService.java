@@ -9,8 +9,6 @@ public interface SmsChaService {
 
 	Collection<SmsCha> list(SmsCha smscha);
 
-	SmsCha select(SmsCha smscha);
-
 	int insert(SmsCha smscha);
 
 	void updateReadcount(int num);
@@ -22,6 +20,8 @@ public interface SmsChaService {
 	int update(SmsCha smscha);
 
 	int delete(int num);
+
+	SmsCha select(int num);
 
 
 }

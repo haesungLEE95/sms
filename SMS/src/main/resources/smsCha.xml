@@ -31,9 +31,9 @@
 	<select id="getTotal" parameterType="cha" resultType="int">
 		select count(*) from SMS_cha
 	</select>
-	<select id="select" parameterType="cha" resultMap="smschaResult">
-		select * from SMS_cha where mem_no = #{mem_no}
-	</select>
+	<select id="select" parameterType="int" resultType="cha">
+		select * from SMS_cha where cha_no = #{cha_no}
+	</select> 
 	<insert id="insert" parameterType="cha">
  		 <selectKey keyProperty="cha_no" order="BEFORE" resultType="int">
 				select nvl(max(cha_no), 0)+1 from SMS_cha

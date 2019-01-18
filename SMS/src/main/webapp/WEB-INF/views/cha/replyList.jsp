@@ -6,31 +6,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- <script type="text/javascript">
-	function rDelete(bno, rno) {
-		var sendData = "bro=" + bno + "&rno=" +rno;
-		$.post('${path}/rDelete', sendData, function(data) {
+<script type="text/javascript">
+ 	function rDelete(cha_no, rep_no) {
+		var sendData = "cha_no=" + cha_no + "&rep_no=" +rep_no;
+		$.post('rDelete.do', sendData, function(data) {
 			alert('삭제되었습니다');
 			$('#rbdListDisp').html(data);
 		});
+	} 
+	function rUpdate(cha_no,rep_no) {
+		var txt = $('#td_'+rep_no).text();
+		$('#td_'+rep_no).html('<textarea row="3" col="30" id="rt">'+txt+'</textarea>');
+		$('#btn_'+rep_no).html('<button onclick="up('+cha_no+','+rep_no+')" class="btn btn-sm btn-danger">확인</button>'+
+							'<button onclick="lst('+cha_no+')" class="btn btn-sm btn-info">취소</button>');
 	}
-	function rUpdate(bno,rno) {
-		var txt = $('#td_'+rno).text();
-		$('#td_'+rno).html('<textarea row="3" col="30" id="rt">'+txt+'</textarea>');
-		$('#btn_'+rno).html('<button onclick="up('+bno+','+rno+')" class="btn btn-sm btn-danger">확인</button>'+
-							'<button onclick="lst('+bno+')" class="btn btn-sm btn-info">취소</button>');
-	}
-	function up(bno, rno) {
-		var sendData = "replytext="+$('#rt').val()+"&bno="+bno+"&rno="+rno;
-		$.post('${path}/rUpdate', sendData, function(data) {
+ 	function up(cha_no, rep_no) {
+		var sendData = "cha_re_cont="+$('#rt').val()+"&cha_no="+cha_no+"&rep_no="+rep_no;
+		$.post('rUpdate.do', sendData, function(data) {
 			alert('댓글수정완료');
 			$('#rbdListDisp').html(data);
 		});
 	}
-	function lst(bno) {
-		$('#rbdListDisp').load('${path}/replyList/bno/'+bno);
+	function lst(cha_no) {
+		$('#rbdListDisp').load('replyList.do?rep_no'+rep_no);
 	}
-</script> -->
+</script> 
 </head>
 <body>
 <div class="container">

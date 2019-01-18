@@ -8,4 +8,6 @@ public interface SmsChaReplyDao {
 
 	Collection<SmsChaReply> list(int rep_no);
 
+	void insert(SmsChaReply scr);
+
 }

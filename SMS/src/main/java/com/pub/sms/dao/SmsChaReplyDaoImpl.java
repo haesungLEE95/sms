@@ -14,12 +14,13 @@ public class SmsChaReplyDaoImpl implements SmsChaReplyDao {
 	private SqlSessionTemplate sst;
 
 	@Override
-	public Collection<SmsChaReply> list(int rep_no) {
-		return sst.selectList("rechans.list", rep_no);
+	public Collection<SmsChaReply> list(int cha_no) {
+		return sst.selectList("rechans.list", cha_no);
 	}
 
 	@Override
 	public void insert(SmsChaReply scr) {
+
 		sst.insert("rechans.insert", scr);
 	}
 }

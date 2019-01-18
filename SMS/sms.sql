@@ -14,10 +14,11 @@ alter table sms_mem modify (passwd varchar2(255));
 update tablename set col1=val1 from tablename where condition
 update sms_mem set mem_img='', addr='팔공산', tel='010-9999-0000', mem_account='국민 000-00-00000' where mem_no=8;
 select * from SMS_mem;
+select * from SMS_cha_reply;
 select * from sms_mem where mem_no=1;
-
+drop table SMS_cha_reply;
 create table SMS_cha_reply (
-	rep_no int,
+	rep_no int primary key,
 	cha_no int,
 	cha_re_cont varchar2(255),
 	mem_no int,

@@ -74,7 +74,7 @@ public class SmsChaController {
 		SmsMem memNick = sms.memNick(1);
 		SmsCha smscha = scs.selectno(num);
 		model.addAttribute("smscha", smscha);
-		model.addAttribute("memNick", memNick.getNickname());
+		model.addAttribute("memno", memNick.getMem_no());
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}

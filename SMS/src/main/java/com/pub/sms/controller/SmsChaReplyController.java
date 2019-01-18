@@ -23,20 +23,21 @@ public class SmsChaReplyController {
 	private SmsMemService sms;
 	
 	@RequestMapping("replyList")
-	public String replyList(int rep_no, Model model) {
-		SmsCha smscha = scs.select(rep_no);
-		Collection<SmsChaReply> rbdList = scrl.list(rep_no);
-		
+	public String replyList(int cha_no, Model model) {
+		SmsCha smscha = scs.select(cha_no);
+		Collection<SmsChaReply> rbdList = scrl.list(cha_no);
 		SmsMem memNick = sms.memNick(1);
 		model.addAttribute("memNick", memNick.getNickname());
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("rbdList", rbdList);
+		
 		return "/cha/replyList";
 	}
-	@RequestMapping("/rInsert")
+	@RequestMapping("rInsert")
 	public String rInsert(SmsChaReply scr ) {
 		scrl.insert(scr);
-		return "replyList?Cha_no=${Cha_no}"+scr.getRep_no();
+		
+		return "redirect:replyList.do?cha_no="+scr.getCha_no();
 	}
 	
 	

@@ -10,7 +10,7 @@ public interface SmsChaReplyService {
 
 	void insert(SmsChaReply scr);
 
+	void delete(int rep_no);
 
-
-
+	void update(SmsChaReply scr);
 }

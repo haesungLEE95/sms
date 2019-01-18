@@ -39,6 +39,16 @@ public class SmsChaReplyController {
 		
 		return "redirect:replyList.do?cha_no="+scr.getCha_no();
 	}
+	@RequestMapping("rDelete")
+	public String rDelete(SmsChaReply scr ) {
+		scrl.delete(scr.getRep_no());
+		return "redirect:replyList.do?cha_no="+scr.getCha_no();
+	}
+	@RequestMapping("rUpdate")
+	public String rUpdate(SmsChaReply scr ) {
+		scrl.update(scr);
+		return "redirect:replyList.do?cha_no="+scr.getCha_no();
+	}
 	
 	
 }

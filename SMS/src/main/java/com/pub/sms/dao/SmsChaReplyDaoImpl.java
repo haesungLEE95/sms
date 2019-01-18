@@ -23,4 +23,15 @@ public class SmsChaReplyDaoImpl implements SmsChaReplyDao {
 
 		sst.insert("rechans.insert", scr);
 	}
+
+	@Override
+	public void delete(int rep_no) {
+		sst.update("rechans.delete", rep_no);
+	}
+
+	@Override
+	public void update(SmsChaReply scr) {
+		sst.update("rechans.update", scr);
+	}
+
 }

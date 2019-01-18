@@ -21,4 +21,10 @@
 		insert into SMS_cha_reply values(#{rep_no},#{cha_no},
 			#{cha_re_cont},#{mem_no},sysdate,sysdate,'n')
 	</insert>
+	<update id="delete" parameterType="int">
+		update SMS_cha_reply set del = 'y' where rep_no=#{rep_no} 
+	</update>
+	<update id="update" parameterType="recha">
+		update SMS_cha_reply set cha_re_cont=#{cha_re_cont}, regdate=sysdate,updatedate=sysdate where rep_no=#{rep_no}
+	</update>
 </mapper>

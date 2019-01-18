@@ -22,5 +22,17 @@ public class SmsChaReplyServiceImpl implements SmsChaReplyService {
 	public void insert(SmsChaReply scr) {
 		scrd.insert(scr);
 	}
+
+	@Override
+	public void delete(int rep_no) {
+		scrd.delete(rep_no);
+		
+	}
+
+	@Override
+	public void update(SmsChaReply scr) {
+		scrd.update(scr);
+	}
+
 	
 }

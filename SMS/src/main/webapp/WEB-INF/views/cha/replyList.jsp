@@ -52,7 +52,7 @@
 					<td>${rbd.updatedate}</td>
 					<!-- 원래는  댓글작성자와 로그인한 사람과 비교 -->
 					<td id="btn_${rbd.rep_no }">
-						<c:if test="${rbd.mem_no==smscha.cha_no}">
+						<c:if test="${rbd.mem_no==smscha.mem_no}">
 							<button class="btn btn-sm btn-warning"
 								onclick="rUpdate(${rbd.cha_no},${rbd.rep_no })">수정</button>
 							<button class="btn btn-sm btn-danger"

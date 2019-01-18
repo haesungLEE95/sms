@@ -8,8 +8,9 @@
 </head>
 <body>
 <script type="text/javascript">
-	location.href="list.do";
-	//location.href="chmcate.do";
+	//location.href="list.do";
+	//location.href="main_header.do";
+	location.href="smsSellBoardList.do";
 </script>
 </body>
 </html>

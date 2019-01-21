@@ -27,20 +27,10 @@ public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
 	public int insert(SmsSellBoard smssel) {
 		return sst.insert("smssellboardns.insert",smssel);
 	}
-	/*
-	@Override
-	public void updateReadcount(int num) {
-		sst.update("smssellboardns.updateReadcount",num);
-	}
 
 	@Override
 	public SmsSellBoard select(int num) {
 		return sst.selectOne("smssellboardns.select",num);
-	}
-
-	@Override
-	public void updateCondition(int num) {
-		sst.update("smssellboardns.updateCondition",num);
 	}
 
 	@Override
@@ -52,5 +42,4 @@ public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
 	public int delete(int num) {
 		return sst.delete("smssellboardns.delete",num);
 	}
-	*/
 }

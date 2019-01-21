@@ -15,7 +15,6 @@
 			<input type="hidden" name="scate_no" value="${smsReq.scate_no }">
 			<input type="hidden" name="mem_no" value="${smsReq.mem_no}">
 			<input type="hidden" name="rq_no" value="${smsReq.rq_no}">
-			<input type="hidden" name="passwd" value="${board.passwd}">
 			
 			<input type="hidden" name="pageNum" value="${pageNum}">
 			<table class="table table-hover">

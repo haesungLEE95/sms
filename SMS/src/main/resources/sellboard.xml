@@ -32,26 +32,18 @@
 		insert into sms_sellboard values (#{sb_no},#{sb_title},#{sb_desc},#{sb_price},'',
 			#{mem_no},#{mcate_no},#{scate_no},sysdate)
 	</insert>
-	<!--
-	<update id="updateReadcount" parameterType="int">
-		update sms_request set rq_count=rq_count+1 where rq_no=#{num}
-	</update>
 	
-	<update id="updateCondition" parameterType="int">
-		update sms_request set rq_cond=rq_cond+1 where rq_no=#{num}
-	</update>
-	
-	<select id="select" parameterType="int" resultType="smsreq">
-		select * from sms_request where rq_no=#{num}
+	<select id="select" parameterType="int" resultType="smssellboard">
+		select * from sms_sellboard where sb_no=#{num}
 	</select>
-	
-	<update id="update" parameterType="smsreq">
-		update sms_request set rq_title=#{rq_title}, rq_cont=#{rq_cont}, rq_date=sysdate,
-			rq_price=#{rq_price} where rq_no=#{rq_no}
+
+	<update id="update" parameterType="smssellboard">
+		update sms_sellboard set sb_title=#{sb_title}, sb_desc=#{sb_desc}, sb_date=sysdate, sb_img=#{sb_img}, sb_price=#{sb_price} where sb_no=#{sb_no}
 	</update>
+
 	<delete id="delete" parameterType="int">
-		delete from sms_request where rq_no=#{num}
-	</delete> -->
+		delete from sms_sellboard where sb_no=#{num}
+	</delete>
 </mapper>
 
 

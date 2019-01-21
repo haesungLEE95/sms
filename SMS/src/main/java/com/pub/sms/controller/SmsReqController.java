@@ -138,9 +138,9 @@ public class SmsReqController {
 	
 	@RequestMapping("main_header")
 	public String main_header(Model model) {
-		System.out.println("main");
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
+		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		return "main_header";

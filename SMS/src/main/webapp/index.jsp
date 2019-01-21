@@ -12,5 +12,5 @@
 	//location.href="main_header.do";
 	location.href="smsSellBoardList.do";
 </script>
-</body>
+</body>	
 </html>

@@ -12,4 +12,10 @@ public interface SmsSellBoardService {
 
 	int insert(SmsSellBoard smssel);
 
+	SmsSellBoard select(int num);
+
+	int update(SmsSellBoard smssel);
+
+	int delete(int num);
+
 }

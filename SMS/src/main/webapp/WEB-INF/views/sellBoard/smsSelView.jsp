@@ -6,7 +6,24 @@
 <script type="text/javascript">
 	$(function() {
 		$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
-
+		$('#rbdListDisp').load('smsReviewList.do?sb_no=${smssel.sb_no}');
+		$('#smsReviewInsert').click(function() {
+			if (!frm.re_cont.value) {
+				alert("댓글을 입력후에 사용하시오");
+				frm.re_cont.focus(); return false; }
+			if (!frm.re_score.value) {
+				alert("평가를 입력후에 사용하시오");
+				frm.re_score.focus(); return false; }
+	/* 		var sendData = 'bno='+frm.bn+o.value+
+						"&replyer="+frm.replyer+value+
+						"&replytext="+frm.replytext.value; */
+			var sendData = $('#frm').serialize();
+			$.post('smsReviewInsert.do',sendData, function(data) {
+				alert("댓글이 작성되었습니다");
+				$('#rbdListDisp').html(data);
+				frm.re_cont.value = "";
+			});
+		});
 	});
 </script></head><body>
 <div class="container" align="center">
@@ -42,7 +59,32 @@
 				
 			<%-- </c:if> --%></td></tr>
 	</table>
-
+	<h3 class="text-primary">댓글 작성</h3>
+		<form name="frm" id="frm">
+			<input type="hidden" name="sb_no" value="${smssel.sb_no}">
+			<input type="hidden" name="mem_no" value="1">
+			<table class="table table-hover">
+				<!-- 원래는 login한 사람 이름 또는 ID -->
+				<tr>
+					<td>작성자</td>
+					<td>로그인정보불러오기</td>
+					<td>평점</td>
+					<td>
+						<select name="re_score">
+							<option value="5">5</option>
+							<option value="4">4</option>
+							<option value="3">3</option>
+							<option value="2">2</option>
+							<option value="1">1</option>
+						</select>
+					</td>
+					<td>댓글</td>
+					<td><textarea rows="3" cols="30" name="re_cont"></textarea></td>
+					<td colspan="2"><input type="button" value="댓글입력" id="smsReviewInsert"></td>
+				</tr>
+			</table>
+		</form>
+		<div id="rbdListDisp"></div>
 		<div id="boardListDisp"></div>
 </div>
 </body>

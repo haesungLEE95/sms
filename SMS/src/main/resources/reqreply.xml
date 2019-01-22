@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="rbdns">
+<mapper namespace="smsreqreplyns">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
-	<resultMap id="rbdResult"			type="rbd">
+	<resultMap id="smsreqreplyResult"			type="smsreqreply">
 		<result property="rq_no"			column="rq_no" />
 		<result property="rq_re_no"			column="rq_re_no" />
 		<result property="rq_re_cont"	column="rq_re_cont" />
@@ -13,10 +13,10 @@
 		<result property="del"			column="del" />
 	</resultMap>
 	
-	<select id="list" parameterType="int" resultMap="rbdResult">
+	<select id="list" parameterType="int" resultMap="smsreqreplyResult">
 		select * from Sms_request_reply where rq_no=#{rq_no} order by rq_re_no
 	</select>
-	<insert id="insert" parameterType="rbd">
+	<insert id="insert" parameterType="smsreqreply">
 		<selectKey keyProperty="rq_re_no" order="BEFORE" resultType="int">
 			select nvl(max(rq_re_no), 0) + 1 from Sms_request_reply
 		</selectKey>
@@ -25,7 +25,7 @@
 	<update id="delete" parameterType="int">
 		update Sms_request_reply set del='y' where rq_re_no=#{rq_re_no}
 	</update>
-	<update id="update" parameterType="rbd">
+	<update id="update" parameterType="smsreqreply">
 		update Sms_request_reply set rq_re_cont=#{rq_re_cont}, updatedate=sysdate where rq_re_no=#{rq_re_no}
 	</update>
 </mapper>

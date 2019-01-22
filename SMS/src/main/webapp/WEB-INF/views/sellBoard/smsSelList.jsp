@@ -19,13 +19,11 @@
 			</div>
 		</div> -->
 		<h2 class="text-primary">판매 게시판 목록</h2>
-			<c:set var="row" value="0"></c:set>
 			<c:if test="${empty list}">
 				데이터가 없습니다
 			</c:if>
 			<c:if test="${not empty list}">
 				<c:forEach var="board" items="${list}">
-					<c:set var="num" value="${num + 1}"></c:set>				
 					<div class="col-sm-6 col-md-3">
 						<div class="thumbnail">
 							<c:if test="${board.sb_img=='' || board.sb_img==null }">
@@ -56,9 +54,7 @@
 							</div>
 						</div>
 					</div>
-					<c:if test="${num%5==0 }">
-						<hr>
-					</c:if>
+
 				</c:forEach>
 			</c:if>
 		<br>

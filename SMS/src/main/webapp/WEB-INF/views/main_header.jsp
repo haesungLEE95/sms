@@ -21,7 +21,7 @@
 									<li><a href="#">${scate.scate_name }</a></li>
 									</c:if>
 								</c:forEach>
-							</ul> </li>
+							</ul></li>
 					</c:forEach>
 					<li><a href="list.do">의뢰게시판 </a></li>
 					<li><a href="#">신고게시판 </a></li>

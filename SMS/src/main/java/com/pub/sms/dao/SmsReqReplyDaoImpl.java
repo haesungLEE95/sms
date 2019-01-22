@@ -15,22 +15,22 @@ public class SmsReqReplyDaoImpl implements SmsReqReplyDao{
 
 	@Override
 	public Collection<SmsReqReply> list(int rq_no) {
-		return sst.selectList("rbdns.list", rq_no);
+		return sst.selectList("smsreqreplyns.list", rq_no);
 	}
 
 	@Override
 	public void insert(SmsReqReply rb) {
-		sst.insert("rbdns.insert", rb);
+		sst.insert("smsreqreplyns.insert", rb);
 	}
 
 	@Override
 	public void delete(int rq_re_no) {
-		sst.update("rbdns.delete", rq_re_no);
+		sst.update("smsreqreplyns.delete", rq_re_no);
 	}
 
 	@Override
 	public void update(SmsReqReply rb) {
-		sst.update("rbdns.update", rb);
+		sst.update("smsreqreplyns.update", rb);
 	}
 
 }

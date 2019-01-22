@@ -40,8 +40,8 @@
 	<update id="firstUpdate" parameterType="mem">
 		update sms_mem
 		set
-		mem_img=coalesce(#{mem_img},''), addr=coalesce(#{addr},''), tel=coalesce(#{tel},''),
-		mem_account=coalesce(#{mem_account},'') where mem_id=#{mem_id}
+		addr=coalesce(#{addr},null), tel=coalesce(#{tel},null),
+		mem_account=coalesce(#{mem_account},null) where mem_id=#{mem_id}
 	</update>
 	<update id="updateImg" parameterType="mem">
 		update sms_mem set

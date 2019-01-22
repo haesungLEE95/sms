@@ -15,7 +15,7 @@ public class SmsMemDaoImpl implements SmsMemDao {
 	public SmsMem select(String mem_id) {
 		System.out.println("dao mem_id : "+mem_id);
 		SmsMem mem = (SmsMem) sst.selectOne("smsMemns.select", mem_id);
-		System.out.println( "dao mem = "+mem );
+		System.out.println( "dao mem = "+mem+"@");
 		return mem;
 		
 	}
@@ -41,11 +41,14 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return result;
 	}
 	public SmsMem memNick(int mem_no) {
+		//멤버 넘버로 회원목록을 조회하는 SQL
+		//신고게시판에서 멤버 넘버를 이용하여 닉네임을 불러오기 위한 목적으로 만듬
 		return (SmsMem) sst.selectOne("smsMemns.selectnick", mem_no);
 	}
 
 	@Override
 	public SmsMem nickSelect(String nickname) {
+		//닉네임으로 회원목록을 조회하는 SQL
 		return (SmsMem) sst.selectOne("smsMemns.nickselect", nickname);
 	}
 

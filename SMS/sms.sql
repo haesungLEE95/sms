@@ -26,3 +26,8 @@ ALTER TABLE temp RENAME SMS_mem;
 drop table sms_admin cascade constraint;
 
 select * from sms_mem where mem_id='kakak';
+
+select passwd from sms_mem;
+
+select * from sms_mem where mem_id='a12';
+

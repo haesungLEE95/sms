@@ -80,7 +80,7 @@ small {
      <form id="fileForm" action="profFileUpload" method="post"
         enctype="multipart/form-data">
         <input type="hidden" id="mem_id" name="mem_id" value="${mem_id}">
-        <input type="file" id="fileUp" name="fileUp">         
+        <input type="file" id="fileUp" name="fileUp" placeholder="프로필사진을 올려주세요" (change)="onFileChange($event)">         
         <input type="button" class="btn btn-info btn-sm" value="전송" onClick="fileSubmit();">
     </form>
  

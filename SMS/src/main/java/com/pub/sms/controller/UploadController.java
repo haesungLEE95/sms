@@ -3,6 +3,8 @@ package com.pub.sms.controller;
 import java.io.File;
 import java.util.Iterator;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import com.pub.sms.service.SmsMemService;
  
 @Controller
 public class UploadController {
+	
 	@Autowired
 	private SmsMemService sms;
 	
@@ -23,12 +26,12 @@ public class UploadController {
     }
      
     @RequestMapping("profFileUpload")
-    public String profFileUp(MultipartHttpServletRequest multi, String mem_id, SmsMem smem) {
+    public String profFileUp(MultipartHttpServletRequest multi, String mem_id) {
          
         // 저장 경로 설정
-        String root = multi.getSession().getServletContext().getRealPath("/");
-        String path = root+"resources"+File.separator+"upload"+File.separator;
-        System.out.println("path:"+path); 
+    	String root = multi.getSession().getServletContext().getRealPath("/");
+        String path = root+	"upload"+File.separator;
+        System.out.println("path: "+path); 
         String newFileName = ""; // 업로드 되는 파일명
          
         File dir = new File(path);

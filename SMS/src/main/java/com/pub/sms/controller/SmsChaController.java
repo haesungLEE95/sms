@@ -26,6 +26,7 @@ public class SmsChaController {
 		int endRow   = startRow + rowPerPage - 1;
 		smscha.setStartRow(startRow);
 		smscha.setEndRow(endRow);
+		//
 		
 		Collection<SmsCha> list = scs.list(smscha);
 		

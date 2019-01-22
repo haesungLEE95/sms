@@ -1,5 +1,8 @@
 package com.pub.sms.dao;
 
+import java.util.Collection;
+
+import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
 
 public interface SmsMemDao {

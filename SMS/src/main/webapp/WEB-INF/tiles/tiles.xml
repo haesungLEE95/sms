@@ -1,0 +1,60 @@
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="tilesbase"
+		template="/WEB-INF/views/layout/layout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="head"
+			value="/WEB-INF/views/layout/head.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="menu"
+			value="/WEB-INF/views/layout/menu.jsp" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/layout/footer.jsp" />
+	</definition>
+	
+	<definition name="/cha/smsChaList" extends="tilesbase">
+		<put-attribute name="title" value="신고글" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsChaList.jsp" />
+	</definition>
+	<definition name="/cha/smsInsertForm" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsInsertForm.jsp" />
+	</definition>
+	<definition name="/cha/smsInsert" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsInsert.jsp" />
+	</definition>
+	<definition name="/cha/smsView" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsView.jsp" />
+	</definition>
+	<definition name="/cha/smsUpdateForm" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
+	</definition>
+	<definition name="/cha/smsUpdate" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsUpdate.jsp" />
+	</definition>
+	 <definition name="/cha/smsDelete" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/smsDelete.jsp" />
+	</definition>
+   	<definition name="/cha/replyList" extends="tilesbase">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/replyList.jsp" />
+	</definition> 
+	
+	 
+
+</tiles-definitions>

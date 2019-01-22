@@ -19,11 +19,6 @@ public class SmsChaServiceImpl implements SmsChaService{
 	}
 	
 	@Override
-	public SmsCha select(SmsCha smscha) {
-		return scd.select(smscha);
-	}
-
-	@Override
 	public int insert(SmsCha smscha) {
 		return scd.insert(smscha);
 	}
@@ -34,13 +29,28 @@ public class SmsChaServiceImpl implements SmsChaService{
 	}
 
 	@Override
-	public SmsCha select(int num) {
-		return scd.select(num);
+	public SmsCha selectno(int num) {
+		return scd.selectno(num);
 	}
 
 	@Override
 	public int getTotal(SmsCha smscha) {
 		return scd.getTotal(smscha);
+	}
+
+	@Override
+	public int update(SmsCha smscha) {
+		return scd.update(smscha);
+	}
+
+	@Override
+	public int delete(int num) {
+		return scd.delete(num);
+	}
+
+	@Override
+	public SmsCha select(int num) {
+		return scd.select(num);
 	}
 
 

@@ -31,9 +31,9 @@
 	<select id="getTotal" parameterType="cha" resultType="int">
 		select count(*) from SMS_cha
 	</select>
-	<select id="select" parameterType="cha" resultMap="smschaResult">
-		select * from SMS_cha where mem_no = #{mem_no}
-	</select>
+	<select id="select" parameterType="int" resultType="cha">
+		select * from SMS_cha where cha_no = #{cha_no}
+	</select> 
 	<insert id="insert" parameterType="cha">
  		 <selectKey keyProperty="cha_no" order="BEFORE" resultType="int">
 				select nvl(max(cha_no), 0)+1 from SMS_cha
@@ -41,9 +41,15 @@
 		insert into SMS_cha values(#{cha_no},#{mem_no},#{cha_title},#{cha_cont},sysdate,#{cha_id},0)
 	</insert>
 	<update id="updateReadcount" parameterType="int">
-		update SMS_cha set cha_count = cha_count+1 where cha_no=#{ncha_noum}
+		update SMS_cha set cha_count = cha_count+1 where cha_no=#{cha_no}
 	</update>
-	<select id="selectno" parameterType="int">
-		select * from  SMS_cha where cha_no = #{cha_no}
+	<select id="selectno" parameterType="int" resultType="cha">
+		select * from  SMS_cha where cha_no=#{cha_no} 
 	</select>
+	<update id="update" parameterType="cha">
+		update SMS_cha set cha_title=#{cha_title}, cha_cont=#{cha_cont} where cha_no=#{cha_no}
+	</update>
+	<delete id="delete" parameterType="int">
+		delete from SMS_cha where cha_no=#{cha_no}
+	</delete>
 </mapper>

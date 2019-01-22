@@ -8,15 +8,19 @@ public interface SmsChaDao {
 
 	Collection<SmsCha> list(SmsCha smscha);
 
-	SmsCha select(SmsCha smscha);
-
 	int insert(SmsCha smscha);
 
 	void updateReadcount(int num);
 
-	SmsCha select(int num);
-
 	int getTotal(SmsCha smscha);
+
+	SmsCha selectno(int num);
+
+	int update(SmsCha smscha);
+
+	int delete(int num);
+
+	SmsCha select(int num);
 
 
 }

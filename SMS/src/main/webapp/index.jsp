@@ -16,7 +16,9 @@
 	// location.href="adminMain.do";
 	// location.href="adminLoginForm.do";
 
-	location.href="smsChaList.do";
+	//location.href="smsChaList.do";
+	location.href="main_header.do";
+	//location.href="smsSellBoardList.do";
 
 </script>
 </body>

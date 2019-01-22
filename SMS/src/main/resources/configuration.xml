@@ -4,10 +4,22 @@
 "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<typeAlias alias="smsreq" type="com.pub.sms.model.SmsReq" />
+		<typeAlias alias="smsmaincate" type="com.pub.sms.model.SmsMainCate" />
+		<typeAlias alias="smssubcate" type="com.pub.sms.model.SmsSubCate" />
+		<typeAlias alias="smsreqreply" type="com.pub.sms.model.SmsReqReply" />
+		<typeAlias alias="smsreview" type="com.pub.sms.model.SmsReview" />
+		<typeAlias alias="smssellboard" type="com.pub.sms.model.SmsSellBoard" />
 		<typeAlias alias="mem" type="com.pub.sms.model.SmsMem" />
 		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
 	</typeAliases>
 	<mappers>
+		<mapper resource="req.xml" />
+		<mapper resource="maincate.xml" />
+		<mapper resource="subcate.xml" />
+		<mapper resource="reqreply.xml" />
+		<mapper resource="review.xml" />
+		<mapper resource="sellboard.xml" />
 		<mapper resource="smsMem.xml" />
 		<mapper resource="smsCha.xml" />
 	</mappers>

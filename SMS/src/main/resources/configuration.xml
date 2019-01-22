@@ -10,6 +10,7 @@
 		<typeAlias alias="rbd" type="com.pub.sms.model.SmsReqReply" />
 		<typeAlias alias="mem" type="com.pub.sms.model.SmsMem" />
 		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
+		<typeAlias alias="admin" type="com.pub.sms.model.SmsAdmin" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="req.xml" />
@@ -18,5 +19,6 @@
 		<mapper resource="rbd.xml" />
 		<mapper resource="smsMem.xml" />
 		<mapper resource="smsCha.xml" />
+		<mapper resource="smsAdmin.xml"/>
 	</mappers>
 </configuration>

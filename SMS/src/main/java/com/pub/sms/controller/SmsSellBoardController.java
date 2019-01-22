@@ -28,7 +28,7 @@ public class SmsSellBoardController {
 	private SmsSellBoardService ssbs;
 	
 	@RequestMapping("smsSellBoardList")
-	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, Model model, HttpSession session) {
+	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 4;
@@ -44,9 +44,7 @@ public class SmsSellBoardController {
 
 		////글쓴이 정보 가져오기
 		
-/*		String path = session.getServletContext().getRealPath("/images");
-		System.out.println("path = "+path);
-		model.addAttribute("path", path);*/
+
 		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();

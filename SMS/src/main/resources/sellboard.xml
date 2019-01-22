@@ -17,14 +17,30 @@
 	<select id="getTotal" parameterType="smssellboard" resultType="int">
 		select count(*) from sms_sellboard
 	</select>
-	
+	<select id="getMCateTotal" parameterType="int" resultType="int">
+		select count(*) from sms_sellboard where mcate_no=#{mNum}
+	</select>
+	<select id="getSCateTotal" parameterType="int" resultType="int">
+		select count(*) from sms_sellboard where scate_no=#{sNum}
+	</select>
 	<select id="list" parameterType="smssellboard" resultMap="smssellboardResult">
 		select * from (select a.*, rowNum rn from (
 			select * from sms_sellboard 		
 			order by sb_no desc) a) 
 				where rn between #{startRow} and #{endRow}
 	</select>
-	
+	<select id="mCateList" parameterType="smssellboard" resultMap="smssellboardResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_sellboard where mcate_no=#{mcate_no}		
+			order by sb_no desc) a) 
+				where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="sCateList" parameterType="smssellboard" resultMap="smssellboardResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_sellboard where scate_no=#{scate_no} 		
+			order by sb_no desc) a) 
+				where rn between #{startRow} and #{endRow}
+	</select>
 	<insert id="insert" parameterType="smssellboard">
 		<selectKey keyProperty="sb_no" order="BEFORE" resultType="int">
 			select nvl(max(sb_no),0) + 1 from sms_sellboard

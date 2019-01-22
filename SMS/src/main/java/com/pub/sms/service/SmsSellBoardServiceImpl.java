@@ -44,4 +44,22 @@ public class SmsSellBoardServiceImpl implements SmsSellBoardService{
 	public int delete(int num) {
 		return ssbd.delete(num);
 	}
+
+	@Override
+	public int getMCateTotal(int mNum) {
+		return ssbd.getMCateTotal(mNum);
+	}
+	public int getSCateTotal(int sNum) {
+		return ssbd.getSCateTotal(sNum);
+	}
+
+	@Override
+	public Collection<SmsSellBoard> mCateList(SmsSellBoard smssel) {
+		return ssbd.mCateList(smssel);
+	}
+
+	@Override
+	public Collection<SmsSellBoard> sCateList(SmsSellBoard smssel) {
+		return ssbd.sCateList(smssel);
+	}
 }

@@ -28,18 +28,41 @@ public class SmsSellBoardController {
 	private SmsSellBoardService ssbs;
 	
 	@RequestMapping("smsSellBoardList")
-	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, Model model) {
+	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 4;
-		int total = ssbs.getTotal(smssel); 
+		
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow   = startRow + rowPerPage - 1;
 		smssel.setStartRow(startRow);
 		smssel.setEndRow(endRow);
 		// Collection<Board> list = bs.list(startRow, endRow);
-		Collection<SmsSellBoard> list = ssbs.list(smssel);
-		
+
+		System.out.println("mno = "+mno+", sno = "+sno);
+		int total;
+		Collection<SmsSellBoard> list;
+		if(mno==null) { //게시판 전체 선택시				mno = null, sno = null
+			total = ssbs.getTotal(smssel);
+			list = ssbs.list(smssel);
+		}
+		else if(sno==null) { //메인카테고리 전체 선택시		mno = 4, sno = null
+			int mNum=Integer.parseInt(mno);
+			smssel.setMcate_no(mNum);
+			total = ssbs.getMCateTotal(mNum);
+			list = ssbs.mCateList(smssel);
+		}
+		else { //서브 카테고리 선택시						mno = 4, sno = 20
+			int mNum=Integer.parseInt(mno);
+			int sNum=Integer.parseInt(sno);
+			smssel.setMcate_no(mNum);
+			smssel.setScate_no(sNum);
+			total = ssbs.getSCateTotal(sNum);
+			list = ssbs.sCateList(smssel);
+		}
+
+
+
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
 
 		////글쓴이 정보 가져오기
@@ -125,5 +148,10 @@ public class SmsSellBoardController {
 		
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelDelete";
+	}
+	@RequestMapping("aaa")
+	public String aaa(int num, Model model) {
+		model.addAttribute("num",num);
+		return "sellBoard/aaa";
 	}
 }

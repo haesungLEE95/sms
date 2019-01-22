@@ -18,4 +18,12 @@ public interface SmsSellBoardDao {
 
 	int delete(int num);
 
+	int getMCateTotal(int mNum);
+
+	int getSCateTotal(int sNum);
+
+	Collection<SmsSellBoard> mCateList(SmsSellBoard smssel);
+
+	Collection<SmsSellBoard> sCateList(SmsSellBoard smssel);
+
 }

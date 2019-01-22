@@ -42,4 +42,24 @@ public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
 	public int delete(int num) {
 		return sst.delete("smssellboardns.delete",num);
 	}
+
+	@Override
+	public int getMCateTotal(int mNum) {
+		return sst.selectOne("smssellboardns.getMCateTotal", mNum);
+	}
+
+	@Override
+	public int getSCateTotal(int sNum) {
+		return sst.selectOne("smssellboardns.getSCateTotal", sNum);
+	}
+
+	@Override
+	public Collection<SmsSellBoard> mCateList(SmsSellBoard smssel) {
+		return sst.selectList("smssellboardns.mCateList", smssel);
+	}
+
+	@Override
+	public Collection<SmsSellBoard> sCateList(SmsSellBoard smssel) {
+		return sst.selectList("smssellboardns.sCateList", smssel);
+	}
 }

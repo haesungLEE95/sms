@@ -17,9 +17,10 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> ${mcate.mcate_name } <b class="caret"></b></a>
 							<ul class="dropdown-menu">
+								<li><a href="smsSellBoardList.do?mno=${mcate.mcate_no }">${mcate.mcate_name } 전체</a></li>
 								<c:forEach var="scate" items="${scateList}">
 									<c:if test="${mcate.mcate_no==scate.mcate_no }">
-									<li><a href="#">${scate.scate_name }</a></li>
+									<li><a href="smsSellBoardList.do?mno=${scate.mcate_no }&sno=${scate.scate_no }">${scate.scate_name }</a></li>
 									</c:if>
 								</c:forEach>
 							</ul></li>

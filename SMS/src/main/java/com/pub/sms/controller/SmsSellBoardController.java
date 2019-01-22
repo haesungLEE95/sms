@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsMainCate;
-import com.pub.sms.model.SmsReq;
 import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
@@ -149,9 +148,5 @@ public class SmsSellBoardController {
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelDelete";
 	}
-	@RequestMapping("aaa")
-	public String aaa(int num, Model model) {
-		model.addAttribute("num",num);
-		return "sellBoard/aaa";
-	}
+
 }

@@ -38,7 +38,7 @@
 			</tr>
 			<tr>
 			<td colspan="2"><input type="submit" value="확인">
-			<input type="button" value="취소" onclick="location.href='smsChaList.do'"></td>
+			<input type="button" value="취소" onclick="location.href='smsChaList.do?pageNum=${pageNum}'"></td>
 			</tr>
  		</table>
 	</form>

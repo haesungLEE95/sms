@@ -95,9 +95,10 @@ public class SmsChaController {
 		return "/cha/smsUpdate";
 	}
 	@RequestMapping("smsDelete")
-	public String smsDelete(int num, Model model) {
+	public String smsDelete(int num, String pageNum, Model model) {
 		int result = scs.delete(num);
 		model.addAttribute("result", result);
+		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsDelete";
 	}
 }

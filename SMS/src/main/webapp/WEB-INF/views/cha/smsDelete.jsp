@@ -11,7 +11,7 @@
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 			alert("삭제성공");
-			location.href="smsChaList.do";
+			location.href="smsChaList.do?pageNum=${pageNum}";
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">

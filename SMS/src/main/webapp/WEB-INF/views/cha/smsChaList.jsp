@@ -22,7 +22,7 @@
 			<c:forEach var="smscha" items="${list }">
 				<tr>
 					<td>${smscha.cha_no}</td>
-					<td><a href="smsView.do?num=${smscha.cha_no}">${smscha.cha_title}</a>
+					<td><a href="smsView.do?num=${smscha.cha_no}&pageNum=${pb.currentPage}">${smscha.cha_title}</a>
 					</td>
 					<td>${memNick}</td>
 					<td>${smscha.cha_count}</td>

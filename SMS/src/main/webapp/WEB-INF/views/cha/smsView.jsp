@@ -33,7 +33,7 @@
 <body>
 	<div class="container" align="center">
 		<h2>상세보기</h2>
-		<table class="table table-hover">
+		<table class="table table-hover" style="align-content: center;">
 			<tr>
 				<td>제목</td>
 				<td>${smscha.cha_title}</td>

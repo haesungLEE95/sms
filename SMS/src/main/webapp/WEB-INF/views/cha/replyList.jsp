@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ include file="../header.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -33,8 +34,8 @@
 </script> 
 </head>
 <body>
-<div class="container">
-		<h2 class="text-primary">댓글 목록</h2>
+<div class="container" align="center">
+		<h2 class="text-primary" align="center">댓글 목록</h2>
 		<table class="table table-striped">
 			<tr><td>작성자</td><td>내용</td><td>작성일</td></tr>
 			<c:if test="${empty rbdList }">

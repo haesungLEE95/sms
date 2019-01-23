@@ -8,8 +8,6 @@
 		<put-attribute name="head"
 			value="/WEB-INF/views/layout/head.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="menu"
-			value="/WEB-INF/views/layout/menu.jsp" />
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
@@ -19,16 +17,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsChaList.jsp" />
 	</definition>
-	<definition name="/cha/smsInsertForm" extends="tilesbase">
+	<definition name="/cha/smsInsertForm" extends="tilesbase" >
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsertForm.jsp" />
 	</definition>
-	<definition name="/cha/smsInsert" extends="tilesbase">
+<!-- 	<definition name="/cha/smsInsert" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsert.jsp" />
-	</definition>
+	</definition> -->
 	<definition name="/cha/smsView" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
@@ -39,22 +37,19 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
 	</definition>
-	<definition name="/cha/smsUpdate" extends="tilesbase">
+<!-- 	<definition name="/cha/smsUpdate" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdate.jsp" />
-	</definition>
+	</definition> -->
 	 <definition name="/cha/smsDelete" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsDelete.jsp" />
 	</definition>
-   	<definition name="/cha/replyList" extends="tilesbase">
+     <definition name="/cha/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
-	</definition> 
-	
-	 
-
+	</definition>    
 </tiles-definitions>

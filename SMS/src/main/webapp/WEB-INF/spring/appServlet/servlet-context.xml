@@ -16,26 +16,28 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
 		in the /WEB-INF/views directory -->
-      <beans:bean
+ 
+<!--        <beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 		</beans:bean> 
-	
+	 -->
 	 <context:component-scan
 		base-package="com.pub.sms" /> 
 
-<!-- 	 tiles 뷰 리졸버 
+	<!--  tiles 뷰 리졸버  -->
 	<beans:bean id="tilesviewResolver"
 		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver"/>
-	tiles 설정 
+	<!-- tiles 설정  -->
 	<beans:bean id="tilesConfigurer"
 		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
 		<beans:property name="definitions">
 			<beans:list>
 				<beans:value>/WEB-INF/tiles/tiles.xml</beans:value>
+				<!-- <beans:value>/WEB-INF/tiles/tiles2.xml</beans:value> -->
 			</beans:list>
 		</beans:property>
-	</beans:bean>  -->
+	</beans:bean> 
 </beans:beans>
 

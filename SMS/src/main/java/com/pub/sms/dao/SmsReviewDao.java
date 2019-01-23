@@ -10,6 +10,6 @@ public interface SmsReviewDao {
 	void insert(SmsReview rb);
 
 	void delete(int re_no);
-	//asdfasdf
+
 	void update(SmsReview rb);
 }

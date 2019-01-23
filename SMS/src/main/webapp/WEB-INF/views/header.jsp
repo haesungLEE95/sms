@@ -12,3 +12,5 @@
 <script src="${path}/js/jquery.js"></script>
 <script src="${path}/js/bootstrap.min.js"></script>
 <style> .err { color: red; font-weight: bold; }</style>
+<link href="<%=request.getContextPath() %>/css/sub.css" type="text/css" rel="stylesheet" />
+<link href="<%=request.getContextPath() %>/css/default.css" type="text/css" rel="stylesheet" />

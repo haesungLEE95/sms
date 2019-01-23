@@ -1,0 +1,39 @@
+@charset "UTF-8";
+a{
+   text-decoration:none;
+	color:#555;
+}
+ul li{
+	list-style:none;
+	text-decoration: none;
+}
+
+.mainbox{
+	width: 400px;
+	height: auto;
+	border: 1px solid #ddd;
+	position: relative;
+}
+.mainbox2{
+	position: absolute;
+	left: 50px;
+	
+}
+.mainbox3{
+	position: absolute;
+	bottom: 20px;
+	left: 26px;
+}
+.mainbox3 img{
+	border: 1px solid #ddd;
+}
+
+.mainbox4{
+	position: absolute;
+	padding:0;
+	right: -77px;
+	top: 35px;
+}
+.btn{
+	padding: 0;
+}

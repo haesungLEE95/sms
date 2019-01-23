@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsAdminns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="smsAdminResult" 			type="admin">
+		<result property="admin_no" 	    	column="admin_no" />
+		<result property="admin_id"    		column="admin_id" />
+		<result property="passwd"      		column="passwd" />
+	</resultMap>
+	
+	<select id="adminSel" parameterType="string" resultType="admin">
+		select * from sms_admin where admin_id=#{admin_id}
+	</select>
+
+</mapper>

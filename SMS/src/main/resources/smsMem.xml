@@ -36,5 +36,44 @@
 		set nvl(mem_img=#{mem_img},''), nvl(addr=#{addr},''), nvl(tel=#{tel},''), nvl(mem_account=#{mem_account},'') where mem_id=#{mem_id}
 	</update>
 	<!-- <delete id="delete"></delete> -->
+	<select id="adminMemList" parameterType="mem" resultMap="smsMemResult">
+		 select * from (select a.*, rowNum rn from (
+			select * from sms_mem 
+ 		<where>
+			<if test="keyword!=null and keyword!=''">
+				<if test="search != 'namenick'">
+					${search} like '%'||#{keyword}||'%'
+				</if>
+				<if test="search == 'namenick'">
+					mem_name like '%'||#{keyword}||'%' or
+					nickname like '%'||#{keyword}||'%' 
+				</if>
+			</if>
+		</where> 
+		order by mem_no desc) a where mem_del=0) 
+				where rn between #{startRow} and #{endRow}
+	</select>
 
+	<select id="adminTotal" parameterType="mem" resultType="int">
+		select count(*) from sms_mem
+		<where>
+			<if test="keyword!=null and keyword!=''">
+				<if test="search=='namenick'">
+					(mem_name like '%'||#{keyword}||'%' or
+					nickname like '%'||#{keyword}||'%') and mem_del=0
+				</if>
+				<if test="search!='namenick'">
+					(${search} like '%'||#{keyword}||'%') and mem_del=0
+				</if>
+			</if>
+			<if test="keyword==null or keyword==''">
+				mem_del=0
+			</if>
+		</where>
+	</select>
+
+	<update id="adminDelMem" parameterType="String">
+		update sms_mem set mem_del=1 where mem_no=#{mem_no}
+	</update>
+	
 </mapper>

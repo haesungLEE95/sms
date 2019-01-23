@@ -1,5 +1,4 @@
 package com.pub.sms.model;
-
 public class SmsSubCate {
 	private int scate_no; 
 	private int mcate_no; 

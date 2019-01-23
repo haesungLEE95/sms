@@ -25,6 +25,7 @@
 	<update id="delete" parameterType="int">
 		update Sms_request_reply set del='y' where rq_re_no=#{rq_re_no}
 	</update>
+	
 	<update id="update" parameterType="smsreqreply">
 		update Sms_request_reply set rq_re_cont=#{rq_re_cont}, updatedate=sysdate where rq_re_no=#{rq_re_no}
 	</update>

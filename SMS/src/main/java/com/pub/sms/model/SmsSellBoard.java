@@ -1,5 +1,4 @@
 package com.pub.sms.model;
-
 import java.sql.Date;
 
 public class SmsSellBoard {

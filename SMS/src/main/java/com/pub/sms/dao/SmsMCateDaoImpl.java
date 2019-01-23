@@ -13,7 +13,6 @@ import com.pub.sms.model.SmsSubCate;
 public class SmsMCateDaoImpl implements SmsMCateDao {
 	@Autowired
 	private SqlSessionTemplate sst;
-	//1
 	@Override
 	public Collection<SmsMainCate> list() {
 		return sst.selectList("smsmaincatens.list");

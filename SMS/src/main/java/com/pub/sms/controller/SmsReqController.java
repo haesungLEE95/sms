@@ -135,7 +135,6 @@ public class SmsReqController {
 		model.addAttribute("pageNum", pageNum);
 		return "req/delete";
 	}
-	
 	@RequestMapping("main_header")
 	public String main_header(Model model) {
 		Collection<SmsMainCate> mcateList = sms.list();

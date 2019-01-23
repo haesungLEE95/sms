@@ -13,5 +13,4 @@ public interface SmsReqReplyDao {
 	void delete(int rq_re_no);
 
 	void update(SmsReqReply rb);
-
 }

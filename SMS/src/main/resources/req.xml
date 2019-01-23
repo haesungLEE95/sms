@@ -25,7 +25,6 @@
 			order by rq_no desc) a) 
 				where rn between #{startRow} and #{endRow}
 	</select>
-	
 	<insert id="insert" parameterType="smsreq">
 		<selectKey keyProperty="rq_no" order="BEFORE" resultType="int">
 			select nvl(max(rq_no),0) + 1 from sms_request

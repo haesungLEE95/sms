@@ -12,7 +12,6 @@ import com.pub.sms.model.SmsSubCate;
 public class SmsSCateDaoImpl implements SmsSCateDao {
 	@Autowired
 	private SqlSessionTemplate sst;
-
 	@Override
 	public Collection<SmsSubCate> list() {
 		return sst.selectList("smssubcatens.list");

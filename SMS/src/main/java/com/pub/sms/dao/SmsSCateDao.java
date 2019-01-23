@@ -8,5 +8,4 @@ public interface SmsSCateDao {
 
 	Collection<SmsSubCate> list();
 	Collection<SmsSubCate> selectlist(int pickmcate);
-
 }

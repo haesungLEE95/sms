@@ -17,7 +17,6 @@ public class SmsReqReplyDaoImpl implements SmsReqReplyDao{
 	public Collection<SmsReqReply> list(int rq_no) {
 		return sst.selectList("smsreqreplyns.list", rq_no);
 	}
-
 	@Override
 	public void insert(SmsReqReply rb) {
 		sst.insert("smsreqreplyns.insert", rb);

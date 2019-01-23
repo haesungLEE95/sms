@@ -25,5 +25,4 @@ public interface SmsSellBoardDao {
 	Collection<SmsSellBoard> mCateList(SmsSellBoard smssel);
 
 	Collection<SmsSellBoard> sCateList(SmsSellBoard smssel);
-
 }

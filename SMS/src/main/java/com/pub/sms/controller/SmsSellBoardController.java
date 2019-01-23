@@ -37,8 +37,6 @@ public class SmsSellBoardController {
 		smssel.setStartRow(startRow);
 		smssel.setEndRow(endRow);
 		// Collection<Board> list = bs.list(startRow, endRow);
-
-		System.out.println("mno = "+mno+", sno = "+sno);
 		int total;
 		Collection<SmsSellBoard> list;
 		if(mno==null) { //게시판 전체 선택시				mno = null, sno = null

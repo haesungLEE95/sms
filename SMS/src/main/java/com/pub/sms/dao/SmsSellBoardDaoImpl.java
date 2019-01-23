@@ -52,7 +52,6 @@ public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
 	public int getSCateTotal(int sNum) {
 		return sst.selectOne("smssellboardns.getSCateTotal", sNum);
 	}
-
 	@Override
 	public Collection<SmsSellBoard> mCateList(SmsSellBoard smssel) {
 		return sst.selectList("smssellboardns.mCateList", smssel);

@@ -30,7 +30,6 @@ public class ReplyBoardController {
 		model.addAttribute("rbdList", rbdList);
 		return "req/replyList";
 	}
-	
 	@RequestMapping("rInsert")
 	public String rInsert(SmsReqReply rb) {
 		srrs.insert(rb);

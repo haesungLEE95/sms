@@ -41,6 +41,7 @@
 			order by sb_no desc) a) 
 				where rn between #{startRow} and #{endRow}
 	</select>
+	
 	<insert id="insert" parameterType="smssellboard">
 		<selectKey keyProperty="sb_no" order="BEFORE" resultType="int">
 			select nvl(max(sb_no),0) + 1 from sms_sellboard

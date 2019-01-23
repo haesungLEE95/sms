@@ -12,12 +12,10 @@ import com.pub.sms.model.SmsReq;
 public class SmsReqDaoImpl implements SmsReqDao {
 	@Autowired
 	private SqlSessionTemplate sst;
-
 	@Override
 	public int getTotal(SmsReq smsReq) {
 		return sst.selectOne("smsreqns.getTotal", smsReq);
 	}
-
 	@Override
 	public Collection<SmsReq> list(SmsReq smsReq) {
 		return sst.selectList("smsreqns.list", smsReq);

@@ -9,5 +9,4 @@ public interface SmsMCateDao {
 
 	Collection<SmsMainCate> list();
 
-
 }

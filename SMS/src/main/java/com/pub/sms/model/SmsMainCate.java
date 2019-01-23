@@ -3,7 +3,6 @@ package com.pub.sms.model;
 public class SmsMainCate {
     private int mcate_no; 
     private String mcate_name;
-    
 	public int getMcate_no() {
 		return mcate_no;
 	}

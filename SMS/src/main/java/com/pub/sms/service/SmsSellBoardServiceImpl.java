@@ -44,7 +44,6 @@ public class SmsSellBoardServiceImpl implements SmsSellBoardService{
 	public int delete(int num) {
 		return ssbd.delete(num);
 	}
-
 	@Override
 	public int getMCateTotal(int mNum) {
 		return ssbd.getMCateTotal(mNum);

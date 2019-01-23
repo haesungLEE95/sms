@@ -9,7 +9,6 @@ public interface SmsReqDao {
 	int getTotal(SmsReq smsReq);
 
 	Collection<SmsReq> list(SmsReq smsReq);
-
 	int insert(SmsReq smsReq);
 
 	void updateReadcount(int num);

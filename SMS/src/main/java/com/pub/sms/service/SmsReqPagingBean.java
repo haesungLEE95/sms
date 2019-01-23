@@ -1,5 +1,4 @@
 package com.pub.sms.service;
-
 public class SmsReqPagingBean {
 	private int currentPage;	private int rowPerPage;
 	private int total;			private int pagePerBlock = 10;

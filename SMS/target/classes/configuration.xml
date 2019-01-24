@@ -10,6 +10,9 @@
 		<typeAlias alias="smsreqreply" type="com.pub.sms.model.SmsReqReply" />
 		<typeAlias alias="smsreview" type="com.pub.sms.model.SmsReview" />
 		<typeAlias alias="smssellboard" type="com.pub.sms.model.SmsSellBoard" />
+		<typeAlias alias="mem" type="com.pub.sms.model.SmsMem" />
+		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
+		<typeAlias alias="recha" type="com.pub.sms.model.SmsChaReply" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="req.xml" />
@@ -18,6 +21,9 @@
 		<mapper resource="reqreply.xml" />
 		<mapper resource="review.xml" />
 		<mapper resource="sellboard.xml" />
+		<mapper resource="smsMem.xml" />
+		<mapper resource="smsCha.xml" />
+		<mapper resource="smsRecha.xml" />
 	</mappers>
 	
 </configuration>

@@ -7,11 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	//location.href="list.do";
-	//location.href="main_header.do";
-	location.href="smsChaList.do";
-	//location.href="smsSellBoardList.do";
-</script>
+프리랜서마켓
 </body>
 </html>

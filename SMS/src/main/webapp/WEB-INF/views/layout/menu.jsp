@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
-	//location.href="list.do";
-	//location.href="main_header.do";
-	location.href="smsChaList.do";
-	//location.href="smsSellBoardList.do";
-</script>
+<a>메뉴</a><p>
+<a>메뉴2</a><p>
+<a>메뉴3</a><p>
+<a>메뉴4</a><p>
+<a>메뉴5</a><p>
+<a>메뉴6</a><p>
 </body>
 </html>

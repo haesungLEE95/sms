@@ -18,10 +18,8 @@ import com.pub.sms.model.SmsMem;
 import com.pub.sms.service.SmsAdminService;
 @Controller
 public class SmsAdminController {
-	
 	@Autowired
 	private SmsAdminService sas;
-	
 	@RequestMapping("smsMemList")
 	public String smsMemList(String pageNum, Model model, SmsMem smsMem) {
 		int rowPerPage = 10;

@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-11
 </head>
 <body>
-
+<script type="text/javascript">
+	alert(message);
+	 location.href="smsMemList.do";
+</script>
 </body>
 </html>

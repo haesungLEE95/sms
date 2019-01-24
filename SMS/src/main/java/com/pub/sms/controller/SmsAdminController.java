@@ -16,9 +16,6 @@ import com.pub.sms.service.PagingBean;
 import com.pub.sms.model.SmsAdmin;
 import com.pub.sms.model.SmsMem;
 import com.pub.sms.service.SmsAdminService;
-
-
-
 @Controller
 public class SmsAdminController {
 	

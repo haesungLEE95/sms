@@ -21,8 +21,8 @@ public class ReplyBoardController {
 	@Autowired
 	private SmsReqReplyService srrs; 
 	
-	@RequestMapping("replyList")
-	public String replyList(int rq_no, Model model) {
+	@RequestMapping("smsReqreplyList")
+	public String smsReqreplyList(int rq_no, Model model) {
 		SmsReq smsReq = srs.select(rq_no);
 		Collection<SmsReqReply> rbdList = srrs.list(rq_no);
 		
@@ -30,20 +30,20 @@ public class ReplyBoardController {
 		model.addAttribute("rbdList", rbdList);
 		return "req/replyList";
 	}
-	@RequestMapping("rInsert")
-	public String rInsert(SmsReqReply rb) {
+	@RequestMapping("smsReqrInsert")
+	public String smsReqrInsert(SmsReqReply rb) {
 		srrs.insert(rb);
-		return "redirect:replyList.do?rq_no="+rb.getRq_no();
+		return "redirect:smsReqreplyList.do?rq_no="+rb.getRq_no();
 	}
-	@RequestMapping("rDelete")
-	public String rDelete(SmsReqReply rb) {
+	@RequestMapping("smsReqrDelete")
+	public String smsReqrDelete(SmsReqReply rb) {
 		srrs.delete(rb.getRq_re_no());
-		return "redirect:replyList.do?rq_no="+rb.getRq_no();
+		return "redirect:smsReqreplyList.do?rq_no="+rb.getRq_no();
 	}
 	
-	@RequestMapping("rUpdate")
-	public String rUpdate(SmsReqReply rb) {
+	@RequestMapping("smsReqrUpdate")
+	public String smsReqrUpdate(SmsReqReply rb) {
 		srrs.update(rb);
-		return "redirect:replyList.do?rq_no="+rb.getRq_no();
+		return "redirect:smsReqreplyList.do?rq_no="+rb.getRq_no();
 	}
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsreviewns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="smsreviewResult"			type="smsreview">
+		<result property="re_no"			column="rq_no" />
+		<result property="sb_no"			column="rq_re_no" />
+		<result property="re_cont"			column="re_cont" />
+		<result property="re_score"			column="re_score" />
+		<result property="mem_no"			column="mem_no" />
+	</resultMap>
+	<select id="list" parameterType="int" resultMap="smsreviewResult">
+		select * from Sms_review where sb_no=#{sb_no} order by re_no
+	</select>
+	<insert id="insert" parameterType="smsreqreply">
+		<selectKey keyProperty="re_no" order="BEFORE" resultType="int">
+			select nvl(max(re_no), 0) + 1 from Sms_review
+		</selectKey>
+		insert into Sms_review values (#{re_no}, #{sb_no}, #{re_cont}, #{re_score}, #{mem_no})
+	</insert>
+	<update id="delete" parameterType="int">
+		delete from Sms_review where re_no=#{re_no}
+	</update>
+	<update id="update" parameterType="smsreqreply">
+		update Sms_review set re_cont=#{re_cont}, re_score=#{re_score} where re_no=#{re_no}
+	</update>
+</mapper>

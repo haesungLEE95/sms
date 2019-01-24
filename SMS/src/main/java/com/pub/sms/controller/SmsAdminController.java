@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.pub.sms.service.PagingBean;
+import com.pub.sms.model.PagingBean2;
 import com.pub.sms.model.SmsAdmin;
 import com.pub.sms.model.SmsMem;
 import com.pub.sms.service.SmsAdminService;
@@ -34,7 +34,7 @@ public class SmsAdminController {
 		int startRow = (currentPage - 1)*rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
 		int total = sas.total(smsMem); 
-		PagingBean pb=new PagingBean(currentPage,rowPerPage,total);
+		PagingBean2 pb=new PagingBean2(currentPage,rowPerPage,total);
 		int no = total - startRow + 1;
 		smsMem.setStartRow(startRow);
 		smsMem.setEndRow(endRow);
@@ -72,7 +72,7 @@ public class SmsAdminController {
 		int startRow = (currentPage - 1)*rowPerPage + 1;
 		int endRow = startRow + rowPerPage - 1;
 		int total = sas.total(smsMem); 
-		PagingBean pb=new PagingBean(currentPage,rowPerPage,total);
+		PagingBean2 pb=new PagingBean2(currentPage,rowPerPage,total);
 		int no = total - startRow + 1;
 		sm1.setStartRow(startRow);
 		sm1.setEndRow(endRow);

@@ -2,7 +2,6 @@ package com.pub.sms.dao;
 
 import java.util.Collection;
 
-
 import com.pub.sms.model.SmsReview;
 public interface SmsReviewDao {
 

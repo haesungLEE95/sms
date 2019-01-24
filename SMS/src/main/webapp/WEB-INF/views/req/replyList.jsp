@@ -7,14 +7,14 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<script type="text/javascript">
-		function rDelete(rq_no, rq_re_no) {
+		function smsReqrDelete(rq_no, rq_re_no) {
 			var sendData = "rq_no="+rq_no+"&rq_re_no="+rq_re_no;
-			$.post('rDelete.do', sendData, function(data) {
+			$.post('smsReqrDelete.do', sendData, function(data) {
 				alert("댓글이 삭제되었습니다");
 				$('#rbdListDisp').html(data);
 			});
 		}
-		function rUpdate(rq_no, rq_re_no) {
+		function smsReqrUpdate(rq_no, rq_re_no) {
 			var txt =$('#td_'+rq_re_no).text();
 			$('#td_'+rq_re_no).html('<textarea rows="3" cols="30" id="rt">'+txt+'</textarea>');
 			$('#btn_'+rq_re_no).html('<button onclick="up('+rq_no+', '+rq_re_no+')" class="btn btn-sm btn-danger">수정완료</button>'+
@@ -23,13 +23,13 @@
 		function up(rq_no, rq_re_no) {
 			var sendData = "rq_re_cont="+$('#rt').val()+
 				"&rq_no="+rq_no+"&rq_re_no="+rq_re_no;
-			$.post('rUpdate.do', sendData, function(data) {
+			$.post('smsReqrUpdate.do', sendData, function(data) {
 				alert("댓글 수정 완료");
 				$('#rbdListDisp').html(data);
 			});
 		}
 		function lst(rq_no) {
-			$('#rbdListDisp').load('replyList.do?rq_no='+rq_no);
+			$('#rbdListDisp').load('smsReqreplyList.do?rq_no='+rq_no);
 		}
 	</script>
 </head>
@@ -53,9 +53,9 @@
 							<td id="btn_${rbd.rq_re_no }">
 							<c:if test="${rbd.mem_no==smsReq.mem_no }">
 								<button class="btn btn-sm btn-warning"
-									onclick="rUpdate(${rbd.rq_no},${rbd.rq_re_no })">수정</button>
+									onclick="smsReqrUpdate(${rbd.rq_no},${rbd.rq_re_no })">수정</button>
 								<button class="btn btn-sm btn-danger"
-									onclick="rDelete(${rbd.rq_no},${rbd.rq_re_no })">삭제</button>
+									onclick="smsReqrDelete(${rbd.rq_no},${rbd.rq_re_no })">삭제</button>
 							</c:if></td>
 					</c:if>
 				</c:forEach>

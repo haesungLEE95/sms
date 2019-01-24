@@ -6,8 +6,8 @@
 <script type="text/javascript">
 	$(function() {
 		$('#boardListDisp').load('list.do?pageNum=${pageNum}');
-		$('#rbdListDisp').load('replyList.do?rq_no=${smsReq.rq_no}');
-		$('#rInsert').click(function() {
+		$('#rbdListDisp').load('smsReqreplyList.do?rq_no=${smsReq.rq_no}');
+		$('#smsReqrInsert').click(function() {
 			if (!frm.rq_re_cont.value) {
 				alert("댓글을 입력후에 사용하시오");
 				frm.rq_re_cont.focus(); return false; }
@@ -15,7 +15,7 @@
 						"&replyer="+frm.replyer+value+
 						"&replytext="+frm.replytext.value; */
 			var sendData = $('#frm').serialize();
-			$.post('rInsert.do',sendData, function(data) {
+			$.post('smsReqrInsert.do',sendData, function(data) {
 				alert("댓글이 작성되었습니다");
 				$('#rbdListDisp').html(data);
 				frm.rq_re_cont.value = "";
@@ -75,7 +75,7 @@
 					<td>로그인정보불러오기</td>
 					<td>댓글</td>
 					<td><textarea rows="3" cols="30" name="rq_re_cont"></textarea></td>
-					<td colspan="2"><input type="button" value="댓글입력" id="rInsert"></td>
+					<td colspan="2"><input type="button" value="댓글입력" id="smsReqrInsert"></td>
 				</tr>
 			</table>
 		</form>

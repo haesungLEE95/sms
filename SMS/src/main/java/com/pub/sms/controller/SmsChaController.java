@@ -16,7 +16,6 @@ import com.pub.sms.model.SmsMem;
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
 import com.pub.sms.service.SmsMemService;
-
 @Controller
 public class SmsChaController {
 	@Autowired

@@ -8,11 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	// location.href="smsChaList.do";
-	// location.href="smsMemList.do";
-	// location.href="adminMain.do";
 	 location.href="adminLoginForm.do";
-	// location.href="main.do";
 </script>
 </body>
 </html>

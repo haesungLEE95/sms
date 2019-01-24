@@ -11,8 +11,28 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
+
+     <definition name="/cha/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/cha/replyList.jsp" />
+	</definition>
 	
-	<definition name="/cha/smsChaList" extends="tilesbase">
+	<!-- tiles -->
+	<definition name="*/*" extends="tilesbase">
+		<put-attribute name="title" value="신고글" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+	<definition name="/*/*" extends="tilesbase">
+		<put-attribute name="title" value="신고글" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/{1}/{2}.jsp" />
+	</definition>
+
+	
+
+	<!-- <definition name="/cha/smsChaList" extends="tilesbase">
 		<put-attribute name="title" value="신고글" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsChaList.jsp" />
@@ -22,11 +42,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsertForm.jsp" />
 	</definition>
-<!-- 	<definition name="/cha/smsInsert" extends="tilesbase">
+ 	<definition name="/cha/smsInsert" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsert.jsp" />
-	</definition> -->
+	</definition>
 	<definition name="/cha/smsView" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
@@ -37,11 +57,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
 	</definition>
-<!-- 	<definition name="/cha/smsUpdate" extends="tilesbase">
+ 	<definition name="/cha/smsUpdate" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdate.jsp" />
-	</definition> -->
+	</definition>
 	 <definition name="/cha/smsDelete" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
@@ -51,5 +71,5 @@
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
-	</definition>    
+	</definition> -->
 </tiles-definitions>

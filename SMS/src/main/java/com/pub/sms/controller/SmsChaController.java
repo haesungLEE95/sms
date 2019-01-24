@@ -12,13 +12,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsCha;
+import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
+import com.pub.sms.service.SmsMCateService;
 import com.pub.sms.service.SmsMemService;
+import com.pub.sms.service.SmsSCateService;
 
 @Controller
 public class SmsChaController {
+	@Autowired
+	private SmsMCateService smcs;
+	@Autowired
+	private SmsSCateService sscs;
 	@Autowired
 	private SmsChaService scs;
 	@Autowired
@@ -39,6 +47,11 @@ public class SmsChaController {
 		SmsMem memNick = sms.memNick(1);
 		
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
+
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sscs.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
 		
 		//if (memNick != null) {
 		model.addAttribute("memNick", memNick.getNickname());

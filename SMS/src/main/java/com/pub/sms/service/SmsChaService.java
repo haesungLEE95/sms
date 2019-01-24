@@ -5,6 +5,7 @@ import java.util.Collection;
 import com.pub.sms.model.SmsCha;
 import com.pub.sms.model.SmsChaReply;
 
+
 public interface SmsChaService {
 
 	Collection<SmsCha> list(SmsCha smscha);

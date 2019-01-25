@@ -5,8 +5,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('list.do?pageNum=${pageNum}');
-		$('#rbdListDisp').load('smsReqreplyList.do?rq_no=${smsReq.rq_no}');
+		/* $('#boardListDisp').load('list.do?pageNum=${pageNum}'); */
+		$('#rbdListDisp').load('smsReqreplyList.do?rq_no=${smsReq.rq_no}'); 
 		$('#smsReqrInsert').click(function() {
 			if (!frm.rq_re_cont.value) {
 				alert("댓글을 입력후에 사용하시오");
@@ -80,7 +80,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<div id="boardListDisp"></div>
+		<!-- <div id="boardListDisp"></div> -->
 </div>
 </body>
 </html>

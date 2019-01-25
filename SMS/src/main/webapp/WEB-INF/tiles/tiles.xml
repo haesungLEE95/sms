@@ -18,6 +18,11 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
 	</definition>
+     <definition name="req/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/req/replyList.jsp" />
+	</definition>
 
 	<!-- tiles -->	
 	<definition name="/*/*" extends="tilesbase" >

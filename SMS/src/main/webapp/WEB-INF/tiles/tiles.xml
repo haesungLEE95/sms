@@ -31,7 +31,6 @@
 	</definition>
 
 	
-
 	<!-- <definition name="/cha/smsChaList" extends="tilesbase">
 		<put-attribute name="title" value="신고글" />
 		<put-attribute name="body"

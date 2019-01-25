@@ -502,3 +502,54 @@ CREATE TABLE Sms_request_reply
     updatedate    DATE,
     del           CHAR(1)
 )
+ALTER TABLE SMS_request ADD rq_count int;
+select * from sms_request;
+
+INSERT into sms_maincate values(1,'디자인');
+INSERT into sms_maincate values(2,'IT');
+INSERT into sms_maincate values(3,'콘텐츠제작');
+INSERT into sms_maincate values(4,'마케팅');
+INSERT into sms_maincate values(5,'번역');
+INSERT into sms_maincate values(6,'문서');
+INSERT into sms_maincate values(7,'레슨');
+
+INSERT into sms_subcate values(1,1,'로고디자인');
+INSERT into sms_subcate values(2,1,'명함/인쇄물');
+INSERT into sms_subcate values(3,1,'3D모델링/도면');
+INSERT into sms_subcate values(4,1,'캘라그라피');
+INSERT into sms_subcate values(5,1,'일러스트');
+INSERT into sms_subcate values(6,1,'포토샵');
+
+INSERT into sms_subcate values(7,2,'웹사이트개발');
+INSERT into sms_subcate values(8,2,'모바일앱/웹');
+INSERT into sms_subcate values(9,2,'프로그램개발');
+INSERT into sms_subcate values(10,2,'데이터베이스');
+INSERT into sms_subcate values(11,2,'QA/테스트');
+INSERT into sms_subcate values(12,2,'서버/기술지원');
+
+INSERT into sms_subcate values(13,3,'영상');
+INSERT into sms_subcate values(14,3,'사진');
+INSERT into sms_subcate values(15,3,'더빙');
+INSERT into sms_subcate values(16,3,'음악');
+
+INSERT into sms_subcate values(17,4,'카페/블로그');
+INSERT into sms_subcate values(18,4,'기획/컨설팅');
+INSERT into sms_subcate values(19,4,'검색/키워드');
+INSERT into sms_subcate values(20,4,'광고대행');
+INSERT into sms_subcate values(21,4,'오프라인광고');
+
+INSERT into sms_subcate values(22,5,'번역');
+INSERT into sms_subcate values(23,5,'통역');
+
+INSERT into sms_subcate values(24,6,'글작성');
+INSERT into sms_subcate values(25,6,'자소서');
+INSERT into sms_subcate values(26,6,'타이핑');
+INSERT into sms_subcate values(27,6,'교정/편집');
+INSERT into sms_subcate values(28,6,'대본');
+INSERT into sms_subcate values(29,6,'카피라이팅');
+	
+INSERT into sms_subcate values(30,7,'컴퓨터');
+INSERT into sms_subcate values(31,7,'외국어');
+INSERT into sms_subcate values(32,7,'마케팅');
+INSERT into sms_subcate values(33,7,'영상/사진');
+INSERT into sms_subcate values(34,7,'음악/악기');

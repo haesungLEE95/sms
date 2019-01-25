@@ -26,11 +26,11 @@ public class SmsChaController {
 	@Autowired
 	private SmsMCateService smcs;
 	@Autowired
+	private SmsSCateService sscs;
+	@Autowired
 	private SmsChaService scs;
 	@Autowired
 	private SmsMemService sms;
-	@Autowired
-	private SmsSCateService sscs;
 	@RequestMapping("smsChaList")
 	public String smsChaList(SmsMem sm ,String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";

@@ -8,7 +8,7 @@ CREATE TABLE SMS_mem
     mem_id         VARCHAR2(20)     NULL, 
     nickname       VARCHAR2(255)    NULL, 
     email          VARCHAR2(255)    NULL, 
-    passwd         VARCHAR2(20)     NULL, 
+    passwd         VARCHAR2(100)     NULL, 
     mem_img        VARCHAR2(255)    NULL, 
     addr           VARCHAR2(255)    NULL, 
     tel            VARCHAR2(20)     NULL, 

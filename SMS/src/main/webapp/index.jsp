@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	//location.href="list.do";
 	//location.href="main_header.do";
 	//location.href="smsChaList.do";

@@ -140,6 +140,7 @@ public class SmsMemController {
 				mem.setPasswd(dbPw);
 				result = 1;
 				session.setAttribute("mem_id", mem.getMem_id());
+				session.setAttribute("mem", mem);
 			}			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());

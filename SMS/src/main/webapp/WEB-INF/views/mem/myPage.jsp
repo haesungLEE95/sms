@@ -31,6 +31,7 @@
 	<tr><td>내 게시글(?)</td></tr>
 	<tr><th>프로필 영역</th><td>내용</td></tr>
 	</table>
+	<a href="loginForm.do">로그아웃</a>
 </div>
 </body>
 </html>

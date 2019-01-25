@@ -37,8 +37,7 @@
 		values(#{mem_no},#{mem_name},#{mem_id},#{nickname},#{email},#{passwd},'','','','','','',sysdate)
 	</insert>
 	<update id="firstUpdate" parameterType="mem">
-		update sms_mem
-		set
+		update sms_mem set
 		addr=coalesce(#{addr},null), tel=coalesce(#{tel},null),
 		mem_account=coalesce(#{mem_account},null) where mem_id=#{mem_id}
 	</update>

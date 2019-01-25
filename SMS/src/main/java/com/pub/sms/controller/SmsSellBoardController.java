@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
@@ -27,7 +28,7 @@ public class SmsSellBoardController {
 	private SmsSellBoardService ssbs;
 	
 	@RequestMapping("smsSellBoardList")
-	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
+	public String smsSellBoardList(SmsMem mem, String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 4;

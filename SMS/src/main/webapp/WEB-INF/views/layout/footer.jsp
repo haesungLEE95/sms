@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-중앙정보 전화 1111-1111
+<div align="center">주소 : 서울 강남구 테헤란로7길 7 전화번호: 02-561-1911</div>
 </body>
 </html>

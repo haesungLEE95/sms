@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
+		//$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
 		$('#rbdListDisp').load('smsReviewList.do?sb_no=${smssel.sb_no}');
 		$('#smsReviewInsert').click(function() {
 			if (!frm.re_cont.value) {
@@ -46,7 +46,7 @@
 				</c:forEach>
 			</td>
 		</tr>
-		<tr><td>작성자</td><td>${smssel.mem_no}</td></tr>
+		<tr><td>작성자</td><td>${sm.nickname}</td></tr>
 		<tr><td>내용</td><td><pre>${smssel.sb_desc}</pre></td></tr>
 		<tr><td>작성일</td><td>${smssel.sb_date}</td></tr>
 		<tr><td>희망가격</td><td>${smssel.sb_price}</td></tr>
@@ -67,7 +67,7 @@
 				<!-- 원래는 login한 사람 이름 또는 ID -->
 				<tr>
 					<td>작성자</td>
-					<td>로그인정보불러오기</td>
+					<td>${smwriter.nickname}</td>
 					<td>평점</td>
 					<td>
 						<select name="re_score">
@@ -85,7 +85,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<div id="boardListDisp"></div>
+		<!-- <div id="boardListDisp"></div> -->
 </div>
 </body>
 </html>

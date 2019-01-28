@@ -140,13 +140,15 @@ public class SmsMemController {
 				mem.setPasswd(dbPw);
 				result = 1;
 				session.setAttribute("mem_id", mem.getMem_id());
-				session.setAttribute("mem", mem);
+				//session.setAttribute("mem", mem);
+				System.out.println("Mem login session : "+session);
 			}			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			result = -1;
 		}
 		model.addAttribute("result", result);
+		System.out.println("Mem login session model : "+session.getId());
 		return "/mem/login";
 	}
 	@RequestMapping("myPage")

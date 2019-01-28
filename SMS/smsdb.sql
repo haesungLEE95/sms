@@ -553,3 +553,31 @@ INSERT into sms_subcate values(31,7,'외국어');
 INSERT into sms_subcate values(32,7,'마케팅');
 INSERT into sms_subcate values(33,7,'영상/사진');
 INSERT into sms_subcate values(34,7,'음악/악기');
+
+
+drop table sms_qna;
+drop table sms_quest;
+drop table sms_charge;
+select * from sms_qna;
+select * from sms_quest;
+select * from sms_charge;
+
+CREATE TABLE SMS_qna
+(
+    sb_no       INT               NOT NULL, 
+    mem_no      INT               NOT NULL, 
+    qna_cont    VARCHAR2(2000)    NULL, 
+    qna_date    DATE              NULL
+);
+CREATE TABLE SMS_quest
+(
+    mem_no     INT     NOT NULL, 
+    sb_no      INT     NULL, 
+    qst_dar    DATE    NULL
+);
+CREATE TABLE SMS_charge
+(
+    mem_no      INT     NOT NULL, 
+    chg_mny     INT     NULL, 
+    chg_date    DATE    NULL
+);

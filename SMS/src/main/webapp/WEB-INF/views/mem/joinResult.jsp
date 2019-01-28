@@ -14,7 +14,7 @@
 <div class="container" align="center">
 <%-- <c:if test="${result >0 }"> --%>
 		<div class="button">
-		<form action="smsSelList.do" name="frm" method="post" ><!-- myPage.do -->
+		<form action="smsSellBoardList.do" name="frm" method="post" ><!-- myPage.do -->
 		<br>
 		<input type="submit" class="btn btn-info" value="${smem.nickname}님 : SellMySelf에 가입하신 것을 축하합니다!">
 		</div>

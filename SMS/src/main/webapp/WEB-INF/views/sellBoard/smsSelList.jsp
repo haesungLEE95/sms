@@ -18,6 +18,17 @@
 				</div>
 			</div>
 		</div> -->
+		<div align="right">
+		<table>
+		<tr>
+		<th>환영합니다  ${mem_id}님</th>
+			<td>
+				<input type="button" value="마이페이지" onclick="location.href='myPage.do'">
+				<input type="button" value="로그아웃" onclick="location.href='loginForm.do'">
+			</td>
+		</tr>
+		</table>
+		</div>
 		<h2 class="text-primary">판매 게시판 목록</h2>
 			<c:if test="${empty list}">
 				데이터가 없습니다

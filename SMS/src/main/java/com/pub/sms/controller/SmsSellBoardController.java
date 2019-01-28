@@ -14,6 +14,7 @@ import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
+import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsReqPagingBean;
 import com.pub.sms.service.SmsSCateService;
 import com.pub.sms.service.SmsSellBoardService;
@@ -26,9 +27,10 @@ public class SmsSellBoardController {
 	private SmsSCateService sss;
 	@Autowired
 	private SmsSellBoardService ssbs;
-	
+	@Autowired
+	private SmsMemService smsi;
 	@RequestMapping("smsSellBoardList")
-	public String smsSellBoardList(SmsMem mem, String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
+	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 4;
@@ -59,14 +61,8 @@ public class SmsSellBoardController {
 			list = ssbs.sCateList(smssel);
 		}
 
-
-
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
-
 		////글쓴이 정보 가져오기
-		
-
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
@@ -74,13 +70,15 @@ public class SmsSellBoardController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("smssel", smssel);
+		//System.out.println("memid"+(String)session.getAttribute("mem_id"));
 		
+		//session.setAttribute("mem", mem);
 		model.addAttribute("pb", pb);
 		return "sellBoard/smsSelList";
 	}
 	
 	@RequestMapping("smsSellBoardInsertForm")
-	public String smsSellBoardInsertForm(String pageNum, Model model) {
+	public String smsSellBoardInsertForm(HttpSession session, String pageNum, Model model) {
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
@@ -89,10 +87,13 @@ public class SmsSellBoardController {
 	}
 	
 	@RequestMapping("smsSellBoardinsert")
-	public String smsSellBoardinsert(SmsSellBoard smssel, Model model) {
+	public String smsSellBoardinsert(HttpSession session, SmsSellBoard smssel, Model model) {
 		////세션 로그인 정보 가져오고
 		//insert
-		smssel.setMem_no(1);
+		
+		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		smssel.setMem_no(sm.getMem_no());
+//		smssel.setMem_no(1);
 		
 		int result=ssbs.insert(smssel);
 		model.addAttribute("result", result);
@@ -100,14 +101,18 @@ public class SmsSellBoardController {
 	}
 	//smsSellBoardView
 	@RequestMapping("smsSellBoardView")
-	public String smsSellBoardView(int num, String pageNum, Model model) {
+	public String smsSellBoardView(HttpSession session, int num, String pageNum, Model model) {
 		SmsSellBoard smssel = ssbs.select(num);
-
+		SmsMem sm = smsi.memNick(smssel.getMem_no());
+		SmsMem smwriter = smsi.select((String)session.getAttribute("mem_id"));
+		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		
+		model.addAttribute("sm", sm);
+		model.addAttribute("smwriter", smwriter);
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelView";

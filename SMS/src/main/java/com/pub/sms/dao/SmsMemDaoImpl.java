@@ -16,11 +16,8 @@ public class SmsMemDaoImpl implements SmsMemDao {
 	
 	
 	public SmsMem select(String mem_id) {
-		System.out.println("dao mem_id : "+mem_id);
 		SmsMem mem = (SmsMem) sst.selectOne("smsMemns.select", mem_id);
-		System.out.println( "dao mem = "+mem+"@");
 		return mem;
-		
 	}
 
 	public int insert(SmsMem mem) {
@@ -66,4 +63,5 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		}
 		return result;
 	}
+
 }

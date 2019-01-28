@@ -19,4 +19,5 @@ public interface SmsMemDao {
 
 	int updateImg(SmsMem mem);
 
+
 }

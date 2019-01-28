@@ -17,9 +17,9 @@ public interface SmsMemService {
 	
 	SmsMem memNick(int mem_no);
 
-
 	SmsMem nickSelect(String nickname);
 
 	int updateImg(SmsMem mem);
+
 	
 }

@@ -27,20 +27,23 @@
 	});
 	function button_buy_event(){
 		if (confirm("정말 구매하시겠습니까??") == true){    //확인
-		    //document.form.submit();
+			//구매
+			location.href="#";
 		}else{   //취소
 		    return;
 		}
 	}
 	function button_chg_event(){
 		if (confirm("정말 충전하시겠습니까??") == true){    //확인
-		    //document.form.submit();
+			//충전
+			location.href="#";
 		}else{   //취소
 		    return;
 		}
-	}	function button_qna_event(){
+	}
+	function button_qna_event(){
 		if (confirm("문의하시겠습니까??") == true){    //확인
-		    //document.form.submit();
+		    location.href="smsQnAInsertForm.do?sb_no=${smssel.sb_no}&pageNum=${pageNum}";
 		}else{   //취소
 		    return;
 		}
@@ -83,7 +86,7 @@
 					<input onclick="button_buy_event();" type="button" value="구매하기"
 						class="btn btn-primary btn-lg">
 				<%-- </c:if> --%>
-				<%-- <c:if test=""> 로그인 세션에 머니가 충분히 있을 때 --%>
+				<%-- <c:if test=""> 로그인 세션에 머니가 충분히 없을 때 --%>
 					<input onclick="button_chg_event();" type="button" value="충전하기"
 						class="btn btn-primary btn-lg">
 				<%-- </c:if> --%>

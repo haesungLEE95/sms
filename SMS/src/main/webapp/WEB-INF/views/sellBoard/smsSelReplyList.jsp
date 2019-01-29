@@ -43,11 +43,11 @@
 			</c:if>
 			<c:if test="${not empty rbdList}">
 				<c:forEach var="rbd" items="${rbdList }">
-						<tr><td>${rbd.mem_no }</td>
+						<tr><td>${rbd.nickname }</td>
 							<td id="td_${rbd.re_no }">${rbd.re_cont }</td>
 							<td>${rbd.re_score }</td>
 							<td id="btn_${rbd.re_no }">
-							<c:if test="${rbd.mem_no==smssel.mem_no }">
+							<c:if test="${rbd.mem_no==mem_no }">
 								<button class="btn btn-sm btn-warning"
 									onclick="smsReviewUpdate(${rbd.sb_no},${rbd.re_no })">수정</button>
 								<button class="btn btn-sm btn-danger"

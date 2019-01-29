@@ -26,13 +26,14 @@ public class SmsReviewController {
 	private SmsMemService smsi;
 	
 	@RequestMapping("smsReviewList")
-	public String smsReviewList(HttpSession session, int sb_no, Model model) {
+	public String smsReviewList(int sb_no, Model model) {
 		SmsSellBoard smssel = ssbs.select(sb_no);
 		Collection<SmsReview> rbdList = srvs.list(sb_no);
-		//SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
-		//SmsMem smwriter = smsi.select((String)session.getAttribute("mem_id"));
-		//model.addAttribute("sm", sm);
-		//model.addAttribute("smwriter", smwriter);
+		for(SmsReview sr : rbdList) {
+			SmsMem sm = smsi.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());
+		}
+		
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("rbdList", rbdList);
 		return "sellBoard/smsSelReplyList";

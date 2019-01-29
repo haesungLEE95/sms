@@ -2,6 +2,8 @@ package com.pub.sms.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,9 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsReq;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
+import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsReqPagingBean;
 import com.pub.sms.service.SmsReqService;
 import com.pub.sms.service.SmsSCateService;
@@ -25,7 +29,8 @@ public class SmsReqController {
 	private SmsSCateService sss;
 	@Autowired
 	private SmsReqService srs;
-	
+	@Autowired
+	private SmsMemService smsi;
 	@RequestMapping("list")
 	public String list(String pageNum,SmsReq smsReq, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
@@ -38,10 +43,13 @@ public class SmsReqController {
 		smsReq.setEndRow(endRow);
 		// Collection<Board> list = bs.list(startRow, endRow);
 		Collection<SmsReq> list = srs.list(smsReq);
+		for(SmsReq sr : list) {
+			SmsMem sm = smsi.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());			
+		}
 		
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
-
-		////글쓴이 정보 가져오기
+		//SmsMem sm = smsi.memNick(smssel.getMem_no());
 		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
@@ -63,10 +71,9 @@ public class SmsReqController {
 		return "req/insertForm";
 	}
 	@RequestMapping("insert")
-	public String insert(SmsReq smsReq, Model model) {
-		////세션 로그인 정보 가져오고
-		//insert
-		smsReq.setMem_no(1);
+	public String insert(HttpSession session, SmsReq smsReq, Model model) {
+		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		smsReq.setMem_no(sm.getMem_no());
 		
 		int result=srs.insert(smsReq);
 		model.addAttribute("result", result);
@@ -76,12 +83,14 @@ public class SmsReqController {
 	public String view(int num, String pageNum, Model model) {
 		srs.updateReadcount(num);
 		SmsReq smsReq = srs.select(num);
+		SmsMem sm = smsi.memNick(smsReq.getMem_no());
 		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
+		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
+		model.addAttribute("sm", sm);
 		model.addAttribute("smsReq", smsReq);
 		model.addAttribute("pageNum", pageNum);
 		return "req/view";

@@ -9,14 +9,15 @@ public class SmsReqReply {
 	private Date regdate;
 	private Date updatedate;
 	private String del;
+	//nickname
+	private String nickname;
 	
-	/*
-	의뢰게시글 번호
-	댓글번호
-	댓글내용
-	회원번호
-	*/
-	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public Date getRegdate() {
 		return regdate;
 	}

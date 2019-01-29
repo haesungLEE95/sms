@@ -10,14 +10,20 @@ public class SmsReq {
     private String rq_cont; 
     private Date rq_date; 
     private int rq_price; 
-    private int rq_cond;
+    private int rq_cond; //의뢰현황
     private int rq_count;
 	// paging용
 	private int startRow;
 	private int endRow;
 	
-	
+	private String nickname;
     
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getRq_count() {
 		return rq_count;
 	}

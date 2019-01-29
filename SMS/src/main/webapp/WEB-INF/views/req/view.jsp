@@ -42,7 +42,7 @@
 				</c:forEach>
 			</td>
 		</tr>
-		<tr><td>작성자</td><td>${smsReq.mem_no}</td></tr>
+		<tr><td>작성자</td><td>${sm.nickname}</td></tr>
 		<tr><td>내용</td><td><pre>${smsReq.rq_cont}</pre></td></tr>
 		<tr><td>조회수</td><td>${smsReq.rq_count}</td></tr>
 		<tr><td>작성일</td><td>${smsReq.rq_date}</td></tr>
@@ -57,22 +57,25 @@
 				</c:if>
 			</td>
 		</tr>
-		<tr><td colspan="2">
+		<tr>
+		<td colspan="2">
 			<a class="btn btn-info" href="list.do?pageNum=${pageNum}">게시글 목록</a>
 			<%-- <c:if test=""> 작성자가 본인일 때 --%>
 				<a href="updateForm.do?num=${smsReq.rq_no}&pageNum=${pageNum}" class="btn btn-warning">수정</a>
 				<a href="delete.do?num=${smsReq.rq_no}&pageNum=${pageNum}" class="btn btn-danger">삭제</a>
-			<%-- </c:if> --%></td></tr>
+			<%-- </c:if> --%>
+		</td>
+		</tr>
 	</table>
 	<h3 class="text-primary">댓글 작성</h3>
 		<form name="frm" id="frm">
 			<input type="hidden" name="rq_no" value="${smsReq.rq_no}">
-			<input type="hidden" name="mem_no" value="1">
+			<input type="hidden" name="mem_no" value="${mem_no}">
 			<table class="table table-hover">
 				<!-- 원래는 login한 사람 이름 또는 ID -->
 				<tr>
 					<td>작성자</td>
-					<td>로그인정보불러오기</td>
+					<td>${nickname}</td>
 					<td>댓글</td>
 					<td><textarea rows="3" cols="30" name="rq_re_cont"></textarea></td>
 					<td colspan="2"><input type="button" value="댓글입력" id="smsReqrInsert"></td>

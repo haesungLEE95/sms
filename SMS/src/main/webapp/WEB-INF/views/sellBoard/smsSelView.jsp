@@ -62,12 +62,12 @@
 	<h3 class="text-primary">댓글 작성</h3>
 		<form name="frm" id="frm">
 			<input type="hidden" name="sb_no" value="${smssel.sb_no}">
-			<input type="hidden" name="mem_no" value="1">
+			<input type="hidden" name="mem_no" value="${mem_no}">
 			<table class="table table-hover">
 				<!-- 원래는 login한 사람 이름 또는 ID -->
 				<tr>
 					<td>작성자</td>
-					<td>${smwriter.nickname}</td>
+					<td>${nickname}</td>
 					<td>평점</td>
 					<td>
 						<select name="re_score">

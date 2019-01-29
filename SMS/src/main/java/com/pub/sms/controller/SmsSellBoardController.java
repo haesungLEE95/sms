@@ -92,6 +92,7 @@ public class SmsSellBoardController {
 		//insert
 		
 		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		
 		smssel.setMem_no(sm.getMem_no());
 //		smssel.setMem_no(1);
 		
@@ -101,18 +102,17 @@ public class SmsSellBoardController {
 	}
 	//smsSellBoardView
 	@RequestMapping("smsSellBoardView")
-	public String smsSellBoardView(HttpSession session, int num, String pageNum, Model model) {
+	public String smsSellBoardView(int num, String pageNum, Model model) {
 		SmsSellBoard smssel = ssbs.select(num);
 		SmsMem sm = smsi.memNick(smssel.getMem_no());
-		SmsMem smwriter = smsi.select((String)session.getAttribute("mem_id"));
 		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
+		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		
 		model.addAttribute("sm", sm);
-		model.addAttribute("smwriter", smwriter);
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelView";

@@ -140,6 +140,8 @@ public class SmsMemController {
 				mem.setPasswd(dbPw);
 				result = 1;
 				session.setAttribute("mem_id", mem.getMem_id());
+				session.setAttribute("nickname", smem.getNickname());
+				session.setAttribute("mem_no", smem.getMem_no());
 				//session.setAttribute("mem", mem);
 				System.out.println("Mem login session : "+session);
 			}			

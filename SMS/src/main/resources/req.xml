@@ -12,7 +12,7 @@
 		<result property="rq_date" 	column="rq_date" />
 		<result property="rq_price" 		column="rq_price" />
 		<result property="rq_cond" 	column="rq_cond" />
-
+		<result property="rq_count" 	column="rq_count" />
 	</resultMap>
 	
 	<select id="getTotal" parameterType="smsreq" resultType="int">

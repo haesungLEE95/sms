@@ -26,9 +26,9 @@
 		});
 	});
 	function button_buy_event(){
-		if (confirm("정말 구매하시겠습니까??") == true){    //확인
+		if (confirm("${smssel.sb_price}원이 차감됩니다") == true){    //확인
 			//구매
-			location.href="#";
+			location.href="smsQuestBuy.do?sb_no=${smssel.sb_no}&pageNum=${pageNum}";
 		}else{   //취소
 		    return;
 		}

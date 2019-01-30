@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pub.sms.model.SmsCha;
 import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsReq;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
@@ -32,7 +33,7 @@ public class SmsChaController {
 	@Autowired
 	private SmsMemService sms;
 	@RequestMapping("smsChaList")
-	public String smsChaList(SmsMem sm ,String pageNum, SmsCha smscha, Model model) {
+	public String smsChaList(String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 10;
@@ -43,7 +44,10 @@ public class SmsChaController {
 		smscha.setEndRow(endRow);
 		
 		Collection<SmsCha> list = scs.list(smscha);
-		SmsMem memNick = sms.memNick(1);
+		for(SmsCha sr : list) {
+			SmsMem sm = sms.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());			
+		}
 		
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
 		Collection<SmsMainCate> mcateList = smcs.list();
@@ -51,7 +55,7 @@ public class SmsChaController {
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		//if (memNick != null) {
-		model.addAttribute("memNick", memNick.getNickname());
+		//model.addAttribute("memNick", memNick.getNickname());
 		//}
 		model.addAttribute("list", list);
 		model.addAttribute("smscha", smscha);
@@ -81,14 +85,14 @@ public class SmsChaController {
 	@RequestMapping("smsView")
 	public String smsView(String pageNum,int num, Model model) {
 		scs.updateReadcount(num);
-		SmsMem memNick = sms.memNick(1);
 		SmsCha smscha = scs.selectno(num);
+		SmsMem sm = sms.memNick(smscha.getMem_no());
 		Collection<SmsMainCate> mcateList = smcs.list();
 		Collection<SmsSubCate> scateList = sscs.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
+		model.addAttribute("sm", sm);
 		model.addAttribute("smscha", smscha);
-		model.addAttribute("memno", memNick.getMem_no());
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}

@@ -14,7 +14,15 @@ public class SmsCha {
 	private int startRow;
 	private int endRow;
 	
-    public int getStartRow() {
+	private String nickname;
+	
+    public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public int getStartRow() {
 		return startRow;
 	}
 	public void setStartRow(int startRow) {

@@ -47,18 +47,13 @@ public class SmsReqController {
 			SmsMem sm = smsi.memNick(sr.getMem_no());
 			sr.setNickname(sm.getNickname());			
 		}
-		
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
-		//SmsMem sm = smsi.memNick(smssel.getMem_no());
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
 		model.addAttribute("list", list);
 		model.addAttribute("smsReq", smsReq);
-		
 		model.addAttribute("pb", pb);
 		return "req/list";
 	}
@@ -74,7 +69,6 @@ public class SmsReqController {
 	public String insert(HttpSession session, SmsReq smsReq, Model model) {
 		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
 		smsReq.setMem_no(sm.getMem_no());
-		
 		int result=srs.insert(smsReq);
 		model.addAttribute("result", result);
 		return "req/insert";
@@ -84,10 +78,8 @@ public class SmsReqController {
 		srs.updateReadcount(num);
 		SmsReq smsReq = srs.select(num);
 		SmsMem sm = smsi.memNick(smsReq.getMem_no());
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
-		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		model.addAttribute("sm", sm);
@@ -100,12 +92,10 @@ public class SmsReqController {
 	public String condition(int num, String pageNum, Model model) {
 		srs.updateCondition(num);
 		SmsReq smsReq = srs.select(num);
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
 		model.addAttribute("smsReq", smsReq);
 		model.addAttribute("pageNum", pageNum);
 		return "req/view";
@@ -113,12 +103,10 @@ public class SmsReqController {
 	@RequestMapping("updateForm")
 	public String updateForm(int num, String pageNum, Model model) {
 		SmsReq smsReq = srs.select(num);
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-
 		model.addAttribute("smsReq", smsReq);
 		model.addAttribute("pageNum", pageNum);
 
@@ -130,7 +118,6 @@ public class SmsReqController {
 		//insert
 		int result=srs.update(smsReq);
 		model.addAttribute("result", result);
-		
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("smsReq", smsReq);
 		
@@ -140,7 +127,6 @@ public class SmsReqController {
 	public String delete(int num, String pageNum, Model model) {
 		int result = srs.delete(num);
 		model.addAttribute("result", result);
-		
 		model.addAttribute("pageNum", pageNum);
 		return "req/delete";
 	}
@@ -148,7 +134,6 @@ public class SmsReqController {
 	public String main_header(Model model) {
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
-		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		return "main_header";

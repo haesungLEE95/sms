@@ -46,8 +46,8 @@
 						<td>${board.rq_count }</td>
 						<td>${board.rq_date }</td>
 						<td>
-							<c:if test="${board.rq_cond%2==0}">의뢰중</c:if>
-							<c:if test="${board.rq_cond%2!=0}">완료</c:if>
+								<c:if test="${board.rq_cond%2==0}">의뢰중</c:if>
+								<c:if test="${board.rq_cond%2!=0}">완료</c:if>
 						</td>
 					</tr>
 				</c:forEach>

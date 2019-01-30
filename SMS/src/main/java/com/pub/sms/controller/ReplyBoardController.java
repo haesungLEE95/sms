@@ -31,7 +31,6 @@ public class ReplyBoardController {
 		for(SmsReqReply srr : rbdList) {
 			SmsMem sm = smsi.memNick(srr.getMem_no());
 			srr.setNickname(sm.getNickname());
-			System.out.println("nickname req"+srr.getNickname());
 		}
 		model.addAttribute("smsReq", smsReq);
 		model.addAttribute("rbdList", rbdList);

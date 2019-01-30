@@ -125,6 +125,7 @@ public class SmsMemController {
 	
 	@RequestMapping("login")
 	public String login(SmsMem mem, Model model, HttpSession session) {
+		
 		int result = 0;
 		try {
 			SmsMem smem = sms.select(mem.getMem_id());
@@ -174,5 +175,9 @@ public class SmsMemController {
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
-	
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "/mem/logout";
+	}
 }

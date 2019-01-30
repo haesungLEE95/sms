@@ -24,7 +24,7 @@
 		<th>환영합니다  ${nickname}님</th>
 			<td>
 				<input type="button" value="마이페이지" onclick="location.href='myPage.do'">
-				<input type="button" value="로그아웃" onclick="location.href='loginForm.do'">
+				<input type="button" value="로그아웃" onclick="location.href='logout.do' ">
 			</td>
 		</tr>
 		</table>

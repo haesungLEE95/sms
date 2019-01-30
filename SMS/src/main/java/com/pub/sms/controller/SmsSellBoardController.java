@@ -34,7 +34,6 @@ public class SmsSellBoardController {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 4;
-		
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow   = startRow + rowPerPage - 1;
 		smssel.setStartRow(startRow);

@@ -105,13 +105,10 @@ public class SmsSellBoardController {
 	public String smsSellBoardView(int num, String pageNum, Model model) {
 		SmsSellBoard smssel = ssbs.select(num);
 		SmsMem sm = smsi.memNick(smssel.getMem_no());
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
-		
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
 		model.addAttribute("sm", sm);
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("pageNum", pageNum);

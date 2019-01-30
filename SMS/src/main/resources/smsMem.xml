@@ -39,14 +39,26 @@
 	<update id="firstUpdate" parameterType="mem">
 		update sms_mem
 		set
-		addr=coalesce(#{addr},null), tel=coalesce(#{tel},null),
-		mem_account=coalesce(#{mem_account},null) where mem_id=#{mem_id}
+		addr=#{addr}, tel=#{tel},
+		mem_account=#{mem_account} where mem_id=#{mem_id}
 	</update>
 	<update id="updateImg" parameterType="mem">
 		update sms_mem set
 		mem_img=#{mem_img} where mem_id=#{mem_id}
 	</update>
-
-	<!-- <delete id="delete"></delete> -->
-
+	<update id="updateInfo" parameterType="mem">
+		update sms_mem set
+	</update>
+	<update id="delete" parameterType="mem">
+		update sms_mem set
+		mem_del=1 where mem_id=#{mem_id}
+	</update>
+	<update id="chargeMny" parameterType="mem">
+		update sms_mem set
+		mny=mny+#{mny} where mem_id=#{mem_id}
+	</update>
+	<update id="updateMem" parameterType="mem">
+		update sms_mem set
+		nickname=#{nickname}, email=#{email}, passwd=#{passwd}, addr=#{addr}, tel=#{tel}, mem_account=#{mem_account} where mem_id=#{mem_id}
+	</update>
 </mapper>

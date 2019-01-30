@@ -23,10 +23,20 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/req/replyList.jsp" />
 	</definition>
-     <definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+	<definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply2.jsp">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/mem/profile.jsp" />
+	</definition>
+     <definition name="/mem/updateInfo" template="/WEB-INF/views/layout/layoutChaReply2.jsp">
+		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/mem/updateInfo.jsp" />
+	</definition>
+     <definition name="mem/chargeMny" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="포인트 충전" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/mem/chargeMny.jsp"/>
 	</definition>
 
 	<!-- tiles -->	

@@ -13,6 +13,7 @@
 		<typeAlias alias="mem" type="com.pub.sms.model.SmsMem" />
 		<typeAlias alias="cha" type="com.pub.sms.model.SmsCha" />
 		<typeAlias alias="recha" type="com.pub.sms.model.SmsChaReply" />
+		<typeAlias alias="smsCharge" type="com.pub.sms.model.SmsCharge" />		
 	</typeAliases>
 	<mappers>
 		<mapper resource="req.xml" />
@@ -24,5 +25,6 @@
 		<mapper resource="smsMem.xml" />
 		<mapper resource="smsCha.xml" />
 		<mapper resource="smsRecha.xml" />
+		<mapper resource="smsCharge.xml" />
 	</mappers>
 </configuration>

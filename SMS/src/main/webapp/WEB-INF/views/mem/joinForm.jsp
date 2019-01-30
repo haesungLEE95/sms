@@ -35,13 +35,13 @@
 			<tr><th width="120px"><span class="glyphicon glyphicon-user"/>아이디</th><td width="400px">
 			<input type="text" name="mem_id" required="required" autofocus="autofocus">
 			<input type="button" onclick="idChk()" class="btn btn-info btn-sm" value="중복체크">
-			<span id="disp" class="err"></span>
+			<br><span id="disp" class="err"></span>
 			</td></tr>
 			<tr><th><span class="glyphicon glyphicon-lock"/>암호</th><td><input type="password" name="passwd" required="required"></td></tr>
 			<tr><th><span class="glyphicon glyphicon-tag"/>이름</th><td><input type="text" name="mem_name" required="required"></td></tr>
 			<tr><th><span class="glyphicon glyphicon-star-empty"/>닉네임</th><td><input type="text" name="nickname" required="required">
 			<input type="button" onclick="nickChk()" class="btn btn-info btn-sm" value="중복체크">
-			<span id="disp2" class="err"></span></td></tr>
+			<br><span id="disp2" class="err"></span></td></tr>
 			<tr><th><span class="glyphicon glyphicon-file"/>이메일</th><td><input type="text" name="email" required="required">
 			</td></tr>
 			<tr><th colspan="2"><input class="btn btn-info btn-sm" type="submit"></th></tr>

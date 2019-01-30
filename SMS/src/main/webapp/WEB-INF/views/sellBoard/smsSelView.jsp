@@ -28,7 +28,7 @@
 	function button_buy_event(){
 		if (confirm("${smssel.sb_price}원이 차감됩니다") == true){    //확인
 			//구매
-			location.href="smsQuestBuy.do?sb_no=${smssel.sb_no}&pageNum=${pageNum}";
+			location.href="smsQuestBuy.do?sb_no=${smssel.sb_no}&price=${smssel.sb_price}&pageNum=${pageNum}";
 		}else{   //취소
 		    return;
 		}

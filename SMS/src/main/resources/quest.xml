@@ -7,8 +7,14 @@
 		<result property="mem_no"			column="mem_no" />
 		<result property="sb_no"			column="sb_no" />
 		<result property="qst_dar"			column="qst_dar" />
+		<result property="qst_price"		column="qst_price" />
+		<result property="qst_comp"			column="qst_comp" />
 	</resultMap>
+
 	<insert id="insert" parameterType="smsquest">
-		insert into Sms_quest values (#{mem_no}, #{sb_no}, sysdate)
+		insert into Sms_quest values (#{mem_no}, #{sb_no}, sysdate, #{qst_price}, 0)
 	</insert>
+	<select id="list" parameterType="int" resultMap="smsquestResult">
+		select * from Sms_quest where mem_no=#{mem_no} order by qst_dar desc
+	</select>
 </mapper>

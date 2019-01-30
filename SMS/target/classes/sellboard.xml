@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smssellboardns">
+	<resultMap id="smssellboardResult" 	type="smssellboard">
+		<result property="sb_no" 		column="sb_no" />
+		<result property="sb_title" 	column="sb_title" />
+		<result property="sb_desc" 	column="sb_desc" />
+		<result property="sb_price" 	column="sb_price" />
+		<result property="sb_img" 	column="sb_img" />
+		<result property="mem_no" column="mem_no" />
+		<result property="mcate_no" 	column="mcate_no" />
+		<result property="scate_no" 		column="scate_no" />
+		<result property="sb_date" 	column="sb_date" />
+	</resultMap>
+
+	<select id="getTotal" parameterType="smssellboard" resultType="int">
+		select count(*) from sms_sellboard
+	</select>
+	<select id="getMCateTotal" parameterType="int" resultType="int">
+		select count(*) from sms_sellboard where mcate_no=#{mNum}
+	</select>
+	<select id="getSCateTotal" parameterType="int" resultType="int">
+		select count(*) from sms_sellboard where scate_no=#{sNum}
+	</select>
+	<select id="list" parameterType="smssellboard" resultMap="smssellboardResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_sellboard 		
+			order by sb_no desc) a) 
+				where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="mCateList" parameterType="smssellboard" resultMap="smssellboardResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_sellboard where mcate_no=#{mcate_no}		
+			order by sb_no desc) a) 
+				where rn between #{startRow} and #{endRow}
+	</select>
+	<select id="sCateList" parameterType="smssellboard" resultMap="smssellboardResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_sellboard where scate_no=#{scate_no} 		
+			order by sb_no desc) a) 
+				where rn between #{startRow} and #{endRow}
+	</select>
+	
+	<insert id="insert" parameterType="smssellboard">
+		<selectKey keyProperty="sb_no" order="BEFORE" resultType="int">
+			select nvl(max(sb_no),0) + 1 from sms_sellboard
+		</selectKey>
+		insert into sms_sellboard values (#{sb_no},#{sb_title},#{sb_desc},#{sb_price},'',
+			#{mem_no},#{mcate_no},#{scate_no},sysdate)
+	</insert>
+	
+	<select id="select" parameterType="int" resultType="smssellboard">
+		select * from sms_sellboard where sb_no=#{num}
+	</select>
+
+	<update id="update" parameterType="smssellboard">
+		update sms_sellboard set sb_title=#{sb_title}, sb_desc=#{sb_desc}, sb_date=sysdate, sb_img=#{sb_img}, sb_price=#{sb_price} where sb_no=#{sb_no}
+	</update>
+
+	<delete id="delete" parameterType="int">
+		delete from sms_sellboard where sb_no=#{num}
+	</delete>
+</mapper>
+
+

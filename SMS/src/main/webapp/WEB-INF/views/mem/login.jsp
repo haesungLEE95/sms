@@ -5,7 +5,7 @@
 <title>SMS : 로그인</title></head><body>
 <c:if test="${result >0 }">
 	<script type="text/javascript">
-		location.href="myPage.do";
+		location.href="smsSellBoardList.do"; 
 	</script>
 </c:if>
 <c:if test="${result == 0 }">

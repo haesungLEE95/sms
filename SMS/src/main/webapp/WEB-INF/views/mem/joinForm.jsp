@@ -8,14 +8,16 @@
 <title>회원가입</title>
 <script type="text/javascript">
 	function idChk() {
-		if (!frm.mem_id.value) {	alert("아이디 입력 후에 체크하세요");
+		if (!frm.mem_id.value) {	
+			alert("아이디 입력 후에 체크하세요");
 			frm.mem_id.focus(); return false;  	}
 		$.post('idChk.do','mem_id='+frm.mem_id.value, function(data) {
 			$('#disp').html(data);
 		});
 	}
 	function nickChk() {
-		if (!frm.nickname.value) {	alert("닉네임 입력 후에 체크하세요");
+		if (!frm.nickname.value) {	
+			alert("닉네임 입력 후에 체크하세요");
 			frm.nickname.focus(); return false;  	}
 		$.post('nickChk.do','nickname='+frm.nickname.value, function(data) {
 			$('#disp2').html(data);

@@ -74,6 +74,7 @@ small {
                 console.log(error.status);
             }
         });
+    
     }
 </script>
 <style type="text/css">

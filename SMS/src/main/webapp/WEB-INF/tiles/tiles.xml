@@ -14,17 +14,26 @@
 	
 	<!-- No tiles -->
      <definition name="/cha/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
-		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
 	</definition>
      <definition name="req/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
-		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/req/replyList.jsp" />
 	</definition>
+
 	<definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply2.jsp">
 		<put-attribute name="title" value="신고글쓰기" />
+	</definition>
+    <definition name="sellBoard/smsSelReplyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/sellBoard/smsSelReplyList.jsp" />
+	</definition>
+    <definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/mem/profile.jsp" />
 	</definition>
@@ -41,12 +50,12 @@
 
 	<!-- tiles -->	
 	<definition name="/*/*" extends="tilesbase" >
-		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>	
 	<definition name="*/*" extends="tilesbase" >
-		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>	

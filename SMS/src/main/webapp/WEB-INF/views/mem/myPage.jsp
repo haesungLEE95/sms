@@ -72,6 +72,7 @@
 				<td>내용</td>
 			</tr>
 		</table>
+	<a href="loginForm.do">로그아웃</a>
 	</div>
 </body>
 </html>

@@ -43,7 +43,11 @@ public class SmsMemController {
 	private SmsChargeService scs;
 	
 	@RequestMapping("joinForm")
-	public String joinForm() {
+	public String joinForm(Model model) {
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sscs.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
 		return "/mem/joinForm";
 	}
 	
@@ -57,6 +61,12 @@ public class SmsMemController {
 		
 		if(smem == null) result = sms.insert(mem);
 		else result = -1;
+		
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sscs.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		
 		model.addAttribute("result", result);
 		model.addAttribute("mem", mem);
 		model.addAttribute("mem_id", mem.getMem_id());
@@ -69,17 +79,22 @@ public class SmsMemController {
 	@RequestMapping("joinResult")
 	public String joinResult(SmsMem mem, Model model, HttpSession session) {
 		int result = 0;
-		System.out.println("리절트 멤버아이디 : "+mem.getMem_id());
 		try {
 			SmsMem smem = sms.select(mem.getMem_id());
 			/*smem = sms.select(mem.getMem_id());*/
 			if(smem != null) result = sms.firstUpdate(mem);		
 			model.addAttribute("result", result);
 			model.addAttribute("mem", mem);	
+			model.addAttribute("smem", smem);	
 		} catch (Exception e) {
 			mem = sms.select((String) session.getAttribute("mem_id"));
 			model.addAttribute("mem", mem);	
 		}  
+		
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sscs.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
 		return "/mem/joinResult";
 	}
 	
@@ -90,6 +105,7 @@ public class SmsMemController {
 	public String idChk(String mem_id) {
 		String msg = "";
 		SmsMem mem = sms.select(mem_id);
+		else msg="<br>다른 아이디를 선택하세요";
 		if (mem==null) msg="사용가능합니다";
 		else msg="다른 아이디를 선택하세요";
 		return msg;
@@ -102,8 +118,8 @@ public class SmsMemController {
 	public String nickChk(String nickname) {
 		String msg = "";
 		SmsMem mem = sms.nickSelect(nickname);
+		else msg="<br>다른 닉네임을 선택하세요";
 		if (mem==null) msg="사용가능합니다";
-		else msg="다른 닉네임을 선택하세요";
 		return msg;
 	}
 	
@@ -134,12 +150,17 @@ public class SmsMemController {
 				mem.setPasswd(dbPw);
 				result = 1;
 				session.setAttribute("mem_id", mem.getMem_id());
+				session.setAttribute("nickname", smem.getNickname());
+				session.setAttribute("mem_no", smem.getMem_no());
+				//session.setAttribute("mem", mem);
+				System.out.println("Mem login session : "+session);
 			}			
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			result = -1;
 		}
 		model.addAttribute("result", result);
+		System.out.println("Mem login session model : "+session.getId());
 		return "/mem/login";
 	}
 	@RequestMapping("myPage")

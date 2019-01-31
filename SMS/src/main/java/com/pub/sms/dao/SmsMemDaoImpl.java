@@ -99,5 +99,5 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		}
 		return result;
 	}
-
+	//수정
 }

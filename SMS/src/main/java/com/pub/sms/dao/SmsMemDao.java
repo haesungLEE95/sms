@@ -24,5 +24,5 @@ public interface SmsMemDao {
 	int updateMem(SmsMem mem);
 
 	int chargeMny(SmsMem mem);
-
+//수정
 }

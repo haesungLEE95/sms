@@ -47,6 +47,6 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int chargeMny(SmsMem mem) {
 		return smd.chargeMny(mem);
 	}
-
+	//수정
 
 }

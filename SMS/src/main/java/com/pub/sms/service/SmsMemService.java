@@ -26,5 +26,5 @@ public interface SmsMemService {
 	int updateMem(SmsMem mem);
 
 	int chargeMny(SmsMem mem);
-	
+	//수정
 }

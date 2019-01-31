@@ -290,7 +290,7 @@ public class SmsMemController {
 		}
 		model.addAttribute("result", result);		
 		return "/mem/chargeMnyResult";
-
+	}
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();

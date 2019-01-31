@@ -23,7 +23,7 @@
 			value="/WEB-INF/views/req/replyList.jsp" />
 	</definition>
 
-	<definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply2.jsp">
+	<definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply.jsp">
 		<put-attribute name="title" value="신고글쓰기" />
 	</definition>
     <definition name="sellBoard/smsSelReplyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
@@ -41,7 +41,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/mem/profile.jsp" />
 	</definition>
-     <definition name="/mem/updateInfo" template="/WEB-INF/views/layout/layoutChaReply2.jsp">
+     <definition name="/mem/updateInfo" template="/WEB-INF/views/layout/layoutChaReply.jsp">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/mem/updateInfo.jsp" />

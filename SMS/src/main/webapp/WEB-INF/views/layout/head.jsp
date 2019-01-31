@@ -27,6 +27,7 @@
 					</c:forEach>
 					<li><a href="list.do">의뢰게시판 </a></li>
 					<li><a href="smsChaList.do">신고게시판 </a></li>
+					<li><a href="smsQuestList.do">구매내역 </a></li>
 				</ul>
 			</div>
 		</nav>

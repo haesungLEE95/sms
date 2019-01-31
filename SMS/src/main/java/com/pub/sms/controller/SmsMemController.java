@@ -105,7 +105,6 @@ public class SmsMemController {
 	public String idChk(String mem_id) {
 		String msg = "";
 		SmsMem mem = sms.select(mem_id);
-		else msg="<br>다른 아이디를 선택하세요";
 		if (mem==null) msg="사용가능합니다";
 		else msg="다른 아이디를 선택하세요";
 		return msg;
@@ -118,8 +117,8 @@ public class SmsMemController {
 	public String nickChk(String nickname) {
 		String msg = "";
 		SmsMem mem = sms.nickSelect(nickname);
-		else msg="<br>다른 닉네임을 선택하세요";
 		if (mem==null) msg="사용가능합니다";
+		else msg="다른 닉네임을 선택하세요";
 		return msg;
 	}
 	
@@ -135,6 +134,7 @@ public class SmsMemController {
 	
 	@RequestMapping("login")
 	public String login(SmsMem mem, Model model, HttpSession session) {
+		
 		int result = 0;
 		try {
 			SmsMem smem = sms.select(mem.getMem_id());
@@ -184,6 +184,7 @@ public class SmsMemController {
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
+
 	@RequestMapping("updateInfo")
 	public String updateInfo(Model model, SmsMem mem, String mem_id) {
 		mem = sms.select(mem_id);
@@ -289,5 +290,11 @@ public class SmsMemController {
 		}
 		model.addAttribute("result", result);		
 		return "/mem/chargeMnyResult";
+
+	@RequestMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "/mem/logout";
+
 	}
 }

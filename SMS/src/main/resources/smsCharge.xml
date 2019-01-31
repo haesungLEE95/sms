@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsChargens">
+	<resultMap id="smsChargeResult" 	type="smsCharge">
+		<result property="mem_no" 		column="mem_no" />
+		<result property="chg_mny" 		column="chg_mny" />
+		<result property="chg_date" 	column="chg_date" />
+	</resultMap>
+	<select id="select" parameterType="int" resultMap="smsChargeResult">
+		select * from sms_charge where mem_no=#{mem_no} order by desc chg_date 
+	</select>
+	<insert id="chargeMny" parameterType="smsCharge" >
+		insert into sms_charge values (mem_no=#{mem_no} , chg_mny=#{chg_mny}, sysdate)
+	</insert>	
+</mapper>
+
+

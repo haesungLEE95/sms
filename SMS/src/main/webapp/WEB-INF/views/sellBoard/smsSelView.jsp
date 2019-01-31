@@ -34,16 +34,16 @@
 		<tr><td>제목</td><td>${smssel.sb_title}</td></tr>
 		<tr><td>카테고리</td>
 			<td>
-				<c:forEach var="mcate" items="${mcateList }">
-					<c:if test="${mcate.mcate_no==smssel.mcate_no }">
-						 <span class="label label-info">${mcate.mcate_name }</span>
-					</c:if>
+				<c:forEach var="mcate" items="${mcateList}">
+					<c:if test="${mcate.mcate_no==smssel.mcate_no}">
+						 <span class="label label-info">${mcate.mcate_name}</span>
+					</c:if> 
 				</c:forEach>
-				<c:forEach var="scate" items="${scateList }">
-					<c:if test="${scate.scate_no==smssel.scate_no }">
-						<span class="label label-info">${scate.scate_name }</span>
-					</c:if>
-				</c:forEach>
+ 			<c:forEach var="scate" items="${scateList}">
+ 					<c:if test="${scate.scate_no==smssel.scate_no}">
+						<span class="label label-info">${scate.scate_name}</span>
+					</c:if> 
+				</c:forEach>  
 			</td>
 		</tr>
 		<tr><td>작성자</td><td>${smssel.mem_no}</td></tr>
@@ -52,12 +52,20 @@
 		<tr><td>희망가격</td><td>${smssel.sb_price}</td></tr>
 		<tr><td>의뢰현황</td></tr>
 		<tr><td colspan="2">
+			<div align="center">
 			<a class="btn btn-info" href="smsSellBoardList.do?pageNum=${pageNum}">게시글 목록</a>
-			<%-- <c:if test=""> 작성자가 본인일 때 --%>
-				<a href="smsSellBoardUpdateForm.do?num=${smssel.sb_no}&pageNum=${pageNum}" class="btn btn-warning">수정</a>
-				<a href="smsSellBoardDelete.do?num=${smssel.sb_no}&pageNum=${pageNum}" class="btn btn-danger">삭제</a>
-				
-			<%-- </c:if> --%></td></tr>
+				<c:if test="${smssel.mem_no==mem_no}"> 
+				<a href="smsSellBoardUpdateForm.do?num=${smssel.sb_no}&
+					pageNum=${pageNum}" class="btn btn-warning">수정</a>
+				<a href="smsSellBoardDelete.do?num=${smssel.sb_no}&
+					pageNum=${pageNum}" class="btn btn-danger">삭제</a>
+				</c:if>
+				<c:if test="${smssel.mem_no!=mem_no}"> 
+				<a class="btn btn-default" href="">구매하기</a>
+				</c:if>
+			</div> 
+			</td>
+		</tr>
 	</table>
 	<h3 class="text-primary">댓글 작성</h3>
 		<form name="frm" id="frm">

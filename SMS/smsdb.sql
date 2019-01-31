@@ -559,6 +559,7 @@ drop table sms_qna;
 drop table sms_quest;
 drop table sms_charge;
 select * from sms_qna;
+select * from sms_qna_reply;
 select * from sms_quest;
 select * from sms_charge;
 
@@ -580,4 +581,26 @@ CREATE TABLE SMS_charge
     mem_no      INT     NOT NULL, 
     chg_mny     INT     NULL, 
     chg_date    DATE    NULL
+);
+DROP TABLE sms_qna;
+CREATE TABLE SMS_qna
+(
+    sb_no       INT               NOT NULL, 
+    mem_no      INT               NOT NULL, 
+    qna_cont    VARCHAR2(2000)    NULL, 
+    qna_date    DATE              NULL, 
+    sms_qna     VARCHAR2(255)     NULL, 
+    qna_no      INT               NULL, 
+    CONSTRAINT SMS_QNA_PK PRIMARY KEY (qna_no)
+);
+CREATE TABLE SMS_qna_reply
+(
+    qna_rep         INT              NOT NULL, 
+    qna_no          INT              NULL, 
+    qna__re_cont    VARCHAR2(255)    NULL, 
+    mem_no          INT			     NULL, 
+    regdate         DATE             NULL, 
+    updatedate      DATE             NULL, 
+    del             CHAR(1)          NULL, 
+    CONSTRAINT SMS_QNA_REPLY_PK PRIMARY KEY (qna_rep)
 );

@@ -11,7 +11,6 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-	
 	<!-- No tiles -->
      <definition name="/cha/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
 		<put-attribute name="title" value="" />
@@ -28,12 +27,16 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/sellBoard/smsSelReplyList.jsp" />
 	</definition>
+    <definition name="qna/smsQnList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/smsQnList.jsp" />
+	</definition>
     <definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/mem/profile.jsp" />
 	</definition>
-
 	<!-- tiles -->	
 	<definition name="/*/*" extends="tilesbase" >
 		<put-attribute name="title" value="" />
@@ -45,11 +48,9 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/{1}/{2}.jsp" />
 	</definition>	
-<!-- 	<definition name="/cha/smsChaList" extends="tilesbase">
-		<put-attribute name="title" value="신고글" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/cha/smsChaList.jsp" />
-	</definition>
+
+
+<!--	
 	<definition name="/cha/smsInsertForm" extends="tilesbase" >
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"

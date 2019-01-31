@@ -33,7 +33,6 @@
 .prof {
 	width: 350px
 }
-<<<<<<< HEAD
 
 #pimg {
 	width: 100px;
@@ -46,17 +45,6 @@
 	align-content: center;
 }
 
-=======
-#pimg {
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-}
-.btn btn-info {
-	width: 140px;
-	align-content: center;
-}
->>>>>>> refs/heads/haes4
 .btn btn-success{
 	width: 160px;
 	align-content: center;
@@ -76,7 +64,7 @@
 				<td>내 포인트 : ${mem.mny }</td>
 			</tr>
 			<tr>
-				<td>내 게시글(?)</td>
+				<td>내 게시글</td>
 			</tr>
 			<tr>
 				<th><a href="updateInfo.do?mem_id=${mem.mem_id }" class="btn btn-info">개인정보 수정</a><br><br>

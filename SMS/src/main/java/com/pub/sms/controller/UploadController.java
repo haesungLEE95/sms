@@ -55,12 +55,6 @@ public class UploadController {
                 e.printStackTrace();
             }
             String id = mem_id;
-            
-            System.out.println("id : "+id);
-            System.out.println("mem_id 투스트링 "+mem_id.toString());
-            System.out.println("셀렉트 "+sms.select(id.toString()));
-            System.out.println("셀렉트 테스트 "+sms.select("a1"));
-            System.out.println("dd");
             SmsMem mem = sms.select(mem_id);
             mem.setMem_img(newFileName);
             int result = sms.updateImg(mem);

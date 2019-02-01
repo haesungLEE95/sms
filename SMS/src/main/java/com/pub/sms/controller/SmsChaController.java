@@ -26,7 +26,7 @@ public class SmsChaController {
 	@Autowired
 	private SmsMemService sms;
 	@RequestMapping("smsChaList")
-	public String smsChaList(SmsMem sm ,String pageNum, SmsCha smscha, Model model) {
+	public String smsChaList(String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 10;
@@ -36,12 +36,10 @@ public class SmsChaController {
 		smscha.setStartRow(startRow);
 		smscha.setEndRow(endRow);
 		Collection<SmsCha> list = scs.list(smscha);
-
 		for(SmsCha sr : list) {
 			SmsMem sm = sms.memNick(sr.getMem_no());
 			sr.setNickname(sm.getNickname());			
 		}
-
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
 		Collection<SmsMainCate> mcateList = smcs.list();
 		Collection<SmsSubCate> scateList = sscs.list();

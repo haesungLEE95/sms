@@ -5,6 +5,7 @@ public class SmsMainCate {
     private String mcate_name;
 	public int getMcate_no() {
 		return mcate_no;
+	
 	}
 	public void setMcate_no(int mcate_no) {
 		this.mcate_no = mcate_no;

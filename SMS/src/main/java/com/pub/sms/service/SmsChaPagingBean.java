@@ -1,5 +1,5 @@
 package com.pub.sms.service;
-
+//s
 public class SmsChaPagingBean {
 	private int currentPage;
 	private int rowPerPage;

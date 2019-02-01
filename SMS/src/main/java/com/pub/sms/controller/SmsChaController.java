@@ -8,11 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.pub.sms.model.SmsCha;
 import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsMem;
-<<<<<<< HEAD
 import com.pub.sms.model.SmsSubCate;
-=======
- import com.pub.sms.model.SmsSubCate;
->>>>>>> refs/heads/haes4
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
 import com.pub.sms.service.SmsMCateService;
@@ -51,10 +47,6 @@ public class SmsChaController {
 		Collection<SmsSubCate> scateList = sscs.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-
-		//if (memNick != null) {
-		model.addAttribute("memNick", memNick.getNickname());
-		//}
 
 		model.addAttribute("list", list);
 		model.addAttribute("smscha", smscha);

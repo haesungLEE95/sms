@@ -12,7 +12,7 @@ public class SmsSellBoard {
     private int scate_no; 
     private Date sb_date; 
     
-	// paging용
+	//paging용
 	private int startRow;
 	private int endRow;
 	

@@ -33,20 +33,7 @@
 .prof {
 	width: 350px
 }
-<<<<<<< HEAD
 
-#pimg {
-	width: 100px;
-	height: 100px;
-	object-fit: cover;
-}
-
-.btn btn-info {
-	width: 140px;
-	align-content: center;
-}
-
-=======
 #pimg {
 	width: 100px;
 	height: 100px;
@@ -56,7 +43,7 @@
 	width: 140px;
 	align-content: center;
 }
->>>>>>> refs/heads/haes4
+
 .btn btn-success{
 	width: 160px;
 	align-content: center;

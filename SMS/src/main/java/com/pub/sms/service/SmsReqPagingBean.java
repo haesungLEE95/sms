@@ -4,7 +4,8 @@ public class SmsReqPagingBean {
 	private int total;			private int pagePerBlock = 10;
 	private int totalPage;		private int startPage;
 	private int endPage;
-	
+
+
 	public SmsReqPagingBean(int currentPage, int rowPerPage, int total) {
 		this.currentPage = currentPage; 
 		this.rowPerPage  = rowPerPage;

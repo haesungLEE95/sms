@@ -14,7 +14,14 @@
 	<insert id="insert" parameterType="smsquest">
 		insert into Sms_quest values (#{mem_no}, #{sb_no}, sysdate, #{qst_price}, 0)
 	</insert>
-	<select id="list" parameterType="int" resultMap="smsquestResult">
+	<select id="buyList" parameterType="int" resultMap="smsquestResult">
 		select * from Sms_quest where mem_no=#{mem_no} order by qst_dar desc
+	</select>
+	<select id="selList" parameterType="int" resultMap="smsquestResult">
+		select * from Sms_quest where sb_no in (
+		select sb_no from sms_sellboard where mem_no=#{mem_no}) order by qst_dar desc
+	</select>
+	<select id="select" parameterType="smsquest" resultType="smsquest">
+		select * from sms_quest where mem_no=#{mem_no} and sb_no=#{sb_no} and qst_comp=0
 	</select>
 </mapper>

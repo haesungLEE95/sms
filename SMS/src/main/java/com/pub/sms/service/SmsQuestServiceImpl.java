@@ -19,7 +19,18 @@ public class SmsQuestServiceImpl implements SmsQuestService {
 	}
 
 	@Override
-	public Collection<SmsQuest> list(int mem_no) {
-		return sqd.list(mem_no);
+	public Collection<SmsQuest> buyList(int mem_no) {
+		return sqd.buyList(mem_no);
 	}
+
+	@Override
+	public Collection<SmsQuest> selList(int mem_no) {
+		return sqd.selList(mem_no);
+	}
+
+	@Override
+	public SmsQuest select(SmsQuest smsqst) {
+		return sqd.select(smsqst);
+	}
+	
 }

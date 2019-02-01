@@ -9,7 +9,7 @@
 </head>
 <body>
 	<div class="container" align="center">
-		<h2 class="text-primary">구매 목록</h2>
+		<h2 class="text-primary">나의 구매 목록</h2>
 		<table class="table table-striped">
 			<tr>
 				<td>구매글제목</td>
@@ -31,6 +31,15 @@
 						<td>
 							<c:if test="${board.qst_comp%2==0}">거래중</c:if>
 							<c:if test="${board.qst_comp%2!=0}">완료</c:if>
+			<td>
+				<c:if test="${board.qst_comp%2==0}">
+				
+					<a class="btn btn-primary btn-lg" href="smsBuyCondition.do?num=${smsReq.rq_no}&pageNum=${pageNum}">거래 중</a>
+				</c:if>
+				<c:if test="${board.qst_comp%2!=0}">
+					<a class="btn btn-success btn-lg" href="smsBuyCondition.do?num=${smsReq.rq_no}&pageNum=${pageNum}">완료</a>
+				</c:if>
+			</td>
 						</td>
 					</tr>
 				</c:forEach>

@@ -24,4 +24,8 @@
 	<select id="select" parameterType="smsquest" resultType="smsquest">
 		select * from sms_quest where mem_no=#{mem_no} and sb_no=#{sb_no} and qst_comp=0
 	</select>
+	<update id="comp" parameterType="smsquest">
+		update sms_quest set qst_comp=1 where mem_no=#{mem_no} and sb_no=#{sb_no} and qst_comp=0
+	</update>
+	
 </mapper>

@@ -14,4 +14,6 @@ public interface SmsQuestDao {
 
 	SmsQuest select(SmsQuest smsqst);
 
+	int comp(SmsQuest smsqst);
+
 }

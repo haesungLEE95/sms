@@ -3,7 +3,7 @@ public class SmsSubCate {
 	private int scate_no; 
 	private int mcate_no; 
 	private String scate_name;
-	
+
 	public int getScate_no() {
 		return scate_no;
 	}

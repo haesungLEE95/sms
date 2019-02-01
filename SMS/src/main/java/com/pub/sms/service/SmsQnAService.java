@@ -12,4 +12,6 @@ public interface SmsQnAService {
 
 	int getTotal(SmsQnA smssqa);
 
+	SmsQnA select(int num);
+
 }

@@ -33,7 +33,6 @@ public class SmsReviewController {
 			SmsMem sm = smsi.memNick(sr.getMem_no());
 			sr.setNickname(sm.getNickname());
 		}
-		
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("rbdList", rbdList);
 		return "sellBoard/smsSelReplyList";

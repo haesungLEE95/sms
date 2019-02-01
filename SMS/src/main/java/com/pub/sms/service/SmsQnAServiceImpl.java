@@ -27,4 +27,9 @@ public class SmsQnAServiceImpl implements SmsQnAService {
 	public int getTotal(SmsQnA smssqa) {
 		return sqd.getTotal(smssqa);
 	}
+
+	@Override
+	public SmsQnA select(int num) {
+		return sqd.select(num);
+	}
 }

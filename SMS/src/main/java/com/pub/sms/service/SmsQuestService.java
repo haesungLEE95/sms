@@ -8,6 +8,10 @@ public interface SmsQuestService {
 
 	int insert(SmsQuest smsqst);
 
-	Collection<SmsQuest> list(int mem_no);
+	Collection<SmsQuest> buyList(int mem_no);
+
+	Collection<SmsQuest> selList(int mem_no);
+
+	SmsQuest select(SmsQuest smsqst);
 
 }

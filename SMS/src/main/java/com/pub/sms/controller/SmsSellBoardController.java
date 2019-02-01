@@ -69,9 +69,6 @@ public class SmsSellBoardController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("smssel", smssel);
-		//System.out.println("memid"+(String)session.getAttribute("mem_id"));
-		
-		//session.setAttribute("mem", mem);
 		model.addAttribute("pb", pb);
 		return "sellBoard/smsSelList";
 	}
@@ -89,12 +86,8 @@ public class SmsSellBoardController {
 	public String smsSellBoardinsert(HttpSession session, SmsSellBoard smssel, Model model) {
 		////세션 로그인 정보 가져오고
 		//insert
-		
 		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
-		
 		smssel.setMem_no(sm.getMem_no());
-//		smssel.setMem_no(1);
-		
 		int result=ssbs.insert(smssel);
 		model.addAttribute("result", result);
 		return "sellBoard/smsSelInsert";

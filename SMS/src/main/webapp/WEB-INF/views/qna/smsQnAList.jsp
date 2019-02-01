@@ -12,26 +12,31 @@
 		<h2>거래문의</h2>
 		<table class="table table-striped">
 			<tr>
-				<td>번호</td>
-				<td>거래문의</td>
+				<!-- <td>번호</td> -->
+				<td>거래문의 </td>
 				<td>작성자</td>
 				<td>문의날짜</td>
 			</tr>
-			<c:forEach var="smssqa" items="${list }">
-				<tr>
-					<td>${smssqa.qna_no}</td>
-					<td><a
-						href="smsQnaView.do?num=${smssqa.qna_no}&pageNum=${pb.currentPage}">${smssqa.sms_qna}</a>
-					</td>
-					<td>${smssqa.nickname}</td>
-					<td>${smssqa.qna_date}</td>
-				</tr>
-			</c:forEach>
-			<c:if test="${empty list}">
-				<tr>
-					<td colspan="4" align="center">데이터가 없습니다</td>
-				</tr>
-			</c:if>
+				<c:forEach var="smssqa" items="${list}">
+					<c:if test="${smssqa.mem_no==mem_no}"> 
+						<c:if test="${empty list}">
+							<tr>
+								<td colspan="3" align="center">데이터가 없습니다</td>
+							</tr>
+						</c:if>
+						<c:if test="${not empty list}">
+							<tr>
+								<%-- <td>${smssqa.qna_no}</td> --%>
+								<td><a
+									href="smsQnaView.do?num=${smssqa.qna_no}&
+										pageNum=${pb.currentPage}">${smssqa.sms_qna}</a>
+								</td>
+								<td>${smssqa.nickname}</td>
+								<td>${smssqa.qna_date}</td>
+							</tr>
+						</c:if>
+					</c:if>
+				</c:forEach>
 		</table>
 		<div align="center">
 			<ul class="pagination">
@@ -58,7 +63,6 @@
 				</c:if>
 			</ul>
 		</div>
-		<a class="btn btn-info" href="smsQnAInsertForm.do?pageNum=1">게시글입력</a>
 	</div>
 </body>
 </html>

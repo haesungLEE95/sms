@@ -15,6 +15,7 @@
 		<typeAlias alias="recha" type="com.pub.sms.model.SmsChaReply" />
 		<typeAlias alias="smssellboard" type="com.pub.sms.model.SmsSellBoard" />
 		<typeAlias alias="smsqna" type="com.pub.sms.model.SmsQnA" />
+		<typeAlias alias="smsqnareply" type="com.pub.sms.model.SmsQnaReply" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="req.xml" />
@@ -28,5 +29,6 @@
 		<mapper resource="smsRecha.xml" />
 		<mapper resource="sellboard.xml" />
 		<mapper resource="qna.xml" />
+		<mapper resource="qnareply.xml" />
 	</mappers>
 </configuration>

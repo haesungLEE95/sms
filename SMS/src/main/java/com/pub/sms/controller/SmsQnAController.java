@@ -2,6 +2,8 @@ package com.pub.sms.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,10 +33,8 @@ public class SmsQnAController {
 	private SmsSCateService sss;
 	@Autowired
 	private SmsMemService smsi;
-	@Autowired
-	private SmsSellBoardService ssbs;
 	@RequestMapping("smsQnAList")
-	public String smsQnList(String pageNum,SmsQnA smssqa,Model model) {
+	public String smsQnAList(String pageNum,SmsQnA smssqa,Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 10;
@@ -53,7 +53,6 @@ public class SmsQnAController {
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
 		model.addAttribute("pb", pb);
 		model.addAttribute("list", list);
 		model.addAttribute("smssqa", smssqa);
@@ -62,8 +61,6 @@ public class SmsQnAController {
 	@RequestMapping("smsQnAInsertForm")
 	public String smsQnAInsertForm(int sb_no, String pageNum, Model model) {
 		// 판매게시글 번호로 문의하기 위한 sb_no
-		SmsSellBoard ssb = ssbs.select(sb_no);
-		System.out.println("ssb : "+ssb.getSb_no());
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
@@ -71,19 +68,29 @@ public class SmsQnAController {
 		
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("sb_no", sb_no);
-		model.addAttribute("ssb", ssb);
 		return "qna/smsQnAInsertForm";
 	}
 	@RequestMapping("smsQnAInsert")
-	public String smsQnAInsert(String pageNum, SmsQnA smsqna, Model model) {
-		////세션 로그인 정보 가져오고
-		//insert
-		smsqna.setMem_no(1);
+	public String smsQnAInsert(HttpSession session, String pageNum, SmsQnA smsqna, Model model) {
+		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		smsqna.setMem_no(sm.getMem_no());
 		int result=sqs.insert(smsqna);
 
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("smsqna", smsqna);
 		return "qna/smsQnAInsert";
+	}
+	@RequestMapping("smsQnaView")
+	public String smsQnaView(int num, String pageNum, Model model) {
+		SmsQnA smsqna = sqs.select(num);
+		SmsMem sm = smsi.memNick(smsqna.getMem_no());
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		model.addAttribute("smsqna", smsqna);
+		model.addAttribute("sm", sm);
+		return "qna/smsQnaView";
 	}
 }

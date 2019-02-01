@@ -19,8 +19,18 @@ public class SmsQuestDaoImpl implements SmsQuestDao{
 	}
 
 	@Override
-	public Collection<SmsQuest> list(int mem_no) {
-		return sst.selectList("smsquestns.list",mem_no);
+	public Collection<SmsQuest> buyList(int mem_no) {
+		return sst.selectList("smsquestns.buyList",mem_no);
+	}
+
+	@Override
+	public Collection<SmsQuest> selList(int mem_no) {
+		return sst.selectList("smsquestns.selList",mem_no);
+	}
+
+	@Override
+	public SmsQuest select(SmsQuest smsqst) {
+		return sst.selectOne("smsquestns.select",smsqst);
 	}
 
 }

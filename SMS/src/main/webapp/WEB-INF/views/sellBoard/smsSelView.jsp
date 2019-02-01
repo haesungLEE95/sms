@@ -80,6 +80,7 @@
 				<a href="smsSellBoardUpdateForm.do?num=${smssel.sb_no}&pageNum=${pageNum}" class="btn btn-warning">수정</a>
 				<a href="smsSellBoardDelete.do?num=${smssel.sb_no}&pageNum=${pageNum}" class="btn btn-danger">삭제</a>
 				
+				
 			<%-- </c:if> --%>
 			<%-- <c:if test=""> 작성자가 본인아닐 때 --%>
 				<%-- <c:if test=""> 로그인 세션에 머니가 충분히 있을 때 --%>

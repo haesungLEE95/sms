@@ -77,7 +77,7 @@ public class SmsSellBoardController {
 	}
 	
 	@RequestMapping("smsSellBoardInsertForm")
-	public String smsSellBoardInsertForm(HttpSession session, String pageNum, Model model) {
+	public String smsSellBoardInsertForm(String pageNum, Model model) {
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);

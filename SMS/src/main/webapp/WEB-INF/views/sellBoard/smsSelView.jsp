@@ -46,7 +46,7 @@
 				</c:forEach>  
 			</td>
 		</tr>
-		<tr><td>작성자</td><td>${sm.nickname}</td></tr>
+		<tr><td>작성자</td><td>${sm.nickname}</td></tr> 
 		<tr><td>내용</td><td><pre>${smssel.sb_desc}</pre></td></tr>
 		<tr><td>작성일</td><td>${smssel.sb_date}</td></tr>
 		<tr><td>희망가격</td><td>${smssel.sb_price}</td></tr>
@@ -60,9 +60,9 @@
 				<a href="smsSellBoardDelete.do?num=${smssel.sb_no}&
 					pageNum=${pageNum}" class="btn btn-danger">삭제</a>
 				</c:if>
-				<c:if test="${smssel.mem_no!=mem_no}"> 
+<%-- 				<c:if test="${smssel.mem_no!=mem_no}"> 
 				<a class="btn btn-default" href="">구매하기</a>
-				</c:if>
+				</c:if> --%>
 			</div> 
 			</td>
 		</tr>
@@ -94,7 +94,6 @@
 		</form>
 		<div id="rbdListDisp"></div>
 		<!-- <div id="boardListDisp"></div> -->
-		<!-- zz -->
 </div>
 </body>
 </html>

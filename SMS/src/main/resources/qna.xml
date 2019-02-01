@@ -8,7 +8,18 @@
 		<result property="mem_no"			column="mem_no" />
 		<result property="qna_cont"	column="qna_cont" />
 		<result property="qna_date"		column="qna_date" />
+		<result property="sms_qna"		column="sms_qna" />
+		<result property="qna_no"		column="qna_no" />
 	</resultMap>
+		<select id="getTotal" parameterType="smsqna" resultType="int">
+		select count(*) from sms_qna
+	</select>
+	<select id="list" parameterType="smsqna" resultMap="smsqnaResult">
+		select * from (select a.*, rowNum rn from (
+			select * from sms_qna 		
+			order by qna_no desc) a) 
+				where rn between #{startRow} and #{endRow}		
+	</select>
 	<insert id="insert" parameterType="smsqna">
 		insert into Sms_qna values (#{sb_no}, #{mem_no}, #{qna_cont}, sysdate)
 	</insert>

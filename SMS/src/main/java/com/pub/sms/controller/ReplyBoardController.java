@@ -46,4 +46,5 @@ public class ReplyBoardController {
 		srrs.update(rb);
 		return "redirect:smsReqreplyList.do?rq_no="+rb.getRq_no();
 	}
+	
 }

@@ -33,4 +33,5 @@ public class SmsQnAController {
 		model.addAttribute("smsqna", smsqna);
 		return "qna/smsQnAInsert";
 	}
+	
 }

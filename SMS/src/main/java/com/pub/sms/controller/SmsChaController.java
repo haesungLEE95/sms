@@ -114,5 +114,6 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsDelete";
 	}
+	
 }
 

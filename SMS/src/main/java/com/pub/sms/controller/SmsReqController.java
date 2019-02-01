@@ -144,4 +144,5 @@ public class SmsReqController {
 		model.addAttribute("scateList", scateList);
 		return "main_header";
 	}
+	
 }

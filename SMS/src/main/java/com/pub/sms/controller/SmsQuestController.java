@@ -106,6 +106,5 @@ public class SmsQuestController {
 		model.addAttribute("list", list);
 		return "qst/smsBuyQuestList";
 	}
-	
-	
+		
 }

@@ -146,5 +146,4 @@ public class SmsSellBoardController {
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelDelete";
 	}
-
 }

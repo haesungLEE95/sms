@@ -50,5 +50,4 @@ public class SmsChaReplyController {
 		return "redirect:replyList.do?cha_no="+scr.getCha_no();
 	}
 	
-	
 }

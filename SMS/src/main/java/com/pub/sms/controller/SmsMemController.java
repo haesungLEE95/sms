@@ -74,4 +74,5 @@ public class SmsMemController {
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
+	
 }

@@ -52,7 +52,7 @@
 <div class="container" align="center">
 	<h2>게시글 상세내역</h2>
 	<table class="table table-hover">
-		<tr><td>이미지</td><td><img src="images/DSC_6305.jpg" alt="..."></td></tr>
+		<tr><td>이미지</td><td><img src="sbimages/${smssel.sb_img }" alt="..."></td></tr>
 		<tr><td>게시글번호</td><td>${smssel.sb_no}</td></tr>
 		<tr><td>제목</td><td>${smssel.sb_title}</td></tr>
 		<tr><td>카테고리</td>

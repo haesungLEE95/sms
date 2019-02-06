@@ -42,7 +42,7 @@
 							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="images/DSC_6305.jpg" alt="..."></a>
 							</c:if>
 							<c:if test="${board.sb_img!='' && board.sb_img!=null}">
-							${board.sb_img}aaa
+							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="sbimages/${board.sb_img}" alt="..."></a>
 							</c:if>
 <%-- 						이미지 Path 지정
 							<c:if test="${board.sb_img!='' }">

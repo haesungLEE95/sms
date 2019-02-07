@@ -16,7 +16,7 @@ public class SmsMem {
     private int mem_del; 
     private String mem_account;
     private Date mem_reg;
-    
+
 	public int getMem_no() {
 		return mem_no;
 	}

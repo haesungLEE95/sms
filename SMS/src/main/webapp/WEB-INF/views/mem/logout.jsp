@@ -8,7 +8,7 @@
 </head>
 <body>
 <script type="text/javascript">
-	alert("로그아웃됬습니다");
+	alert("로그아웃 되었습니다");
 	location.href="loginForm.do";
 </script>
 </body>

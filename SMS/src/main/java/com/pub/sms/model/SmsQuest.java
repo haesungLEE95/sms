@@ -11,7 +11,15 @@ public class SmsQuest {
     
     //제목
     private String sb_title;
+    //구매자 닉네임
+    private String nickName;
     
+	public String getNickName() {
+		return nickName;
+	}
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
 	public String getSb_title() {
 		return sb_title;
 	}

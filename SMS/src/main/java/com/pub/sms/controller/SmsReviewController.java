@@ -23,7 +23,14 @@ public class SmsReviewController {
 	public String smsReviewList(int sb_no, Model model) {
 		SmsSellBoard smssel = ssbs.select(sb_no);
 		Collection<SmsReview> rbdList = srvs.list(sb_no);
+<<<<<<< HEAD
 		
+=======
+		for(SmsReview sr : rbdList) {
+			SmsMem sm = smsi.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());
+		}
+>>>>>>> refs/heads/eresh25
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("rbdList", rbdList);
 		return "sellBoard/smsSelReplyList";

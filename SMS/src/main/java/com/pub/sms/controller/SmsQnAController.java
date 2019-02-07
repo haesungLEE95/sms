@@ -2,18 +2,26 @@ package com.pub.sms.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsQnA;
+import com.pub.sms.model.SmsReq;
 import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
+import com.pub.sms.service.SmsMemService;
+import com.pub.sms.service.SmsQnAPagingBean;
 import com.pub.sms.service.SmsQnAService;
+import com.pub.sms.service.SmsReqPagingBean;
 import com.pub.sms.service.SmsSCateService;
+import com.pub.sms.service.SmsSellBoardService;
 //거래문의
 @Controller
 public class SmsQnAController {
@@ -23,30 +31,66 @@ public class SmsQnAController {
 	private SmsMCateService sms;
 	@Autowired
 	private SmsSCateService sss;
+	@Autowired
+	private SmsMemService smsi;
 	@RequestMapping("smsQnAList")
-	public String smsQnList(String pageNum,SmsQnA sqa,Model model) {
+	public String smsQnAList(String pageNum,SmsQnA smssqa,Model model) {
+		if (pageNum==null || pageNum.equals("")) pageNum = "1";
+		int currentPage = Integer.parseInt(pageNum);
+		int rowPerPage  = 10;
+		int total = sqs.getTotal(smssqa);
+		int startRow = (currentPage - 1) * rowPerPage + 1;
+		int endRow   = startRow + rowPerPage - 1;
+		smssqa.setStartRow(startRow);
+		smssqa.setEndRow(endRow);
+		Collection<SmsQnA> list = sqs.list(smssqa);
+		for(SmsQnA sqa : list) {
+			SmsMem sm = smsi.memNick(sqa.getMem_no());
+			sqa.setNickname(sm.getNickname());			
+		}
+		SmsReqPagingBean pb = new SmsReqPagingBean(currentPage,rowPerPage,total);
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
+		model.addAttribute("pb", pb);
+		model.addAttribute("list", list);
+		model.addAttribute("smssqa", smssqa);
 		return "qna/smsQnAList";
 	}
 	@RequestMapping("smsQnAInsertForm")
 	public String smsQnAInsertForm(int sb_no, String pageNum, Model model) {
-		model.addAttribute("sb_no", sb_no);
+		// 판매게시글 번호로 문의하기 위한 sb_no
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		
 		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("sb_no", sb_no);
 		return "qna/smsQnAInsertForm";
 	}
 	@RequestMapping("smsQnAInsert")
-	public String smsQnAInsert(String pageNum, SmsQnA smsqna, Model model) {
-		////세션 로그인 정보 가져오고
-		//insert
-		smsqna.setMem_no(1);
+	public String smsQnAInsert(HttpSession session, String pageNum, SmsQnA smsqna, Model model) {
+		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		smsqna.setMem_no(sm.getMem_no());
 		int result=sqs.insert(smsqna);
 
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
 		model.addAttribute("smsqna", smsqna);
 		return "qna/smsQnAInsert";
+	}
+	@RequestMapping("smsQnaView")
+	public String smsQnaView(int num, String pageNum, Model model) {
+		SmsQnA smsqna = sqs.select(num);
+		SmsMem sm = smsi.memNick(smsqna.getMem_no());
+		Collection<SmsMainCate> mcateList = sms.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		model.addAttribute("smsqna", smsqna);
+		model.addAttribute("sm", sm);
+		return "qna/smsQnaView";
 	}
 }

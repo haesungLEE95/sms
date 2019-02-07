@@ -3,16 +3,22 @@ package com.pub.sms.model;
 import java.sql.Date;
 
 public class SmsQnaReply {
-    private int qna_rep;          
-    private int qna_no;          
-    private String qna__re_cont;     
-    private int mem_no;          
-    private Date regdate;         
-    private Date updatedate;     
-    private String del;
+    private int qna_rep;        //거래댓글번호  
+    private int qna_no;          //거래글번호
+    private String qna_re_cont;  //댓글내용   
+    private int mem_no;          //회원번호
+    private Date regdate;         //작성일
+    private Date updatedate;     //수정날짜
+    private String del;			//삭제여부
 	//nickname
 	private String nickname;
     
+	public String getQna_re_cont() {
+		return qna_re_cont;
+	}
+	public void setQna_re_cont(String qna_re_cont) {
+		this.qna_re_cont = qna_re_cont;
+	}
 	public String getNickname() {
 		return nickname;
 	}
@@ -30,12 +36,6 @@ public class SmsQnaReply {
 	}
 	public void setQna_no(int qna_no) {
 		this.qna_no = qna_no;
-	}
-	public String getQna__re_cont() {
-		return qna__re_cont;
-	}
-	public void setQna__re_cont(String qna__re_cont) {
-		this.qna__re_cont = qna__re_cont;
 	}
 	public int getMem_no() {
 		return mem_no;

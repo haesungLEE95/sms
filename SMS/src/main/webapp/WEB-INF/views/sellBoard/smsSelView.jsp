@@ -25,11 +25,34 @@
 			});
 		});
 	});
+	function button_buy_event(){
+		if (confirm("${smssel.sb_price}원이 차감됩니다") == true){    //확인
+			//구매
+			location.href="smsQuestBuy.do?sb_no=${smssel.sb_no}&price=${smssel.sb_price}&pageNum=${pageNum}";
+		}else{   //취소
+		    return;
+		}
+	}
+	function button_chg_event(){
+		if (confirm("정말 충전하시겠습니까??") == true){    //확인
+			//충전
+			location.href="#";
+		}else{   //취소
+		    return;
+		}
+	}
+	function button_qna_event(){
+		if (confirm("문의하시겠습니까??") == true){    //확인
+		    location.href="smsQnAInsertForm.do?sb_no=${smssel.sb_no}&pageNum=${pageNum}";
+		}else{   //취소
+		    return;
+		}
+	}
 </script></head><body>
 <div class="container" align="center">
 	<h2>게시글 상세내역</h2>
 	<table class="table table-hover">
-		<tr><td>이미지</td><td><img src="images/DSC_6305.jpg" alt="..."></td></tr>
+		<tr><td>이미지</td><td><img src="sbimages/${smssel.sb_img }" alt="..."></td></tr>
 		<tr><td>게시글번호</td><td>${smssel.sb_no}</td></tr>
 		<tr><td>제목</td><td>${smssel.sb_title}</td></tr>
 		<tr><td>카테고리</td>
@@ -46,7 +69,7 @@
 				</c:forEach>  
 			</td>
 		</tr>
-		<tr><td>작성자</td><td>${smssel.mem_no}</td></tr>
+		<tr><td>작성자</td><td>${sm.nickname}</td></tr> 
 		<tr><td>내용</td><td><pre>${smssel.sb_desc}</pre></td></tr>
 		<tr><td>작성일</td><td>${smssel.sb_date}</td></tr>
 		<tr><td>희망가격</td><td>${smssel.sb_price}</td></tr>
@@ -60,9 +83,18 @@
 				<a href="smsSellBoardDelete.do?num=${smssel.sb_no}&
 					pageNum=${pageNum}" class="btn btn-danger">삭제</a>
 				</c:if>
-				<c:if test="${smssel.mem_no!=mem_no}"> 
-				<a class="btn btn-default" href="">구매하기</a>
-				</c:if>
+			<c:if test="${smssel.mem_no!=mem_no}"> <!--  작성자가 본인아닐 때 -->
+				<%-- <c:if test=""> 로그인 세션에 머니가 충분히 있을 때 --%>
+					<input onclick="button_buy_event();" type="button" value="구매하기"
+						class="btn btn-primary btn-lg">
+				<%-- </c:if> --%>
+				<%-- <c:if test=""> 로그인 세션에 머니가 충분히 없을 때 --%>
+					<input onclick="button_chg_event();" type="button" value="충전하기"
+						class="btn btn-primary btn-lg">
+				<%-- </c:if> --%>
+				<input onclick="button_qna_event();" type="button" value="문의하기"
+					class="btn btn-warning btn-lg">
+			</c:if> 
 			</div> 
 			</td>
 		</tr>

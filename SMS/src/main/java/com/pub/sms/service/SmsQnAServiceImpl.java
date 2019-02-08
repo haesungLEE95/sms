@@ -32,4 +32,18 @@ public class SmsQnAServiceImpl implements SmsQnAService {
 	public SmsQnA select(int num) {
 		return sqd.select(num);
 	}
+
+	@Override
+	public int getMyTotal(SmsQnA smssqa) {
+		return sqd.getMyTotal(smssqa);
+	}
+
+	@Override
+	public Collection<SmsQnA> myList(SmsQnA smssqa) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
 }

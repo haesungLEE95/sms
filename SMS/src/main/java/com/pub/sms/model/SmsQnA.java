@@ -14,7 +14,16 @@ public class SmsQnA {
 	private int endRow;
 	//닉네임용
 	private String nickname;
+	//판매회원조회용
+	private int ssb_no;
 	
+	
+	public int getSsb_no() {
+		return ssb_no;
+	}
+	public void setSsb_no(int ssb_no) {
+		this.ssb_no = ssb_no;
+	}
 	public int getStartRow() {
 		return startRow;
 	}

@@ -26,6 +26,7 @@
 				<input type="button" value="마이페이지" onclick="location.href='myPage.do'">
 				<input type="button" value="로그아웃" onclick="location.href='logout.do' ">
 				<input type="button" value="거래문의" onclick="location.href='smsQnAList.do' ">
+				<input type="button" value="받은거래문의" onclick="location.href='smsQnAMyList.do' ">
 			</td>
 		</tr>
 		</table>

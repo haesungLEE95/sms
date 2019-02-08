@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsquestns">
+	<!-- Use type aliases to avoid typing the full classname every time. -->
+	<resultMap id="smsquestResult"			type="smsquest">
+		<result property="mem_no"			column="mem_no" />
+		<result property="sb_no"			column="sb_no" />
+		<result property="qst_dar"			column="qst_dar" />
+		<result property="qst_price"		column="qst_price" />
+		<result property="qst_comp"			column="qst_comp" />
+	</resultMap>
+
+	<insert id="insert" parameterType="smsquest">
+		insert into Sms_quest values (#{mem_no}, #{sb_no}, sysdate, #{qst_price}, 0)
+	</insert>
+	<select id="buyList" parameterType="int" resultMap="smsquestResult">
+		select * from Sms_quest where mem_no=#{mem_no} order by qst_dar desc
+	</select>
+	<select id="selList" parameterType="int" resultMap="smsquestResult">
+		select * from Sms_quest where sb_no in (
+		select sb_no from sms_sellboard where mem_no=#{mem_no}) order by qst_dar desc
+	</select>
+	<select id="select" parameterType="smsquest" resultType="smsquest">
+		select * from sms_quest where mem_no=#{mem_no} and sb_no=#{sb_no} and qst_comp=0
+	</select>
+	<update id="comp" parameterType="smsquest">
+		update sms_quest set qst_comp=1 where mem_no=#{mem_no} and sb_no=#{sb_no} and qst_comp=0
+	</update>
+	
+</mapper>

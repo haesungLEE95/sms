@@ -5,7 +5,7 @@
 <title>Insert title here</title></head><body>
 <c:if test="${result > 0 }">
 	<script type="text/javascript">
-		alert("의뢰 성공 ㅋㅋ");
+		alert("문의성공");
 		location.href="smsSellBoardView.do?num=${smsqna.sb_no }&pageNum=${pageNum}";
 	</script>
 </c:if>

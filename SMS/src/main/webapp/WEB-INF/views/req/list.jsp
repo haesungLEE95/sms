@@ -42,12 +42,12 @@
 							</c:forEach>
 						</td>
 						<td><a href="view.do?num=${board.rq_no }&pageNum=${pb.currentPage}">${board.rq_title}</a></td>
-						<td>${board.mem_no }</td>
+						<td>${board.nickname }</td>
 						<td>${board.rq_count }</td>
 						<td>${board.rq_date }</td>
 						<td>
-							<c:if test="${board.rq_cond%2==0}">의뢰중</c:if>
-							<c:if test="${board.rq_cond%2!=0}">완료</c:if>
+								<c:if test="${board.rq_cond%2==0}">의뢰중</c:if>
+								<c:if test="${board.rq_cond%2!=0}">완료</c:if>
 						</td>
 					</tr>
 				</c:forEach>

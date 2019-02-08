@@ -3,11 +3,48 @@ package com.pub.sms.model;
 import java.sql.Date;
 
 public class SmsQnA {
-    private int sb_no; 
-    private int mem_no; 
-    private String qna_cont; 
-    private Date qna_date;
-    
+    private int sb_no;  //판매글번호     
+    private int mem_no; //회원번호(작성자)     
+    private String qna_cont;   
+    private Date qna_date;    
+    private String sms_qna; //제목   
+    private int qna_no;     
+	// paging용
+	private int startRow;
+	private int endRow;
+	//닉네임용
+	private String nickname;
+	
+	public int getStartRow() {
+		return startRow;
+	}
+	public void setStartRow(int startRow) {
+		this.startRow = startRow;
+	}
+	public int getEndRow() {
+		return endRow;
+	}
+	public void setEndRow(int endRow) {
+		this.endRow = endRow;
+	}
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getSms_qna() {
+		return sms_qna;
+	}
+	public void setSms_qna(String sms_qna) {
+		this.sms_qna = sms_qna;
+	}
+	public int getQna_no() {
+		return qna_no;
+	}
+	public void setQna_no(int qna_no) {
+		this.qna_no = qna_no;
+	}
 	public int getSb_no() {
 		return sb_no;
 	}

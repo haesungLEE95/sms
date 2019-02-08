@@ -3,20 +3,20 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="smsMemns">
 	<!-- Use type aliases to avoid typing the full classname every time. -->
-	<resultMap id="smsMemResult" 		type="mem">
-		<result property="mem_no" 	     column="mem_no" />
-		<result property="mem_name"     column="mem_name" />
-		<result property="mem_id"      column="mem_id" />
-		<result property="nickname"      column="nickname" />
-		<result property="email"      column="email" />
-		<result property="passwd" 	     column="passwd" />
-		<result property="mem_img" 	 column="mem_img" />
-		<result property="addr" 	 column="addr" />
-		<result property="tel" 	 column="tel" />
-		<result property="mny" 	 column="mny" />
-		<result property="mem_del" 	 column="mem_del" />
-		<result property="mem_account" 	 column="mem_account" />
-		<result property="mem_reg" 	 column="mem_reg" />
+	<resultMap id="smsMemResult" type="mem">
+		<result property="mem_no" 		column="mem_no" />
+		<result property="mem_name" 	column="mem_name" />
+		<result property="mem_id"		column="mem_id" />
+		<result property="nickname"		column="nickname" />
+		<result property="email" 		column="email" />
+		<result property="passwd" 		column="passwd" />
+		<result property="mem_img" 		column="mem_img" />
+		<result property="addr" 		column="addr" />
+		<result property="tel" 			column="tel" />
+		<result property="mny" 			column="mny" />
+		<result property="mem_del" 		column="mem_del" />
+		<result property="mem_account" 	column="mem_account" />
+		<result property="mem_reg" 		column="mem_reg" />
 	</resultMap>
 	<select id="select" parameterType="string" resultType="mem">
 		select * from sms_mem where mem_id=#{mem_id}
@@ -24,17 +24,27 @@
 	<select id="selectnick" parameterType="int" resultType="mem">
 		select * from sms_mem where mem_no=#{mem_no}
 	</select>
+	<select id="nickselect" parameterType="string" resultType="mem">
+		select * from sms_mem where nickname=#{nickname}
+	</select>
 	<insert id="insert" parameterType="mem">
-		<selectKey keyProperty="mem_no" order="BEFORE" resultType="int">
+		<selectKey keyProperty="mem_no" order="BEFORE"
+			resultType="int">
 			select nvl(max(mem_no),0) + 1 from sms_mem
 		</selectKey>
 		insert into sms_mem
 		values(#{mem_no},#{mem_name},#{mem_id},#{nickname},#{email},#{passwd},'','','','','','',sysdate)
 	</insert>
 	<update id="firstUpdate" parameterType="mem">
-		update sms_mem 
-		set nvl(mem_img=#{mem_img},''), nvl(addr=#{addr},''), nvl(tel=#{tel},''), nvl(mem_account=#{mem_account},'') where mem_id=#{mem_id}
+		update sms_mem set
+		addr=coalesce(#{addr},null), tel=coalesce(#{tel},null),
+		mem_account=coalesce(#{mem_account},null) where mem_id=#{mem_id}
 	</update>
+	<update id="updateImg" parameterType="mem">
+		update sms_mem set
+		mem_img=#{mem_img} where mem_id=#{mem_id}
+	</update>
+
 	<!-- <delete id="delete"></delete> -->
 
 </mapper>

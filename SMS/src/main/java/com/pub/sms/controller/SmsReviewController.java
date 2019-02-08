@@ -2,13 +2,17 @@ package com.pub.sms.controller;
 
 import java.util.Collection;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsReview;
 import com.pub.sms.model.SmsSellBoard;
+import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsReviewService;
 import com.pub.sms.service.SmsSellBoardService;
 
@@ -18,12 +22,17 @@ public class SmsReviewController {
 	private SmsSellBoardService ssbs;
 	@Autowired
 	private SmsReviewService srvs;
+	@Autowired
+	private SmsMemService smsi;
 	
 	@RequestMapping("smsReviewList")
 	public String smsReviewList(int sb_no, Model model) {
 		SmsSellBoard smssel = ssbs.select(sb_no);
 		Collection<SmsReview> rbdList = srvs.list(sb_no);
-		
+		for(SmsReview sr : rbdList) {
+			SmsMem sm = smsi.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());
+		}
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("rbdList", rbdList);
 		return "sellBoard/smsSelReplyList";
@@ -44,5 +53,5 @@ public class SmsReviewController {
 	public String smsReviewUpdate(SmsReview rb) {
 		srvs.update(rb);
 		return "redirect:smsReviewList.do?sb_no="+rb.getSb_no();
-	}
+	}	
 }

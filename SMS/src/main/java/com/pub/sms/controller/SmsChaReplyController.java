@@ -26,8 +26,10 @@ public class SmsChaReplyController {
 	public String replyList(int cha_no, Model model) {
 		SmsCha smscha = scs.select(cha_no);
 		Collection<SmsChaReply> rbdList = scrl.list(cha_no);
-		SmsMem memNick = sms.memNick(1);
-		model.addAttribute("memNick", memNick.getNickname());
+		for(SmsChaReply scr : rbdList) {
+			SmsMem sm = sms.memNick(scr.getMem_no());
+			scr.setNickname(sm.getNickname());
+		}
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("rbdList", rbdList);
 		
@@ -48,6 +50,5 @@ public class SmsChaReplyController {
 	public String rUpdate(SmsChaReply scr ) {
 		scrl.update(scr);
 		return "redirect:replyList.do?cha_no="+scr.getCha_no();
-	}
-	
+	}	
 }

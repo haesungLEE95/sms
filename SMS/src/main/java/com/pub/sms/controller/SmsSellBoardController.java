@@ -1,18 +1,26 @@
 package com.pub.sms.controller;
 
+import java.io.File;
 import java.util.Collection;
+import java.util.Iterator;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.pub.sms.model.SmsMainCate;
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsMCateService;
+import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsReqPagingBean;
 import com.pub.sms.service.SmsSCateService;
 import com.pub.sms.service.SmsSellBoardService;
@@ -25,13 +33,13 @@ public class SmsSellBoardController {
 	private SmsSCateService sss;
 	@Autowired
 	private SmsSellBoardService ssbs;
-	
+	@Autowired
+	private SmsMemService smsi;
 	@RequestMapping("smsSellBoardList")
 	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
-		int rowPerPage  = 8;
-		
+		int rowPerPage  = 12;
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow   = startRow + rowPerPage - 1;
 		smssel.setStartRow(startRow);
@@ -58,14 +66,8 @@ public class SmsSellBoardController {
 			list = ssbs.sCateList(smssel);
 		}
 
-
-
 		SmsReqPagingBean pb=new SmsReqPagingBean(currentPage,rowPerPage,total);
-
 		////글쓴이 정보 가져오기
-		
-
-		
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
@@ -73,7 +75,6 @@ public class SmsSellBoardController {
 		
 		model.addAttribute("list", list);
 		model.addAttribute("smssel", smssel);
-		
 		model.addAttribute("pb", pb);
 		return "sellBoard/smsSelList";
 	}
@@ -88,25 +89,52 @@ public class SmsSellBoardController {
 	}
 	
 	@RequestMapping("smsSellBoardinsert")
-	public String smsSellBoardinsert(SmsSellBoard smssel, Model model) {
+	public String smsSellBoardinsert(HttpSession session, SmsSellBoard smssel, Model model,@RequestParam("sbimg") MultipartFile multi) {
 		////세션 로그인 정보 가져오고
 		//insert
-		smssel.setMem_no(1);
+		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
+		smssel.setMem_no(sm.getMem_no());
+	
+		//파일업로드 파트
 		
+		System.out.println(multi.getName());
+		
+			String root = session.getServletContext().getRealPath("/");
+			String path = root+	"sbimages"+File.separator;
+			System.out.println("path: "+path); 
+			String newFileName = ""; // 업로드 되는 파일명
+
+			File dir = new File(path);
+			if(!dir.isDirectory()){
+				dir.mkdirs();
+			}
+				String fileName = multi.getOriginalFilename();
+				System.out.println("실제 파일 이름 : " +fileName);
+				newFileName = System.currentTimeMillis()+"."
+						+fileName.substring(fileName.lastIndexOf(".")+1);
+				System.out.println("업로드된 파일 이름 : " +newFileName);             
+				try {
+					multi.transferTo(new File(path+newFileName));
+					smssel.setSb_img(newFileName);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
 		int result=ssbs.insert(smssel);
 		model.addAttribute("result", result);
 		return "sellBoard/smsSelInsert";
 	}
+
 	//smsSellBoardView
 	@RequestMapping("smsSellBoardView")
 	public String smsSellBoardView(int num, String pageNum, Model model) {
 		SmsSellBoard smssel = ssbs.select(num);
-
+		SmsMem sm = smsi.memNick(smssel.getMem_no());
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
+		model.addAttribute("sm", sm);
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelView";
@@ -146,4 +174,5 @@ public class SmsSellBoardController {
 		model.addAttribute("pageNum", pageNum);
 		return "sellBoard/smsSelDelete";
 	}
+
 }

@@ -1,20 +1,14 @@
 package com.pub.sms.controller;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
 import java.util.Collection;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.pub.sms.model.SmsCha;
 import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsMem;
-import com.pub.sms.model.SmsSubCate;
+ import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsChaPagingBean;
 import com.pub.sms.service.SmsChaService;
 import com.pub.sms.service.SmsMCateService;
@@ -31,9 +25,8 @@ public class SmsChaController {
 	private SmsChaService scs;
 	@Autowired
 	private SmsMemService sms;
-	
 	@RequestMapping("smsChaList")
-	public String smsChaList(SmsMem sm ,String pageNum, SmsCha smscha, Model model) {
+	public String smsChaList(String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
 		int rowPerPage  = 10;
@@ -42,20 +35,16 @@ public class SmsChaController {
 		int endRow   = startRow + rowPerPage - 1;
 		smscha.setStartRow(startRow);
 		smscha.setEndRow(endRow);
-		
 		Collection<SmsCha> list = scs.list(smscha);
-		SmsMem memNick = sms.memNick(1);
-		
+		for(SmsCha sr : list) {
+			SmsMem sm = sms.memNick(sr.getMem_no());
+			sr.setNickname(sm.getNickname());			
+		}
 		SmsChaPagingBean pb=new SmsChaPagingBean(currentPage,rowPerPage,total);
-
 		Collection<SmsMainCate> mcateList = smcs.list();
 		Collection<SmsSubCate> scateList = sscs.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-		
-		//if (memNick != null) {
-		model.addAttribute("memNick", memNick.getNickname());
-		//}
 		model.addAttribute("list", list);
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("pageNum", pageNum);
@@ -75,7 +64,6 @@ public class SmsChaController {
 	public String smsInsert(String pageNum, SmsCha smscha, Model model) {
 		int result = 0;
 		result = scs.insert(smscha);
-		
 		model.addAttribute("result", result);
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsInsert";
@@ -84,13 +72,18 @@ public class SmsChaController {
 	@RequestMapping("smsView")
 	public String smsView(String pageNum,int num, Model model) {
 		scs.updateReadcount(num);
-		SmsMem memNick = sms.memNick(1);
 		SmsCha smscha = scs.selectno(num);
+		SmsMem sm = sms.memNick(smscha.getMem_no());
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sscs.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
+		model.addAttribute("sm", sm);
 		model.addAttribute("smscha", smscha);
-		model.addAttribute("memno", memNick.getMem_no());
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}
+	
 	@RequestMapping("smsUpdateForm")
 	public String smsUpdateForm(int num, String pageNum, Model model) {
 		SmsMem memNick = sms.memNick(1);
@@ -100,6 +93,7 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsUpdateForm";
 	}
+	
 	@RequestMapping("smsUpdate")
 	public String smsUpdate(SmsCha smscha, Model model) {
 		int result = scs.update(smscha); 
@@ -107,6 +101,7 @@ public class SmsChaController {
 		model.addAttribute("smscha", smscha);
 		return "/cha/smsUpdate";
 	}
+	
 	@RequestMapping("smsDelete")
 	public String smsDelete(int num, String pageNum, Model model) {
 		int result = scs.delete(num);

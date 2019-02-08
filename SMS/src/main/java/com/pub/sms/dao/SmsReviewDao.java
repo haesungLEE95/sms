@@ -12,4 +12,5 @@ public interface SmsReviewDao {
 	void delete(int re_no);
 
 	void update(SmsReview rb);
+
 }

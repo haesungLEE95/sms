@@ -49,7 +49,7 @@
 
 	<div class="container">
 		<h2>게시글 입력</h2>
-		<form action="smsSellBoardinsert.do" method="post" name="frm" onsubmit="setcate()">
+		<form action="smsSellBoardinsert.do" method="post" name="frm" onsubmit="setcate()" enctype="multipart/form-data">
 		<input type="hidden" name="mcate_no">
 		<input type="hidden" name="scate_no">
 			<table class="table table-hover">
@@ -95,11 +95,12 @@
 				</tr>
 				<tr>
 					<td>썸네일 이미지</td>
-					<td></td>
+					<td><input type="file" name="sbimg"></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="확인"></td>
-				</tr>
+					<td colspan="2"><input type="submit" value="확인">
+					<input type="button" value="취소" onclick="location.href='smsSellBoardList.do'"></td>
+				</tr> 
 			</table>
 		</form>
 	</div>

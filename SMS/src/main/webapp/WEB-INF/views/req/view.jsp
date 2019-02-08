@@ -5,12 +5,13 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('list.do?pageNum=${pageNum}');
-		$('#rbdListDisp').load('smsReqreplyList.do?rq_no=${smsReq.rq_no}');
+		/* $('#boardListDisp').load('list.do?pageNum=${pageNum}'); */
+		$('#rbdListDisp').load('smsReqreplyList.do?rq_no=${smsReq.rq_no}'); 
 		$('#smsReqrInsert').click(function() {
 			if (!frm.rq_re_cont.value) {
 				alert("댓글을 입력후에 사용하시오");
-				frm.rq_re_cont.focus(); return false; }
+				frm.rq_re_cont.focus(); 
+				return false; }
 	/* 		var sendData = 'bno='+frm.bn+o.value+
 						"&replyer="+frm.replyer+value+
 						"&replytext="+frm.replytext.value; */
@@ -42,37 +43,52 @@
 				</c:forEach>
 			</td>
 		</tr>
-		<tr><td>작성자</td><td>${smsReq.mem_no}</td></tr>
+		<tr><td>작성자</td><td>${sm.nickname}</td></tr>
 		<tr><td>내용</td><td><pre>${smsReq.rq_cont}</pre></td></tr>
 		<tr><td>조회수</td><td>${smsReq.rq_count}</td></tr>
 		<tr><td>작성일</td><td>${smsReq.rq_date}</td></tr>
 		<tr><td>희망가격</td><td>${smsReq.rq_price}</td></tr>
 		<tr><td>의뢰현황</td>
-			<td>
-				<c:if test="${smsReq.rq_cond%2==0}">
-					<a class="btn btn-primary btn-lg" href="condition.do?num=${smsReq.rq_no}&pageNum=${pageNum}">의뢰 중</a>
-				</c:if>
-				<c:if test="${smsReq.rq_cond%2!=0}">
-					<a class="btn btn-success btn-lg" href="condition.do?num=${smsReq.rq_no}&pageNum=${pageNum}">완료</a>
-				</c:if>
-			</td>
+			<c:if test="${smsReq.mem_no==mem_no }">
+				<td>
+					<c:if test="${smsReq.rq_cond%2==0}">
+						<a class="btn btn-primary btn-lg" href="condition.do?num=${smsReq.rq_no}&
+							pageNum=${pageNum}">의뢰 중</a>
+					</c:if>
+					<c:if test="${smsReq.rq_cond%2!=0}">
+						<a class="btn btn-success btn-lg" href="condition.do?num=${smsReq.rq_no}&
+							pageNum=${pageNum}">완료</a>
+					</c:if>
+				</td>
+			</c:if>
+			<c:if test="${smsReq.mem_no!=mem_no }">
+				<td>
+					<c:if test="${smsReq.rq_cond%2==0}">의뢰중</c:if>
+					<c:if test="${smsReq.rq_cond%2!=0}">완료</c:if>
+				</td>
+			</c:if>
 		</tr>
-		<tr><td colspan="2">
+		<tr>
+		<td colspan="2">
+			<div align="center">
 			<a class="btn btn-info" href="list.do?pageNum=${pageNum}">게시글 목록</a>
-			<%-- <c:if test=""> 작성자가 본인일 때 --%>
+			<c:if test="${smsReq.mem_no==mem_no }"> 
 				<a href="updateForm.do?num=${smsReq.rq_no}&pageNum=${pageNum}" class="btn btn-warning">수정</a>
 				<a href="delete.do?num=${smsReq.rq_no}&pageNum=${pageNum}" class="btn btn-danger">삭제</a>
-			<%-- </c:if> --%></td></tr>
+			</c:if>
+			</div>
+		</td>
+		</tr>
 	</table>
 	<h3 class="text-primary">댓글 작성</h3>
 		<form name="frm" id="frm">
 			<input type="hidden" name="rq_no" value="${smsReq.rq_no}">
-			<input type="hidden" name="mem_no" value="1">
+			<input type="hidden" name="mem_no" value="${mem_no}">
 			<table class="table table-hover">
 				<!-- 원래는 login한 사람 이름 또는 ID -->
 				<tr>
 					<td>작성자</td>
-					<td>로그인정보불러오기</td>
+					<td>${nickname}</td>
 					<td>댓글</td>
 					<td><textarea rows="3" cols="30" name="rq_re_cont"></textarea></td>
 					<td colspan="2"><input type="button" value="댓글입력" id="smsReqrInsert"></td>
@@ -80,7 +96,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<div id="boardListDisp"></div>
+		<!-- <div id="boardListDisp"></div> -->
 </div>
 </body>
 </html>

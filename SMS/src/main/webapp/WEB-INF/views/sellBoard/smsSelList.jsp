@@ -18,6 +18,18 @@
 				</div>
 			</div>
 		</div> -->
+		<div align="right">
+		<table>
+		<tr>
+		<th>환영합니다  ${nickname}님</th>
+			<td>
+				<input type="button" value="마이페이지" onclick="location.href='myPage.do'">
+				<input type="button" value="로그아웃" onclick="location.href='logout.do' ">
+				<input type="button" value="거래문의" onclick="location.href='smsQnAList.do' ">
+			</td>
+		</tr>
+		</table>
+		</div>
 		<h2 class="text-primary">판매 게시판 목록</h2>
 			<c:if test="${empty list}">
 				데이터가 없습니다
@@ -30,7 +42,7 @@
 							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="images/DSC_6305.jpg" alt="..."></a>
 							</c:if>
 							<c:if test="${board.sb_img!='' && board.sb_img!=null}">
-							${board.sb_img}aaa
+							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="sbimages/${board.sb_img}" alt="..."></a>
 							</c:if>
 <%-- 						이미지 Path 지정
 							<c:if test="${board.sb_img!='' }">

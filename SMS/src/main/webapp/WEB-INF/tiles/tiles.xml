@@ -11,37 +11,52 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/layout/footer.jsp" />
 	</definition>
-
+	<!-- No tiles -->
      <definition name="/cha/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
-		<put-attribute name="title" value="신고글쓰기" />
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
 	</definition>
-	
-	<!-- tiles -->
-	<definition name="*/*" extends="tilesbase">
-		<put-attribute name="title" value="신고글" />
+     <definition name="req/replyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/req/replyList.jsp" />
+	</definition>
+    <definition name="sellBoard/smsSelReplyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/sellBoard/smsSelReplyList.jsp" />
+	</definition>
+    <definition name="qna/qnaReplyList" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/qna/qnaReplyList.jsp" />
+	</definition>
+    <definition name="mem/profile" template="/WEB-INF/views/layout/layoutChaReply.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/mem/profile.jsp" />
+	</definition>
+	<!-- tiles -->	
+	<definition name="/*/*" extends="tilesbase" >
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/{1}/{2}.jsp" />
-	</definition>
-	<definition name="/*/*" extends="tilesbase">
-		<put-attribute name="title" value="신고글" />
+	</definition>	
+	<definition name="*/*" extends="tilesbase" >
+		<put-attribute name="title" value="" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/{1}/{2}.jsp" />
-	</definition>
+	</definition>	
 
-	
-	<!-- <definition name="/cha/smsChaList" extends="tilesbase">
-		<put-attribute name="title" value="신고글" />
-		<put-attribute name="body"
-			value="/WEB-INF/views/cha/smsChaList.jsp" />
-	</definition>
+
+<!--	
 	<definition name="/cha/smsInsertForm" extends="tilesbase" >
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsertForm.jsp" />
 	</definition>
- 	<definition name="/cha/smsInsert" extends="tilesbase">
+	<definition name="/cha/smsInsert" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsInsert.jsp" />
@@ -56,7 +71,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdateForm.jsp" />
 	</definition>
- 	<definition name="/cha/smsUpdate" extends="tilesbase">
+	<definition name="/cha/smsUpdate" extends="tilesbase">
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/smsUpdate.jsp" />
@@ -70,5 +85,5 @@
 		<put-attribute name="title" value="신고글쓰기" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/cha/replyList.jsp" />
-	</definition> -->
+	</definition>     -->
 </tiles-definitions>

@@ -46,7 +46,8 @@
 					</td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="확인"></td>
+					<td colspan="2"><input type="submit" value="확인">
+					<input type="button" value="취소" onclick="location.href='list.do'"></td>
 				</tr>
 			</table>
 		</form>

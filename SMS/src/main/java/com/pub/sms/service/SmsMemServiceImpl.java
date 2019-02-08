@@ -28,6 +28,13 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int firstUpdate(SmsMem mem) {
 		return smd.firstUpdate(mem);
 	}
+	public SmsMem nickSelect(String nickname) {
+		return smd.nickSelect(nickname);
+	}
+
+	public int updateImg(SmsMem mem) {
+		return smd.updateImg(mem);
+	}
 
 
 }

@@ -54,4 +54,5 @@ public class SmsReviewController {
 		srvs.update(rb);
 		return "redirect:smsReviewList.do?sb_no="+rb.getSb_no();
 	}	
+	
 }

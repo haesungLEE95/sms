@@ -6,6 +6,16 @@ public class SmsReview {
 	private int re_score; 
 	private int mem_no;
 	
+	//nickname
+	private String nickname;
+	
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getRe_no() {
 		return re_no;
 	}

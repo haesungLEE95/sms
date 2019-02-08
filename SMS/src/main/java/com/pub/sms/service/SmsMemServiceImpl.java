@@ -35,6 +35,18 @@ public class SmsMemServiceImpl implements SmsMemService {
 	public int updateImg(SmsMem mem) {
 		return smd.updateImg(mem);
 	}
-
+	@Override
+	public int updateInfo(SmsMem mem) {
+		return smd.updateInfo(mem);
+	}
+	@Override
+	public int updateMem(SmsMem mem) {
+		return smd.updateMem(mem);
+	}
+	@Override
+	public int chargeMny(SmsMem mem) {
+		return smd.chargeMny(mem);
+	}
+	//수정
 
 }

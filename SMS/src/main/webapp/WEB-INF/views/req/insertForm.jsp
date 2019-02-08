@@ -52,7 +52,6 @@
 		<form action="insert.do" method="post" name="frm" onsubmit="setcate()">
 		<input type="hidden" name="mcate_no">
 		<input type="hidden" name="scate_no">
-		<input type="hidden" name="mem_no" value="${mem_no}">
 			<table class="table table-hover">
 				<tr>
 					<td>카테고리</td>
@@ -95,8 +94,7 @@
 							required="required"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="2"><input type="submit" value="확인">
-					<input type="button" value="취소" onclick="location.href='list.do'"></td>
+					<td colspan="2"><input type="submit" value="확인"></td>
 				</tr>
 			</table>
 		</form>

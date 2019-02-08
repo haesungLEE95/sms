@@ -10,6 +10,7 @@
 <body>
 	<div class="container" align="center">
 		<h2 class="text-primary">불편신고</h2>
+
 		<table class="table table-hover">
 			<tr>
 				<td>번호</td>
@@ -23,7 +24,7 @@
 					<td>${smscha.cha_no}</td>
 					<td><a href="smsView.do?num=${smscha.cha_no}&pageNum=${pb.currentPage}">${smscha.cha_title}</a>
 					</td>
-					<td>${smscha.nickname}</td>
+					<td>${memNick}</td>
 					<td>${smscha.cha_count}</td>
 					<td>${smscha.cha_date}</td>
 				</tr>

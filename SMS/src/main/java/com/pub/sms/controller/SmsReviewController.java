@@ -53,6 +53,6 @@ public class SmsReviewController {
 	public String smsReviewUpdate(SmsReview rb) {
 		srvs.update(rb);
 		return "redirect:smsReviewList.do?sb_no="+rb.getSb_no();
-	}	
+	}
 	
 }

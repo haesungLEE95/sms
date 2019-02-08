@@ -49,10 +49,10 @@ small {
 </html> --%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+	pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
- 
+
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
@@ -77,11 +77,50 @@ small {
     
     }
 </script>
+<style type="text/css">
+.filebox label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #fff;
+	font-size: inherit;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #5cb85c;
+	cursor: pointer;
+	border: 1px solid #4cae4c;
+	border-radius: .25em;
+	-webkit-transition: background-color 0.2s;
+	transition: background-color 0.2s;
+}
+
+.filebox label:hover {
+	background-color: #6ed36e;
+}
+
+.filebox label:active {
+	background-color: #367c36;
+}
+
+.filebox input[type="file"] {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+</style>
 </head>
-     <form id="fileForm" action="profFileUpload" method="post"
-        enctype="multipart/form-data">
-        <input type="hidden" id="mem_id" name="mem_id" value="${mem_id}">
-        <input type="file" id="fileUp" name="fileUp" placeholder="프로필사진을 올려주세요" (change)="onFileChange($event)">         
-        <input type="button" class="btn btn-info btn-sm" value="전송" onClick="fileSubmit();">
-    </form>
- 
+<form id="fileForm" action="profFileUpload" method="post"
+	enctype="multipart/form-data">
+	<input type="hidden" id="mem_id" name="mem_id" value="${mem_id}">
+	<div class="filebox">
+		<label for="fileUp">프로필 업로드</label> <input type="file" id="fileUp"
+			name="fileUp">
+	</div>
+	<input type="button" class="btn btn-info btn-sm" value="전송"
+		onClick="fileSubmit();"> 파일 선택 후 전송을 눌러주세요
+</form>
+

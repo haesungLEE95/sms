@@ -64,4 +64,40 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return result;
 	}
 
+	@Override
+	public int updateInfo(SmsMem mem) {
+		int result = 0;
+		try {
+			sst.update("smsMemns.updateInfo",mem);
+			result = 1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+
+	@Override
+	public int updateMem(SmsMem mem) {
+		int result = 0;
+		try {
+			sst.update("smsMemns.updateMem",mem);
+			result = 1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+
+	@Override
+	public int chargeMny(SmsMem mem) {
+		int result = 0;
+		try {
+			sst.update("smsMemns.chargeMny",mem);
+			result = 1;
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+	}
+	//수정
 }

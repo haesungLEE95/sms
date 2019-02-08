@@ -16,7 +16,6 @@ public class SmsReview {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	
 	public int getRe_no() {
 		return re_no;
 	}

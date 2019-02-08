@@ -12,8 +12,8 @@
 <div class="container">
 	<h2>게시글 입력</h2>
 	<form action="smsInsert.do">
-		<input type="hidden" name="mem_no" value="${mem_no}">
-		<input type="hidden" name="cha_id" value="${mem_id }">
+		<input type="hidden" name="mem_no" value="1">
+		<input type="hidden" name="cha_id" value="a">
 		<table class="table table-hover">
 			<tr>
 				<td>제목</td>
@@ -21,11 +21,11 @@
 			</tr>
 			<tr>
 				<td>작성자</td>
-				<td>${nickname}</td> 
+				<td>${memNick.nickname}</td> 
 			</tr>
 			<tr>
 				<td>내용</td>
-				<td><textarea rows="5" cols="40" name="cha_cont" required="required"></textarea></td>
+				<td><textarea rows="5" cols="2000" name="cha_cont" required="required"></textarea></td>
 			</tr>
 			<tr><td colspan="2"><input type="submit" value="확인" >
 			<input type="button" value="취소" onclick="location.href='smsChaList.do'"></td></tr>

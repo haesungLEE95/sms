@@ -21,5 +21,10 @@ public interface SmsMemService {
 
 	int updateImg(SmsMem mem);
 
-	
+	int updateInfo(SmsMem mem);
+
+	int updateMem(SmsMem mem);
+
+	int chargeMny(SmsMem mem);
+	//수정
 }

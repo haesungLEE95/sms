@@ -31,5 +31,4 @@ public class SmsReviewServiceImpl implements SmsReviewService{
 	public void update(SmsReview rb) {
 		srd.update(rb);
 	}
-
 }

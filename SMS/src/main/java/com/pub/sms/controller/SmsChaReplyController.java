@@ -26,10 +26,8 @@ public class SmsChaReplyController {
 	public String replyList(int cha_no, Model model) {
 		SmsCha smscha = scs.select(cha_no);
 		Collection<SmsChaReply> rbdList = scrl.list(cha_no);
-		for(SmsChaReply scr : rbdList) {
-			SmsMem sm = sms.memNick(scr.getMem_no());
-			scr.setNickname(sm.getNickname());
-		}
+		SmsMem memNick = sms.memNick(1);
+		model.addAttribute("memNick", memNick.getNickname());
 		model.addAttribute("smscha", smscha);
 		model.addAttribute("rbdList", rbdList);
 		

@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="header.jsp" %>
+<%@ include file="../header.jsp" %>
 <!DOCTYPE html><html><head><meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		//$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
+		$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
 		$('#rbdListDisp').load('smsReviewList.do?sb_no=${smssel.sb_no}');
 		$('#smsReviewInsert').click(function() {
 			if (!frm.re_cont.value) {
@@ -102,12 +102,12 @@
 	<h3 class="text-primary">댓글 작성</h3>
 		<form name="frm" id="frm">
 			<input type="hidden" name="sb_no" value="${smssel.sb_no}">
-			<input type="hidden" name="mem_no" value="${mem_no}">
+			<input type="hidden" name="mem_no" value="1">
 			<table class="table table-hover">
 				<!-- 원래는 login한 사람 이름 또는 ID -->
 				<tr>
 					<td>작성자</td>
-					<td>${nickname}</td>
+					<td>로그인정보불러오기</td>
 					<td>평점</td>
 					<td>
 						<select name="re_score">
@@ -125,7 +125,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<!-- <div id="boardListDisp"></div> -->
+		<div id="boardListDisp"></div>
 </div>
 </body>
 </html>

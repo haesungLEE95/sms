@@ -47,11 +47,11 @@
 						<tr><td colspan="4">삭제된 댓글입니다.</td></tr>
 					</c:if>
 					<c:if test="${rbd.del=='n' }">
-						<tr><td>${rbd.nickname }</td>
+						<tr><td>${rbd.mem_no }</td>
 							<td id="td_${rbd.rq_re_no }">${rbd.rq_re_cont }</td>
 							<td>${rbd.updatedate }</td>
 							<td id="btn_${rbd.rq_re_no }">
-							<c:if test="${rbd.mem_no==mem_no }">
+							<c:if test="${rbd.mem_no==smsReq.mem_no }">
 								<button class="btn btn-sm btn-warning"
 									onclick="smsReqrUpdate(${rbd.rq_no},${rbd.rq_re_no })">수정</button>
 								<button class="btn btn-sm btn-danger"

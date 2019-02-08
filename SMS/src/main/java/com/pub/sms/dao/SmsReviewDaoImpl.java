@@ -30,5 +30,4 @@ public class SmsReviewDaoImpl implements SmsReviewDao{
 	public void update(SmsReview rb) {
 		sst.update("smsreviewns.update", rb);
 	}
-
 }

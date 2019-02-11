@@ -3,6 +3,7 @@ package com.pub.sms.dao;
 import java.util.Collection;
 
 import com.pub.sms.model.SmsSellBoard;
+import com.pub.sms.service.SmsSellBoardService;
 
 public interface SmsSellBoardDao {
 
@@ -25,4 +26,7 @@ public interface SmsSellBoardDao {
 	Collection<SmsSellBoard> mCateList(SmsSellBoard smssel);
 
 	Collection<SmsSellBoard> sCateList(SmsSellBoard smssel);
+
+	Collection<SmsSellBoard> selectno(int mem_no);
+
 }

@@ -61,6 +61,9 @@
 	<delete id="delete" parameterType="int">
 		delete from sms_sellboard where sb_no=#{num}
 	</delete>
+	<select id="selectno" parameterType="int" resultMap="smssellboardResult">
+		select * from sms_sellboard where mem_no=#{mem_no}
+	</select>
 </mapper>
 
 

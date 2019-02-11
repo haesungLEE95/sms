@@ -61,4 +61,10 @@ public class SmsSellBoardServiceImpl implements SmsSellBoardService{
 	public Collection<SmsSellBoard> sCateList(SmsSellBoard smssel) {
 		return ssbd.sCateList(smssel);
 	}
+
+	@Override
+	public Collection<SmsSellBoard> selectno(int mem_no) {
+		return ssbd.selectno(mem_no);
+	}
+
 }

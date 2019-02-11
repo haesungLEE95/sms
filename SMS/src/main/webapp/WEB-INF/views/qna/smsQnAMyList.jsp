@@ -18,7 +18,7 @@
 				<td>문의날짜</td>
 			</tr>
 				<c:forEach var="smssqa" items="${list}">
-					<c:if test="${smssqa.mem_no==mem_no}">  
+<%-- 					<c:if test="${smssqa.ssb_no==mem_no}"> --%>  
 						<c:if test="${empty list}">
 							<tr>
 								<td colspan="3" align="center">데이터가 없습니다</td>
@@ -27,15 +27,14 @@
 						<c:if test="${not empty list}">
 							<tr>
 								<%-- <td>${smssqa.qna_no}</td> --%>
-								<td><a
-									href="smsQnaView.do?num=${smssqa.qna_no}&
+								<td><a href="smsQnaView.do?num=${smssqa.qna_no}&
 										pageNum=${pb.currentPage}">${smssqa.sms_qna}</a>
 								</td>
 								<td>${smssqa.nickname}</td>
 								<td>${smssqa.qna_date}</td>
 							</tr>
 						</c:if>
-					</c:if>
+					<%-- </c:if> --%>
 				</c:forEach>
 		</table>
  		<div align="center">

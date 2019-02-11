@@ -24,5 +24,7 @@ public interface SmsSellBoardService {
 	Collection<SmsSellBoard> mCateList(SmsSellBoard smssel);
 
 	Collection<SmsSellBoard> sCateList(SmsSellBoard smssel);
+	
+	Collection<SmsSellBoard> selectno(int mem_no);
 
 }

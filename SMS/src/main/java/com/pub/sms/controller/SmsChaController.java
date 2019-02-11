@@ -25,6 +25,8 @@ public class SmsChaController {
 	private SmsChaService scs;
 	@Autowired
 	private SmsMemService sms;
+	@Autowired
+	private SmsSCateService sss;
 	@RequestMapping("smsChaList")
 	public String smsChaList(String pageNum, SmsCha smscha, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
@@ -55,6 +57,10 @@ public class SmsChaController {
 	@RequestMapping("smsInsertForm")
 	public String smsInsertForm(String pageNum ,SmsCha smscha, Model model) {
 		SmsMem memNick = sms.memNick(1);
+		Collection<SmsMainCate> mcateList = smcs.list();
+		Collection<SmsSubCate> scateList = sss.list();
+		model.addAttribute("mcateList", mcateList);
+		model.addAttribute("scateList", scateList);
 		model.addAttribute("memNick", memNick);
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsInsertForm";
@@ -83,6 +89,7 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsView";
 	}
+	
 	@RequestMapping("smsUpdateForm")
 	public String smsUpdateForm(int num, String pageNum, Model model) {
 		SmsMem memNick = sms.memNick(1);
@@ -92,6 +99,7 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsUpdateForm";
 	}
+	
 	@RequestMapping("smsUpdate")
 	public String smsUpdate(SmsCha smscha, Model model) {
 		int result = scs.update(smscha); 
@@ -99,6 +107,7 @@ public class SmsChaController {
 		model.addAttribute("smscha", smscha);
 		return "/cha/smsUpdate";
 	}
+	
 	@RequestMapping("smsDelete")
 	public String smsDelete(int num, String pageNum, Model model) {
 		int result = scs.delete(num);
@@ -106,4 +115,6 @@ public class SmsChaController {
 		model.addAttribute("pageNum", pageNum);
 		return "/cha/smsDelete";
 	}
+	
 }
+

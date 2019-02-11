@@ -64,7 +64,9 @@
 				<td>내 포인트 : ${mem.mny }</td>
 			</tr>
 			<tr>
-				<td>내 게시글(?)</td>
+				<td>내 게시글</td>
+				<br>
+				${board.sb_title }
 			</tr>
 			<tr>
 				<th><a href="updateInfo.do?mem_id=${mem.mem_id }" class="btn btn-info">개인정보 수정</a><br><br>
@@ -72,7 +74,7 @@
 				<td>내용</td>
 			</tr>
 		</table>
-
+		
 	</div>
 	<div align="center"><a href="logout.do" class="btn btn-success">로그아웃</a></div>
 </body>

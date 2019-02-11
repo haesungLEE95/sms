@@ -24,7 +24,7 @@
 					<td>${smscha.cha_no}</td>
 					<td><a href="smsView.do?num=${smscha.cha_no}&pageNum=${pb.currentPage}">${smscha.cha_title}</a>
 					</td>
-					<td>${memNick}</td>
+					<td>${smscha.nickname}</td>
 					<td>${smscha.cha_count}</td>
 					<td>${smscha.cha_date}</td>
 				</tr>

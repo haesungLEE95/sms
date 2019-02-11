@@ -18,7 +18,7 @@
 				<td>문의날짜</td>
 			</tr>
 				<c:forEach var="smssqa" items="${list}">
-					<c:if test="${smssqa.mem_no==mem_no}"> 
+					<c:if test="${smssqa.mem_no==mem_no}">  
 						<c:if test="${empty list}">
 							<tr>
 								<td colspan="3" align="center">데이터가 없습니다</td>
@@ -38,7 +38,7 @@
 					</c:if>
 				</c:forEach>
 		</table>
-		<div align="center">
+ 		<div align="center">
 			<ul class="pagination">
 				<c:if test="${pb.startPage > pb.pagePerBlock}">
 					<li><a href="smsQnAList.do?pageNum=1"><span
@@ -62,7 +62,7 @@
 							class="glyphicon glyphicon-forward"></span></a></li>
 				</c:if>
 			</ul>
-		</div>
+		</div> 
 	</div>
 </body>
 </html>

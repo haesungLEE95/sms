@@ -48,7 +48,5 @@ public class SmsChaReplyController {
 	public String rUpdate(SmsChaReply scr ) {
 		scrl.update(scr);
 		return "redirect:replyList.do?cha_no="+scr.getCha_no();
-	}
-	
-	
+	}	
 }

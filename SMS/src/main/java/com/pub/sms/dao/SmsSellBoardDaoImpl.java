@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.pub.sms.model.SmsSellBoard;
+import com.pub.sms.service.SmsSellBoardService;
 
 @Repository
 public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
@@ -61,4 +62,10 @@ public class SmsSellBoardDaoImpl implements SmsSellBoardDao{
 	public Collection<SmsSellBoard> sCateList(SmsSellBoard smssel) {
 		return sst.selectList("smssellboardns.sCateList", smssel);
 	}
+
+	@Override
+	public Collection<SmsSellBoard> selectno(int mem_no) {
+		return sst.selectList("smssellboardns.selectno", mem_no);
+	}
+
 }

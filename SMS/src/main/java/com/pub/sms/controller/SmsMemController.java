@@ -21,11 +21,13 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import com.pub.sms.model.SmsCharge;
 import com.pub.sms.model.SmsMainCate;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsSellBoard;
 import com.pub.sms.model.SmsSubCate;
 import com.pub.sms.service.SmsChargeService;
 import com.pub.sms.service.SmsMCateService;
 import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsSCateService;
+import com.pub.sms.service.SmsSellBoardService;
 
 @Controller
 public class SmsMemController {
@@ -41,6 +43,8 @@ public class SmsMemController {
 	BCryptPasswordEncoder pwEncoder;
 	@Autowired
 	private SmsChargeService scs;
+	@Autowired
+	private SmsSellBoardService ssbs;
 	
 	@RequestMapping("joinForm")
 	public String joinForm(Model model) {
@@ -165,6 +169,9 @@ public class SmsMemController {
 	}
 	@RequestMapping("myPage")
 	public String myPage(Model model, HttpSession session, SmsMem mem) {
+		SmsSellBoard smssel = new SmsSellBoard();
+		Collection<SmsSellBoard> smsboard = ssbs.selectno((int)session.getAttribute("mem_no"));
+			
 		SmsMem smem = new SmsMem();
 		System.out.println("session is "+session);
 		/*if (session==null) {
@@ -180,10 +187,12 @@ public class SmsMemController {
 		Collection<SmsSubCate> scateList = sscs.list();
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
-
+		model.addAttribute("board", smsboard);
+		
 		model.addAttribute("mem", mem);
 		return "/mem/myPage";
 	}
+
 
 	@RequestMapping("updateInfo")
 	public String updateInfo(Model model, SmsMem mem, String mem_id) {
@@ -291,10 +300,12 @@ public class SmsMemController {
 		model.addAttribute("result", result);		
 		return "/mem/chargeMnyResult";
 	}
+
 	@RequestMapping("logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "/mem/logout";
 
 	}
+
 }

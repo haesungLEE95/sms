@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="smsmaincatens">
+	<resultMap id="smsmaincateResult" 	type="smsmaincate">
+		<result property="mcate_no" 		column="mcate_no" />
+		<result property="mcate_name" 	column="mcate_name" />
+	</resultMap>
+	<select id="list" resultMap="smsmaincateResult">
+		select * from sms_maincate
+	</select>
+	
+</mapper>
+
+

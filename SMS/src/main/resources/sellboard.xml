@@ -16,6 +16,11 @@
 
 	<select id="getTotal" parameterType="smssellboard" resultType="int">
 		select count(*) from sms_sellboard
+			<where>
+				<if test="keyword!=null and keyword!=''">
+					sb_title like '%'||#{keyword}||'%'
+				</if>
+			</where>
 	</select>
 	<select id="getMCateTotal" parameterType="int" resultType="int">
 		select count(*) from sms_sellboard where mcate_no=#{mNum}
@@ -25,9 +30,14 @@
 	</select>
 	<select id="list" parameterType="smssellboard" resultMap="smssellboardResult">
 		select * from (select a.*, rowNum rn from (
-			select * from sms_sellboard 		
-			order by sb_no desc) a) 
-				where rn between #{startRow} and #{endRow}
+			select * from sms_sellboard 
+				<where>
+					<if test="keyword!=null and keyword!=''">
+						sb_title like '%'||#{keyword}||'%'
+					</if>
+				</where>
+				order by sb_no desc) a) 
+					where rn between #{startRow} and #{endRow}
 	</select>
 	<select id="mCateList" parameterType="smssellboard" resultMap="smssellboardResult">
 		select * from (select a.*, rowNum rn from (
@@ -61,6 +71,9 @@
 	<delete id="delete" parameterType="int">
 		delete from sms_sellboard where sb_no=#{num}
 	</delete>
+	<select id="selectno" parameterType="int" resultMap="smssellboardResult">
+		select * from sms_sellboard where mem_no=#{mem_no}
+	</select>
 </mapper>
 
 

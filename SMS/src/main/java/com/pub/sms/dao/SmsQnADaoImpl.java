@@ -32,4 +32,9 @@ public class SmsQnADaoImpl implements SmsQnADao{
 	public SmsQnA select(int num) {
 		return sst.selectOne("smsqnans.select", num);
 	}
+
+	@Override
+	public int getMyTotal(SmsQnA smssqa) {
+		return sst.selectOne("smsqnans.getMyTotal", smssqa);
+	}
 }

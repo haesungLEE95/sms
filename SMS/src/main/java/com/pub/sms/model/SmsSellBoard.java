@@ -17,7 +17,10 @@ public class SmsSellBoard {
 	// paging용
 	private int startRow;
 	private int endRow;
-	
+
+	// 검색용
+	private String keyword;
+
 	private MultipartFile sbimg;
 	
 	public MultipartFile getSbimg() {
@@ -25,6 +28,12 @@ public class SmsSellBoard {
 	}
 	public void setSbimg(MultipartFile sbimg) {
 		this.sbimg = sbimg;
+	}
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
 	}
 	public int getSb_no() {
 		return sb_no;

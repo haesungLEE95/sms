@@ -95,4 +95,26 @@ public class SmsQuestController {
 		model.addAttribute("list", list);
 		return "qst/smsSelQuestList";
 	}
+	
+	@RequestMapping("smsBuyCondition")
+	public String smsBuyCondition(int sb_no, int price, String pageNum, Model model,SmsQuest smsqst) {
+		////세션 로그인 정보 가져오고
+		//insert
+		smsqst.setMem_no(1);
+		smsqst.setSb_no(sb_no);
+		int result = sqs.comp(smsqst);
+		
+		//판매자에게 price 지급
+		//
+		
+		Collection<SmsQuest> list = sqs.selList(1);  //로그인 세션(회원번호)
+		for(SmsQuest sq : list) {
+			SmsSellBoard sb = ssbs.select(sq.getSb_no());
+			sq.setSb_title(sb.getSb_title());
+		}
+		
+		model.addAttribute("list", list);
+		return "qst/smsBuyQuestList";
+	}
+		
 }

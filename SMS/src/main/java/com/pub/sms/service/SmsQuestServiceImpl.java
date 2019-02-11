@@ -32,5 +32,10 @@ public class SmsQuestServiceImpl implements SmsQuestService {
 	public SmsQuest select(SmsQuest smsqst) {
 		return sqd.select(smsqst);
 	}
+
+	@Override
+	public int comp(SmsQuest smsqst) {
+		return sqd.comp(smsqst);
+	}
 	
 }

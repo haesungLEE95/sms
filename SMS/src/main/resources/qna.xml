@@ -13,13 +13,16 @@
 	</resultMap>
 	<select id="getTotal" parameterType="smsqna" resultType="int">
 		select
-		count(*) from sms_qna
+		count(*) from sms_qna where mem_no=#{mem_no}
+	</select>
+	<select id="getMyTotal" parameterType="smsqna" resultType="int">
+		select
+		count(*) from sms_qna where =#{}
 	</select>
 	<select id="list" parameterType="smsqna"
 		resultMap="smsqnaResult">
 		select * from (select a.*, rowNum rn from (
-		select * from sms_qna
-		order by qna_no desc) a)
+		select * from sms_qna where mem_no=#{mem_no} order by qna_no desc) a)
 		where rn between #{startRow} and #{endRow}
 	</select>
 	<insert id="insert" parameterType="smsqna">
@@ -30,6 +33,9 @@
 	</insert>
 	<select id="select" parameterType="int" resultType="smsqna">
 		select * from Sms_qna where qna_no=#{num}
+	</select>
+	<select id="selectcont" parameterType="smsqna" resultType="smsqna">
+		select * from sms_qna 
 	</select>
 	<!-- <select id="list" parameterType="int" resultMap="smsreqreplyResult"> 
 		select * from Sms_request_reply where rq_no=#{rq_no} order by rq_re_no </select> 

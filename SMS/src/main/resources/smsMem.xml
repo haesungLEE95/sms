@@ -54,7 +54,7 @@
 	</update>
 	<update id="chargeMny" parameterType="mem">
 		update sms_mem set
-		mny=mny+#{mny} where mem_id=#{mem_id}
+		mny=nvl(mny,0)+#{mny} where mem_id=#{mem_id}
 	</update>
 	<update id="updateMem" parameterType="mem">
 		update sms_mem set

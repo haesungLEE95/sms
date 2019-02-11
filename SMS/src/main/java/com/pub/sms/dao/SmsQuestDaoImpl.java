@@ -33,4 +33,9 @@ public class SmsQuestDaoImpl implements SmsQuestDao{
 		return sst.selectOne("smsquestns.select",smsqst);
 	}
 
+	@Override
+	public int comp(SmsQuest smsqst) {
+		return sst.update("smsquestns.comp",smsqst);
+	}
+
 }

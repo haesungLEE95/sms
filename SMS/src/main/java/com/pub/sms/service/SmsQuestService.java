@@ -14,4 +14,6 @@ public interface SmsQuestService {
 
 	SmsQuest select(SmsQuest smsqst);
 
+	int comp(SmsQuest smsqst);
+
 }

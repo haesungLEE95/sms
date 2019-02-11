@@ -6,6 +6,8 @@ import java.util.List;
 import com.pub.sms.model.SmsCha;
 import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsQuest;
+import com.pub.sms.model.SmsSellBoard;
 
 public interface SmsMemService {
 
@@ -27,4 +29,8 @@ public interface SmsMemService {
 
 	int chargeMny(SmsMem mem);
 	//수정
+
+	void buyItem(SmsQuest smsqst);
+
+	void selItem(SmsSellBoard sb);
 }

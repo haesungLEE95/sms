@@ -8,6 +8,8 @@ import org.springframework.stereotype.Repository;
 
 import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsQuest;
+import com.pub.sms.model.SmsSellBoard;
 
 @Repository
 public class SmsMemDaoImpl implements SmsMemDao {
@@ -100,4 +102,14 @@ public class SmsMemDaoImpl implements SmsMemDao {
 		return result;
 	}
 	//수정
+
+	@Override
+	public void buyItem(SmsQuest smsqst) {
+		sst.update("smsMemns.buyItem",smsqst);
+	}
+
+	@Override
+	public void selItem(SmsSellBoard sb) {
+		sst.update("smsMemns.selItem",sb);
+	}
 }

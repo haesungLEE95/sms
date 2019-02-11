@@ -4,6 +4,8 @@ import java.util.Collection;
 
 import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsQuest;
+import com.pub.sms.model.SmsSellBoard;
 
 public interface SmsMemDao {
 
@@ -25,4 +27,8 @@ public interface SmsMemDao {
 
 	int chargeMny(SmsMem mem);
 //수정
+
+	void buyItem(SmsQuest smsqst);
+
+	void selItem(SmsSellBoard sb);
 }

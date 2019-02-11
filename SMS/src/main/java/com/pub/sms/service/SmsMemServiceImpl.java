@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import com.pub.sms.dao.SmsMemDao;
 import com.pub.sms.model.SmsChaReply;
 import com.pub.sms.model.SmsMem;
+import com.pub.sms.model.SmsQuest;
+import com.pub.sms.model.SmsSellBoard;
 
 @Service
 public class SmsMemServiceImpl implements SmsMemService {
@@ -48,5 +50,13 @@ public class SmsMemServiceImpl implements SmsMemService {
 		return smd.chargeMny(mem);
 	}
 	//수정
+	@Override
+	public void buyItem(SmsQuest smsqst) {
+		smd.buyItem(smsqst);
+	}
+	@Override
+	public void selItem(SmsSellBoard sb) {
+		smd.selItem(sb);
+	}
 
 }

@@ -60,4 +60,13 @@
 		update sms_mem set
 		nickname=#{nickname}, email=#{email}, passwd=#{passwd}, addr=#{addr}, tel=#{tel}, mem_account=#{mem_account} where mem_id=#{mem_id}
 	</update>
+	
+	<update id="buyItem" parameterType="smsquest">
+		update sms_mem set mny=mny-#{qst_price} where mem_no=#{mem_no}
+	</update>
+	
+	<update id="selItem" parameterType="smssellboard">
+		update sms_mem set mny=mny+#{sb_price} where mem_no=#{mem_no}
+	</update>
+	
 </mapper>

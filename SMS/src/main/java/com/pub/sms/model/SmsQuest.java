@@ -14,6 +14,14 @@ public class SmsQuest {
     //구매자 닉네임
     private String nickName;
     
+    private String img;
+    
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
 	public String getNickName() {
 		return nickName;
 	}

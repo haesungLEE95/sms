@@ -14,6 +14,8 @@ public class SmsCha {
 	private int startRow;
 	private int endRow;
 	
+
+	
 	private String nickname;
 	
     public String getNickname() {

@@ -16,8 +16,15 @@ public class SmsReq {
 	private int startRow;
 	private int endRow;
 	
+	private String nickname;
 	
     
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getRq_count() {
 		return rq_count;
 	}

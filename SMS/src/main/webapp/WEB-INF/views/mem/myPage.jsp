@@ -32,6 +32,7 @@
 <style type="text/css">
 .prof {
 	width: 350px
+	align: center;
 }
 
 #pimg {
@@ -49,31 +50,34 @@
 	width: 160px;
 	align-content: center;
 }
+#a {
+	width: 700px;
+	align: center;
+}
 </style>
 </head>
 <body>
 	<div class="container" align="center">
-		<table class="table table-striped">
+		<table class="table table-striped" id="a">
 			<tr>
-				<th class="prof" rowspan="2">
+				<th class="prof" align="center">
 					<c:if test="${ !empty mem.mem_img }">
 						<img id="pimg" width="100px" height="100px"
 							src="upload/${mem.mem_img}">
 					</c:if>	${mem.nickname }님<br>환영합니다<br>
-					<div id="disp"></div></th>
-				<td>내 포인트 : ${mem.mny }</td>
-			</tr>
-			<tr>
-				<td>내 게시글(?)</td>
-			</tr>
-			<tr>
-				<th><a href="updateInfo.do?mem_id=${mem.mem_id }" class="btn btn-info">개인정보 수정</a><br><br>
-				<input type="button" value="포인트 충전" onclick="chargeMny();" class="btn btn-success"></th>
-				<td>내용</td>
+					<div id="disp"></div>
+				</th>
+			
+ 			</tr>
+			<tr align="center">
+				<th align="center">
+				<a href="updateInfo.do?mem_id=${mem.mem_id }" class="btn btn-info">개인정보 수정</a><br><br>
+				<input type="button" value="포인트 충전" onclick="chargeMny();" class="btn btn-success"><!-- </th> -->
+				<br><br>내 포인트 : ${mem.mny }
+				</th>
 			</tr>
 		</table>
 
 	</div>
-	<a href="logout.do">로그아웃</a>
 </body>
 </html>

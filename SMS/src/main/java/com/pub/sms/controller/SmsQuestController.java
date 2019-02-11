@@ -86,6 +86,7 @@ public class SmsQuestController {
 		for(SmsQuest sq : list) {
 			SmsSellBoard sb = ssbs.select(sq.getSb_no());
 			sq.setSb_title(sb.getSb_title());
+			sq.setImg(sb.getSb_img());
 			/* 구매한 사람 닉네임 가져오기
 			SmsMem sm = sms.select(sq.getMem_no());
 			sq.setNickName(sm.getNickname());
@@ -109,6 +110,7 @@ public class SmsQuestController {
 		for(SmsQuest sq : list) {
 			SmsSellBoard sb = ssbs.select(sq.getSb_no());
 			sq.setSb_title(sb.getSb_title());
+			sq.setImg(sb.getSb_img());
 		}
 		Collection<SmsMainCate> mcateList = sms.list();
 		Collection<SmsSubCate> scateList = sss.list();
@@ -138,6 +140,7 @@ public class SmsQuestController {
 		for(SmsQuest sq : list) {
 			SmsSellBoard sbd = ssbs.select(sq.getSb_no());
 			sq.setSb_title(sbd.getSb_title());
+			sq.setImg(sb.getSb_img());
 			/* 구매한 사람 닉네임 가져오기
 			SmsMem sm = sms.select(sq.getMem_no());
 			sq.setNickName(sm.getNickname());

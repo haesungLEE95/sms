@@ -34,7 +34,7 @@
 			<c:if test="${not empty list}">
 				<c:forEach var="board" items="${list}">
 					<tr>
-						<td><img src="images/DSC_6305.jpg" alt="..." height="100px" width="100px">${board.sb_title }</td>
+						<td><img src="sbimages/${board.img}" alt="..." height="100px" width="100px">${board.sb_title }</td>
 						<td>${board.qst_price }원</td>
 						<td>${board.qst_dar }</td>
 						<td>

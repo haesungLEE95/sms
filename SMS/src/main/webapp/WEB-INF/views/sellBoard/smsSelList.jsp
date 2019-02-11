@@ -6,6 +6,13 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+.imgdiv {
+	height: 160px;
+	overflow: hidden;
+	object-fit: cover;
+}
+</style>
 </head>
 <body>
 	<div class="container" align="center">
@@ -39,10 +46,10 @@
 					<div class="col-sm-6 col-md-3">
 						<div class="thumbnail">
 							<c:if test="${board.sb_img=='' || board.sb_img==null }">
-							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="images/DSC_6305.jpg" alt="..."></a>
+							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><div class="imgdiv"><img src="images/DSC_6305.jpg" alt="..." height="100%"></div></a>
 							</c:if>
 							<c:if test="${board.sb_img!='' && board.sb_img!=null}">
-							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><img src="sbimages/${board.sb_img}" alt="..."></a>
+							<a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="thumbnail"><div class="imgdiv"><img src="sbimages/${board.sb_img}" alt="..." height="100%"></div></a>
 							</c:if>
 <%-- 						이미지 Path 지정
 							<c:if test="${board.sb_img!='' }">
@@ -62,14 +69,15 @@
 								<p>${board.sb_title }</p>
 								<h3><p>${board.sb_price }~</p></h3>
 								<p><a href="smsSellBoardView.do?num=${board.sb_no }&pageNum=${pb.currentPage}" class="btn btn-primary" role="button">구매하기</a>
-									<a href="#" class="btn btn-default" role="button">구매하기</a></p>
+									<a href="smsQnAInsertForm.do?sb_no=${board.sb_no}&pageNum=${pb.currentPage}" class="btn btn-default" role="button">문의하기</a></p>
 							</div>
 						</div>
 					</div>
 
 				</c:forEach>
 			</c:if>
-		<br>
+		</div>
+		<div class="container" align="center">
 		<div align="center">
 			<ul class="pagination">
 				<c:if test="${pb.startPage > pb.pagePerBlock}">

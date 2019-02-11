@@ -36,7 +36,7 @@
 	function button_chg_event(){
 		if (confirm("정말 충전하시겠습니까??") == true){    //확인
 			//충전
-			location.href="#";
+			location.href="myPage.do";
 		}else{   //취소
 		    return;
 		}

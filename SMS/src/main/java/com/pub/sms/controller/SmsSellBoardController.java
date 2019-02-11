@@ -39,7 +39,7 @@ public class SmsSellBoardController {
 	public String smsSellBoardList(String pageNum,SmsSellBoard smssel, String mno, String sno, Model model) {
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
 		int currentPage = Integer.parseInt(pageNum);
-		int rowPerPage  = 12;
+		int rowPerPage  = 8;
 		int startRow = (currentPage - 1) * rowPerPage + 1;
 		int endRow   = startRow + rowPerPage - 1;
 		smssel.setStartRow(startRow);

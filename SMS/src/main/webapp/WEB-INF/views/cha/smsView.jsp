@@ -16,10 +16,10 @@
 				frm1.cha_re_cont.focus();
 				return false;
 			}
-			var sendData = 'cha_no='+$('#cha_no').val()+
+/* 			var sendData = 'cha_no='+$('#cha_no').val()+
 				"&mem_no="+$('#mem_no').val()+
-				"&cha_re_cont="+$('#cha_re_cont').val(); 
-			/* var sendData = $('#frm1').serialize(); */
+				"&cha_re_cont="+$('#cha_re_cont').val();  */
+			var sendData = $('#frm1').serialize();
 			//alert(sendData);
 			$.post('rInsert.do', sendData, function(data) {
 				alert("댓글이 작성되었습니다");
@@ -40,7 +40,7 @@
 			<tr>
 			<tr>
 				<td>작성자</td>
-				<td>${memNick}</td>
+				<td>${sm.nickname}</td>
 			<tr>
 			<tr>
 				<td>작성일</td>
@@ -65,13 +65,13 @@
 		</table>
 		<h3 class="text-primary">댓글작성</h3>
 		<form name="frm1" id="frm1">
-			<input type="hidden" name="cha_no" value="${smscha.cha_no}" id="cha_no">
-			<!-- <input type="hidden" name="mem_no" value="1"> -->
+			<input type="hidden" name="cha_no" value="${smscha.cha_no}">
+			<input type="hidden" name="mem_no" value="${mem_no }">
 			<table class="table table-hove">
 				<tr>
 					<!-- 원래는 login한 사람 이름 또는 ID -->
 					<td>작성자</td>
-					<td><input type="text" name="mem_no" value="${memno}"	size="4" id="mem_no"></td>
+					<td>${nickname }</td>
 					<td>댓글</td>
 					<td><textarea rows="5" cols="30" name="cha_re_cont" id="cha_re_cont"></textarea></td>
 					<td colspan="2"><input type="button" value="댓글입력" id="rInsert"></td>

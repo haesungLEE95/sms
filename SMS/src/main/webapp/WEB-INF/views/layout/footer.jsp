@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-중앙정보 전화 1111-1111
+<div align="center">
+SMS 대표전화  010-4321-1234
+</div>
 </body>
 </html>

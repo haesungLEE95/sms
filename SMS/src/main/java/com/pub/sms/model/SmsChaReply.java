@@ -11,6 +11,14 @@ public class SmsChaReply {
 	private Date updatedate; //수정날짜 
 	private String del; //삭제여부
 	
+	private String nickname;
+	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
 	public int getRep_no() {
 		return rep_no;
 	}

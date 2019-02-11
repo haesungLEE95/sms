@@ -42,7 +42,7 @@
 							</c:forEach>
 						</td>
 						<td><a href="view.do?num=${board.rq_no }&pageNum=${pb.currentPage}">${board.rq_title}</a></td>
-						<td>${board.mem_no }</td>
+						<td>${board.nickname }</td>
 						<td>${board.rq_count }</td>
 						<td>${board.rq_date }</td>
 						<td>

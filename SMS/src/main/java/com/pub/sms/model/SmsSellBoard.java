@@ -15,8 +15,16 @@ public class SmsSellBoard {
 	// paging용
 	private int startRow;
 	private int endRow;
+
+	// 검색용
+	private String keyword;
 	
-	
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getSb_no() {
 		return sb_no;
 	}

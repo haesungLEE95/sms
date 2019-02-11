@@ -73,6 +73,7 @@ public class SmsSellBoardController {
 		model.addAttribute("mcateList", mcateList);
 		model.addAttribute("scateList", scateList);
 		
+		model.addAttribute("keyword",smssel.getKeyword());
 		model.addAttribute("list", list);
 		model.addAttribute("smssel", smssel);
 		model.addAttribute("pb", pb);

@@ -7,8 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.pub.sms.model.SmsMem;
 import com.pub.sms.model.SmsReq;
 import com.pub.sms.model.SmsReqReply;
+import com.pub.sms.service.SmsMemService;
 import com.pub.sms.service.SmsReqReplyService;
 import com.pub.sms.service.SmsReqService;
 
@@ -20,11 +22,18 @@ public class ReplyBoardController {
 	private SmsReqService srs; 
 	@Autowired
 	private SmsReqReplyService srrs; 
+	@Autowired
+	private SmsMemService smsi; 
 	
 	@RequestMapping("smsReqreplyList")
 	public String smsReqreplyList(int rq_no, Model model) {
 		SmsReq smsReq = srs.select(rq_no);
 		Collection<SmsReqReply> rbdList = srrs.list(rq_no);
+		
+		for(SmsReqReply srr : rbdList) {
+			SmsMem sm = smsi.memNick(srr.getMem_no());
+			srr.setNickname(sm.getNickname());
+		}
 		
 		model.addAttribute("smsReq", smsReq);
 		model.addAttribute("rbdList", rbdList);

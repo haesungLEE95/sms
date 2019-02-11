@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	$(function() {
-		$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}');
+	/* 	$('#boardListDisp').load('smsSellBoardList.do?pageNum=${pageNum}'); */
 		$('#rbdListDisp').load('smsReviewList.do?sb_no=${smssel.sb_no}');
 		$('#smsReviewInsert').click(function() {
 			if (!frm.re_cont.value) {
@@ -52,7 +52,7 @@
 <div class="container" align="center">
 	<h2>게시글 상세내역</h2>
 	<table class="table table-hover">
-		<tr><td>이미지</td><td><img src="sbimages/${smssel.sb_img }" alt="..."></td></tr>
+		<tr><td>이미지</td><td align="center"><img src="sbimages/${smssel.sb_img }" alt="..." width="900px" align="middle"></td></tr>
 		<tr><td>게시글번호</td><td>${smssel.sb_no}</td></tr>
 		<tr><td>제목</td><td>${smssel.sb_title}</td></tr>
 		<tr><td>카테고리</td>
@@ -76,7 +76,7 @@
 		<tr><td>의뢰현황</td></tr>
 		<tr><td colspan="2">
 			<div align="center">
-			<a class="btn btn-info" href="smsSellBoardList.do?pageNum=${pageNum}">게시글 목록</a>
+			<a class="btn btn-info btn-lg" href="smsSellBoardList.do?pageNum=${pageNum}">게시글 목록</a>
 				<c:if test="${smssel.mem_no==mem_no}"> 
 				<a href="smsSellBoardUpdateForm.do?num=${smssel.sb_no}&
 					pageNum=${pageNum}" class="btn btn-warning">수정</a>
@@ -125,7 +125,7 @@
 			</table>
 		</form>
 		<div id="rbdListDisp"></div>
-		<div id="boardListDisp"></div>
+<!-- 		<div id="boardListDisp"></div> -->
 </div>
 </body>
 </html>

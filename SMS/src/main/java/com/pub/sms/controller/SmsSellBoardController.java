@@ -89,7 +89,7 @@ public class SmsSellBoardController {
 	}
 	
 	@RequestMapping("smsSellBoardinsert")
-	public String smsSellBoardinsert(HttpSession session, SmsSellBoard smssel, Model model,@RequestParam("sbimg") MultipartFile multi) {
+	public String smsSellBoardinsert(Model model, SmsSellBoard smssel, HttpSession session) {
 		////세션 로그인 정보 가져오고
 		//insert
 		SmsMem sm = smsi.select((String)session.getAttribute("mem_id"));
@@ -97,13 +97,15 @@ public class SmsSellBoardController {
 	
 		//파일업로드 파트
 		
-		System.out.println(multi.getName());
+		System.out.println(smssel.getSbimg());
 		
 			String root = session.getServletContext().getRealPath("/");
 			String path = root+	"sbimages"+File.separator;
 			System.out.println("path: "+path); 
 			String newFileName = ""; // 업로드 되는 파일명
-
+			
+			MultipartFile multi = smssel.getSbimg();
+			
 			File dir = new File(path);
 			if(!dir.isDirectory()){
 				dir.mkdirs();

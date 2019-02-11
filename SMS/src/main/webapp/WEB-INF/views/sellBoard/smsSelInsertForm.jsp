@@ -42,6 +42,7 @@
 				frm.scate_no.value=frm.scate6.value;
 			if(frm.pickmcate.value==7)
 				frm.scate_no.value=frm.scate7.value;
+			alert(frm.scate_no.value+"-"+frm.mcate_no.value);
 		}
 	</script>
 </head>
@@ -86,7 +87,7 @@
 				</tr>
 				<tr>
 					<td>희망가격</td>
-					<td><input type="number" name="sb_price" required="required"></td>
+				<td><input type="number" name="sb_price" required="required"></td>
 				</tr>
 				<tr>
 					<td>내용</td>

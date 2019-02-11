@@ -1,6 +1,8 @@
 package com.pub.sms.model;
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class SmsSellBoard {
     private int sb_no; 
     private String sb_title; 
@@ -16,7 +18,14 @@ public class SmsSellBoard {
 	private int startRow;
 	private int endRow;
 	
+	private MultipartFile sbimg;
 	
+	public MultipartFile getSbimg() {
+		return sbimg;
+	}
+	public void setSbimg(MultipartFile sbimg) {
+		this.sbimg = sbimg;
+	}
 	public int getSb_no() {
 		return sb_no;
 	}

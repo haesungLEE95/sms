@@ -74,6 +74,6 @@
 		</table>
 
 	</div>
-	<a href="logout.do">로그아웃</a>
+	<div align="center"><a href="logout.do" class="btn btn-success">로그아웃</a></div>
 </body>
 </html>

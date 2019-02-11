@@ -64,14 +64,12 @@ public class SmsQnAController {
 		model.addAttribute("smssqa", smssqa);
 		return "qna/smsQnAList";
 	}
-	@RequestMapping("smsQnAMyList")
+/*	@RequestMapping("smsQnAMyList")
 	public String smsQnAMyList(HttpSession session, String pageNum,SmsQnA smssqa,Model model) {
 		//판매자 입장에서 받는 의뢰게시판 게시물
-		//session mem_no로 들어와서 쓴 글인지 확인하고  
-		int mem_no=(Integer) session.getAttribute("mem_no");
-		Collection<SmsSellBoard> ssb = ssbs.selectno(mem_no);
-		//sellboard에 있는 sb_no랑 qna에 있는 sb_no랑 비교해서 
-		
+		int mem_no=(Integer) session.getAttribute("mem_no"); //session mem_no로 들어와서 쓴 글인지 확인하고
+		//Collection<SmsSellBoard> ssb = ssbs.selectno(mem_no); // mem_no로 다 가져옴
+		//sellboard에 있는 sb_no랑 qna에 있는 sb_no랑 비교해서  
 		smssqa.setMem_no(mem_no);
 		
 		if (pageNum==null || pageNum.equals("")) pageNum = "1";
@@ -101,7 +99,7 @@ public class SmsQnAController {
 		model.addAttribute("list", list);
 		model.addAttribute("smssqa", smssqa);
 		return "qna/smsQnAMyList";
-	}
+	}*/
 	@RequestMapping("smsQnAInsertForm")
 	public String smsQnAInsertForm(int sb_no, String pageNum, Model model) {
 		// 판매게시글 번호로 문의하기 위한 sb_no

@@ -17,7 +17,7 @@
 	</select>
 	<select id="getMyTotal" parameterType="smsqna" resultType="int">
 		select
-		count(*) from sms_qna where sb_no=#{}
+		count(*) from sms_qna where =#{}
 	</select>
 	<select id="list" parameterType="smsqna"
 		resultMap="smsqnaResult">
